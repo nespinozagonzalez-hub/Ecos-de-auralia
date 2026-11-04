@@ -2,6 +2,8 @@
 
 **Prototipo 0.1 · El primer recuerdo**
 
+![Portada de Ecos de Auralia](docs/auralia-preview.jpg)
+
 Una aventura educativa original de exploración, acertijos y descubrimiento. Cada estudiante recupera los recuerdos de un reino y obtiene herramientas que le permiten abrir caminos nuevos, incluso en lugares que ya conoce.
 
 Creado para Nicolás Espinoza / GamiAula. La dirección visual combina bosques ilustrados, piedra antigua, verdes profundos y detalles dorados. Los escenarios y personajes se dibujan en Canvas; el sonido se sintetiza en el navegador. No requiere recursos externos para funcionar.
@@ -11,7 +13,7 @@ Creado para Nicolás Espinoza / GamiAula. La dirección visual combina bosques i
 - [Abrir el prototipo](https://ecos-de-auralia.nico-ergo.chatgpt.site)
 - Desde la portada: **Descubrir la propuesta para el aula**.
 - Durante la partida: menú → **El aula**.
-- El panel incluye el vínculo pedagógico, los códigos y dos accesos rápidos para revisar escenas. Los accesos rápidos adelantan el progreso de la partida local.
+- El panel incluye el vínculo pedagógico, los códigos y accesos rápidos para revisar el bosque, el santuario y el desenlace. Los accesos rápidos adelantan el progreso de la partida local.
 
 ## Qué se puede jugar
 

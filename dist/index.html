@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102e2b">
+  <meta name="description" content="Un reino que ha olvidado su historia. Una campana que todavía recuerda. Explora, descubre y despierta los ecos de Auralia.">
+  <title>Ecos de Auralia · El primer recuerdo</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main id="app">
+  <canvas id="world" aria-label="Mundo de Auralia. Usa las flechas o WASD para caminar y E para interactuar." tabindex="0"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <section id="titleScreen" class="title-screen">
+    <div class="title-mist" aria-hidden="true"></div>
+    <div class="title-content">
+      <span class="eyebrow"><span class="tiny-star">✧</span> UNA AVENTURA POR RECORDAR</span>
+      <svg class="title-emblem" viewBox="0 0 120 130" aria-hidden="true"><path d="M60 8 105 34v55L60 120 15 89V34Z"/><path d="m60 25 30 18v37L60 99 30 80V43Z"/><path d="M60 41v35m-16-4c0-23 32-23 32 0l8 9H36Zm9 17h14"/><circle cx="60" cy="15" r="3"/><path d="m8 107 14-8m76 0 14 8"/></svg>
+      <h1>ECOS <span>DE</span><strong>AURALIA</strong></h1>
+      <div class="title-rule"><span></span><i>✦</i><span></span></div>
+      <p class="title-chapter">EL PRIMER RECUERDO</p>
+      <p class="title-description">El mundo ha olvidado su historia.<br>Pero hay una campana que todavía recuerda.</p>
+      <button id="startBtn" class="gold-button"><span data-icon="spark"></span><span id="startLabel">Comenzar la aventura</span><span class="arrow">↗</span></button>
+      <button id="proposalBtn" class="text-button">Descubrir la propuesta para el aula <span>→</span></button>
+      <div class="title-footnote"><span class="status-dot"></span> PRÓLOGO JUGABLE <b>·</b> 10–15 MINUTOS</div>
+    </div>
+    <div class="title-location"><span class="tiny-star">✧</span><div><small>EN ALGÚN LUGAR DE AURALIA</small><p>Valdeluz, antes del amanecer</p></div></div>
+    <div class="title-version">GAMIAULA <span>✦</span> PROTOTIPO 01</div>
+  </section>
+
+  <section id="gameUI" class="game-ui hidden" aria-label="Controles de aventura">
+    <header class="hud">
+      <button class="brand" id="brandBtn" aria-label="Abrir diario"><span data-icon="bell"></span><span>ECOS <small>DE AURALIA</small></span></button>
+      <div class="location-chip"><span id="locationIcon" data-icon="leaf"></span><div><small id="sceneSub">TIERRAS DEL PRIMER ECO</small><strong id="sceneName">Aldea de Valdeluz</strong></div></div>
+      <div class="hud-tools"><div id="hearts" class="hearts" aria-label="Salud"></div><button id="soundBtn" class="icon-button" aria-label="Activar sonido" title="Sonido"><span data-icon="volumeOff"></span></button><button id="fullscreenBtn" class="icon-button" aria-label="Pantalla completa" title="Pantalla completa"><span data-icon="expand"></span></button><button id="menuBtn" class="icon-button" aria-label="Abrir menú" title="Diario y menú"><span data-icon="menu"></span></button></div>
+    </header>
+
+    <aside class="quest-card" id="questCard"><div class="quest-eyebrow"><span class="status-dot"></span> EL PRIMER RECUERDO <button id="questToggle" aria-label="Mostrar u ocultar misión">−</button></div><div id="questBody"><h2 id="questTitle">Una voz entre los árboles</h2><p id="questText">Encuentra a Elia junto a la casa de techo rojo.</p><div class="quest-track"><span id="questProgress"></span></div><div class="quest-footer"><span id="questStep">01 / 08</span><button id="journalBtn">Ver diario <span>↗</span></button></div></div></aside>
+
+    <div class="right-tools"><button id="atlasBtn" class="round-tool" aria-label="Abrir atlas"><span data-icon="compass"></span><small>ATLAS</small></button><button id="redeemBtn" class="round-tool" aria-label="Canjear sello de actividad"><span data-icon="seal"></span><small>SELLOS</small></button></div>
+
+    <div id="bossHUD" class="boss-hud hidden"><small>EL QUE CUSTODIA LO OLVIDADO</small><h2>Guardián de la Raíz</h2><div class="boss-track"><span id="bossBar"></span></div><p id="bossHint">Esquiva su embestida. Ataca cuando su núcleo brille.</p></div>
+    <div id="interactPrompt" class="interact-prompt hidden"><kbd>E</kbd><span id="interactText">Hablar</span></div>
+    <div id="echoIndicator" class="echo-indicator hidden"><span data-icon="echo"></span> ESCUCHANDO EL PASADO</div>
+
+    <div class="bottom-hud">
+      <div class="save-status"><span class="status-dot"></span><span id="saveStatus">Tu historia se guarda en este dispositivo</span></div>
+      <div class="action-bar"><button id="echoBtn" class="action-button" aria-label="Escuchar eco"><span data-icon="echo"></span><span>Eco</span><kbd>Q</kbd></button><button id="attackBtn" class="action-button" aria-label="Atacar"><span data-icon="sword"></span><span>Atacar</span><kbd>J</kbd></button><button id="dashBtn" class="action-button" aria-label="Esquivar"><span data-icon="wind"></span><span>Esquivar</span><kbd>ESPACIO</kbd></button><button id="interactBtn" class="action-button primary-action" aria-label="Interactuar"><span data-icon="hand"></span><span>Interactuar</span><kbd>E</kbd></button></div>
+      <div class="keyboard-hint"><span>W A S D / ↑ ↓ ← →</span> o toca el suelo para caminar</div>
+    </div>
+    <div id="joystick" class="joystick" aria-label="Palanca táctil para caminar"><div class="joystick-rings"></div><div id="joystickKnob" class="joystick-knob"><span data-icon="move"></span></div></div>
+  </section>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+  <div id="sceneBanner" class="scene-banner hidden" aria-live="polite"><small id="bannerSub"></small><h2 id="bannerTitle"></h2><span>✦</span></div>
+  <div id="modalBackdrop" class="modal-backdrop hidden"><section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="modalClose" class="modal-close icon-button" aria-label="Cerrar ventana">×</button><div id="modalContent"></div></section></div>
+  <noscript><p class="noscript">Activa JavaScript para explorar Auralia.</p></noscript>
+</main>
+<script type="module" src="game.js"></script>
+</body>
+</html>
