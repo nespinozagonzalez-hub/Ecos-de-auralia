@@ -1,98 +1,93 @@
-# Ecos de Auralia
+# Ecos de Auralia · Atlas de Ecos
 
-**Prototipo 0.1 · El primer recuerdo**
+**Prototipo 0.2 · Un núcleo narrativo y expediciones conectadas.**
 
-![Portada de Ecos de Auralia](docs/auralia-preview.jpg)
+![Atlas de Ecos con un territorio restaurado](docs/atlas-preview.jpg)
 
-Una aventura educativa original de exploración, acertijos y descubrimiento. Cada estudiante recupera los recuerdos de un reino y obtiene herramientas que le permiten abrir caminos nuevos, incluso en lugares que ya conoce.
+Ecos de Auralia tiene dos experiencias complementarias:
 
-Creado para Nicolás Espinoza / GamiAula. La dirección visual combina bosques ilustrados, piedra antigua, verdes profundos y detalles dorados. Los escenarios y personajes se dibujan en Canvas; el sonido se sintetiza en el navegador. No requiere recursos externos para funcionar.
-
-## Jugar y revisar
-
-- [Abrir el prototipo](https://ecos-de-auralia.nico-ergo.chatgpt.site)
-- Desde la portada: **Descubrir la propuesta para el aula**.
-- Durante la partida: menú → **El aula**.
-- El panel incluye el vínculo pedagógico, los códigos y accesos rápidos para revisar el bosque, el santuario y el desenlace. Los accesos rápidos adelantan el progreso de la partida local.
-
-## Qué se puede jugar
-
-1. Recorrer la aldea de Valdeluz y conversar con Elia y Nara.
-2. Obtener la Campana Agrietada y escuchar pistas del pasado.
-3. Canjear un sello para acceder al Bosque de los Susurros.
-4. Interpretar el altar y encontrar el Guante de Raíces.
-5. Usar esa habilidad para abrir el camino al santuario.
-6. Activar el segundo sello y recorrer cuatro salas conectadas.
-7. Alinear tres cristales e interpretar el recuerdo de una estatua.
-8. Enfrentar a un guardián con embestida anticipada y un núcleo vulnerable.
-9. Recuperar el Eco del Bosque, ver el paisaje restaurado y volver a escuchar la fuente.
-10. Regresar al jardín bloqueado de la aldea para descubrir una carta secreta.
-
-Los otros cuatro territorios aparecen en el atlas como una propuesta futura; no son zonas jugables en esta versión.
-
-## Puente con el aula
-
-**Actividad presencial o virtual → sello entregado por el docente → acceso a una expedición → exploración y acertijos → reliquia / restauración del mundo.**
-
-| Sello de prueba | Qué habilita | Ejemplo de actividad previa |
+| Experiencia | Función | Ruta |
 | --- | --- | --- |
-| `AURALIA-INICIO` | Acceso al bosque, después de conversar con Elia | Observación, lectura, investigación o argumentación |
-| `AURALIA-RAICES` | Activación del pedestal del santuario | Aplicación, creación o resolución de un desafío |
+| **Atlas de Ecos** | Centro persistente de gamificación, recompensas, colección e historia | `/` |
+| **El primer recuerdo** | Prototipo de exploración cenital, acertijos y combate | `/expedicion/` |
 
-Los códigos son públicos y tienen un propósito de demostración. No autentican personas, no verifican una entrega y no impiden que se compartan. El docente decide los criterios pedagógicos; un registro real requeriría una segunda etapa con servidor y cuentas.
+- [Abrir el Atlas](https://ecos-de-auralia.nico-ergo.chatgpt.site)
+- [Abrir la expedición](https://ecos-de-auralia.nico-ergo.chatgpt.site/expedicion/)
 
-## Controles
+El enlace de revisión es personal y requiere la sesión de ChatGPT del propietario. El repositorio contiene el código estático completo.
 
-| Acción | Computador | Pantalla táctil |
-| --- | --- | --- |
-| Caminar | WASD / flechas / clic en el suelo | Palanca o toque en el suelo |
-| Interactuar | E / clic en el objeto | Botón Interactuar / toque en el objeto |
-| Escuchar el pasado | Q | Botón Eco |
-| Atacar | J | Botón Atacar |
-| Esquivar | Espacio | Botón Esquivar |
-| Atlas | M / botón Atlas | Botón Atlas |
-| Pausa y opciones | Esc / menú | Menú |
+## El núcleo de gamificación
 
-El sonido se activa de forma voluntaria. Las opciones permiten reducir las partículas y el movimiento ambiental. La navegación por menús admite teclado y los diálogos contienen el foco. El mundo jugable en Canvas requiere visión e interacción motora; todavía no dispone de una alternativa completa para lector de pantalla.
+- Cinco territorios que recuperan color con el avance.
+- Veinte actividades y veinte memorias coleccionables.
+- Cinco capítulos de aventura gráfica, con tres escenas cada uno.
+- Dos futuros por capítulo: las decisiones modifican los hitos del mapa y quedan registradas en la crónica.
+- Experiencia, ocho niveles y tres formas de un compañero de luz.
+- Luz para obtener acabados cosméticos del Atlas; las compras no son necesarias para completar la historia.
+- Cinco reliquias asociadas a los territorios; los hallazgos de la expedición también se registran.
+- Nombre y apariencia del guardián, guardado automático y exportación/importación de la copia local.
+- Guía docente con códigos, consignas editables y accesos de demostración.
 
-## Guardado y alcance
+**Una actividad → un código → una memoria + experiencia + luz. Dos memorias → una decisión. Cuatro memorias + una decisión → territorio restaurado y acceso al siguiente.**
 
-- Una partida por navegador/origen, almacenada en `localStorage` bajo `auralia.adventure.v1`.
-- Guarda posición, salud, sellos, reliquias, acertijos, enemigos menores derrotados y restauración.
-- El guardado ocurre al progresar, cada pocos segundos de movimiento y al ocultar/salir de la página.
-- Si se agota la salud, se vuelve al inicio de la zona conservando los hallazgos.
-- La batalla del guardián reinicia su salud al recargar; su derrota sí queda guardada.
-- El menú permite empezar otra historia y avisa que reemplaza la partida local.
-- No hay cuentas, sincronización, Google Sheets, datos de evaluación ni panel de seguimiento conectados.
-- Los datos locales del enlace de revisión y de una futura publicación en otro dominio son partidas separadas.
+Los códigos pueden usarse en cualquier orden dentro de un territorio abierto. Cada recompensa se registra una sola vez.
 
-## Archivos
+## Revisar la idea rápidamente
+
+1. Abre **Guía docente y códigos de prueba** desde el Atlas, o **Docente** en la barra lateral.
+2. Pulsa **Probar una recompensa** para observar una memoria y sus premios.
+3. Pulsa **Preparar una decisión y su desenlace** para reunir las actividades del territorio actual.
+4. Elige el futuro del lugar en su crónica. El mapa cambia y se abre el siguiente territorio.
+5. Revisa **Memorias**, **Guardián** y **La forja del Atlas**.
+6. En **Expediciones**, entra a la aventura original. Regresa mediante **CENTRO / Volver al Atlas**.
+
+Los accesos rápidos modifican la partida local de revisión. El menú de ayuda permite exportar una copia o reiniciar el Atlas. Reiniciarlo no borra la expedición y sus hallazgos vuelven a importarse.
+
+## Puente con la exploración
+
+La aventura original conserva su código, sus controles y su guardado. El Atlas lee únicamente sus hallazgos al abrirse o recuperar el foco, sin modificar esa partida:
+
+| Hallazgo en la expedición | Efecto en el Atlas |
+| --- | --- |
+| Conseguir el Guante de Raíces | Registra la reliquia, +20 experiencia y +10 luz |
+| Recuperar el Eco del Bosque | Completa `bosque-3`, +70 experiencia, +22 luz y una memoria |
+| Encontrar la semilla de Valdeluz | Registra el secreto, +20 experiencia y +8 luz |
+
+Si una actividad ya se completó con un código, la expedición no vuelve a premiarla. El puente funciona en el mismo navegador y origen. Las habilidades del juego cenital se siguen obteniendo dentro de esa expedición; las decisiones del Atlas no reescriben ese primer prototipo.
+
+## Alcance y datos
+
+Este es un prototipo local. Los códigos son públicos y no autentican personas ni verifican evaluaciones. No hay cuentas de estudiantes, calificaciones, Google Sheets ni seguimiento remoto compartido. La guía docente edita las consignas de esta copia; no es un panel institucional protegido.
+
+| Dato | Clave local |
+| --- | --- |
+| Atlas y consignas | `auralia.atlas.v1` |
+| Partida de exploración | `auralia.adventure.v1` |
+
+La exportación del Atlas incluye su progreso, decisiones, personalización y consignas. La partida de la expedición tiene su propio guardado y no está incluida en ese archivo.
+
+Los cinco territorios tienen misiones, recompensas y crónica en el Atlas. Solo el bosque tiene un mundo de exploración cenital implementado. Los otros encuentros quedan para una siguiente etapa.
+
+## Código
 
 | Archivo | Función |
 | --- | --- |
-| `dist/index.html` | Interfaz, portada y controles |
-| `dist/styles.css` | Diseño y adaptación a pantallas |
-| `dist/game-data.js` | Territorios, escenas, códigos, textos y misiones |
-| `dist/engine.js` | Reglas, colisiones, movimiento, rutas, progresión y recuperación del guardado |
-| `dist/art.js` | Escenarios, personajes, efectos y cámara |
-| `dist/audio.js` | Ambiente y sonidos originales sintetizados |
-| `dist/game.js` | Interacciones, menús, combate y bucle de juego |
-| `docs/PROPUESTA.md` | Propuesta pedagógica, narrativa y próximas decisiones |
-| `tests/progression.test.mjs` | Pruebas de reglas, guardado, bloqueos y conectividad |
+| `dist/index.html`, `atlas.css`, `atlas.js` | Interfaz del núcleo y navegación |
+| `dist/atlas-data.js` | Territorios, veinte misiones, capítulos, decisiones, códigos y recompensas |
+| `dist/atlas-core.js` | Progresión, decisiones, economía, copia de seguridad e importación de expediciones |
+| `dist/atlas-art.js` | Mapa, escenas y guardián en SVG original |
+| `dist/expedicion/index.html` | Entrada separada a la exploración |
+| `dist/game.js`, `engine.js`, `art.js`, `audio.js`, `game-data.js` | Motor original de la expedición |
+| `docs/ATLAS.md` | Modelo narrativo y guía de integración |
+| `docs/PROPUESTA.md` | Propuesta original del primer prototipo cenital |
+| `tests/atlas.test.mjs`, `tests/progression.test.mjs` | Reglas del Atlas y regresión de la expedición |
 
-## Ejecutar y comprobar
-
-No hay dependencias ni compilación.
+No requiere dependencias ni compilación. Los escenarios son SVG/Canvas originales y el sonido de la expedición se sintetiza en el navegador.
 
 ```sh
 python3 -m http.server 8000 --directory dist
-```
-
-Abrir `http://localhost:8000`. Los módulos requieren servir los archivos mediante HTTP; abrir el HTML con `file://` no es el flujo soportado.
-
-```sh
 npm run check
 npm test
 ```
 
-El `index.html` de la raíz redirige a `dist/` para que también se pueda servir la raíz del repositorio. La configuración de publicación de Sites se encuentra en `.openai/hosting.json`. Se entrega un prototipo para revisión; una implementación con estudiantes requiere decidir autenticación, registro docente y acceso de publicación.
+Abrir `http://localhost:8000`. Los módulos requieren servir los archivos por HTTP. El HTML de la raíz redirige a `dist/`; la publicación de Sites está declarada en `.openai/hosting.json`.

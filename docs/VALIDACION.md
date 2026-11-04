@@ -1,3 +1,25 @@
+# Validación 0.2 · Atlas de Ecos
+
+Se completaron los controles de sintaxis de los nueve módulos JavaScript y **15 pruebas automáticas**: ocho del Atlas y siete de regresión de la exploración.
+
+Las pruebas del Atlas cubren el recorrido completo de veinte recompensas y cinco capítulos, la apertura de territorios, decisiones con requisitos, códigos repetidos, totales de experiencia y luz, compras sin gasto duplicado, recuperación de copias, edición de consignas y eventos de expedición registrados una sola vez.
+
+En navegador se verificó:
+
+- Código incorrecto y canje de dos recompensas reales de prueba.
+- Apertura de la decisión del bosque, elección del Archivo de las Hojas y persistencia de esa elección.
+- Cierre del primer capítulo mediante los controles de revisión, cambio del mapa y apertura de Ciudad Sumergida.
+- Subida de nivel, transformación del compañero, cambio de nombre y compra de un acabado con descuento correcto.
+- Entrada al prototipo cenital, recuperación de un hallazgo mediante su acceso rápido y regreso al Atlas con el premio añadido sin repetir una misión ya registrada.
+- Colección y navegación en vistas de teléfono de 390 × 800 y tablet de 1024 × 768.
+- Ausencia de errores propios de la aplicación en la consola durante esa revisión.
+
+El enlace de regreso desde el HUD de exploración se probó después de corregir su recepción de pulsaciones. Las vistas de navegador no sustituyen una prueba física en iOS/tablet. La exportación/importación se valida en su modelo de datos; no se hizo una transferencia manual entre dos dispositivos.
+
+La crónica contiene una bifurcación local por territorio, con hitos y referencias persistentes. No se afirma que estén implementadas todas las combinaciones de una trama global ni mundos cenitales para los cinco territorios.
+
+---
+
 # Validación del prototipo 0.1
 
 ## Comprobaciones automáticas

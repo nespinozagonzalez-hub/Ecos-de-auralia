@@ -1,3 +1,5 @@
+> Documento del primer prototipo cenital. El núcleo narrativo y de recompensas actual se describe en [ATLAS.md](ATLAS.md). La exploración se conserva en `/expedicion/`.
+
 # Ecos de Auralia · Propuesta de prototipo
 
 ## La experiencia
