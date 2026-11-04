@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="499.27559055118115" height="375" preserveAspectRatio="xMinYMin meet" viewBox="0 0 499 375" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="499.27559055118115" height="375"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-375)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="144.63779527559058" y="337" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="183.48154527559058" y="350.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,701) scale(1,-1)">C4.1 · Tres formas de comprobar</text>
+			<path d="M 249.637795,337 L 82.212598,323 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 327, 82.2126 323, 84.2126 327" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="294" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="6.182422643946865" y="312.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,625) scale(1,-1)">A · Revisar los fragmentos con personas que</text>
+			<text x="50.96015701894686" y="304.41999999999996" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,608) scale(1,-1)">aparecen en ellos.</text>
+			<path d="M 82.212598,294 L 249.637795,276 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 280, 249.6378 276, 251.6378 280" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,337 L 248.637795,323 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 327, 248.6378 323, 250.6378 327" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="294" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="181.13418199434057" y="312.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,625) scale(1,-1)">B · Contrastar la cadena de copias y los</text>
+			<text x="216.78769761934058" y="304.41999999999996" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,608) scale(1,-1)">acuerdos públicos.</text>
+			<path d="M 248.637795,294 L 249.637795,276 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 280, 249.6378 276, 251.6378 280" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,337 L 415.062992,323 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="413.063 327, 415.063 323, 417.063 327" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="294" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="341.0963905634843" y="312.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,625) scale(1,-1)">C · Comparar fragmentos sin nombres para</text>
+			<text x="379.0392616572343" y="304.41999999999996" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,608) scale(1,-1)">comprobar el patrón.</text>
+			<path d="M 415.062992,294 L 249.637795,276 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 280, 249.6378 276, 251.6378 280" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="144.63779527559058" y="249" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="202.92685777559058" y="262.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,525) scale(1,-1)">C4.2 · Abrir una verdad</text>
+			<path d="M 249.637795,249 L 82.212598,235 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 239, 82.2126 235, 84.2126 239" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="206" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="15.990625768946856" y="228.66" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,457) scale(1,-1)">A · Compartir los registros verificables,</text>
+			<text x="19.82724686269686" y="220.5" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,441) scale(1,-1)">con reservas explícitas y derecho de</text>
+			<text x="64.27793045644685" y="212.34" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,424) scale(1,-1)">respuesta.</text>
+			<path d="M 82.212598,206 L 249.637795,188 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 192, 249.6378 188, 251.6378 192" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,249 L 248.637795,235 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 239, 248.6378 235, 250.6378 239" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="206" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="197.30908433809057" y="228.66" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,457) scale(1,-1)">B · Mantener los cristales bajo</text>
+			<text x="174.68613511934058" y="220.5" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,441) scale(1,-1)">autorización de sus voces y compartir cada</text>
+			<text x="212.00976793184057" y="212.34" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,424) scale(1,-1)">testimonio permitido.</text>
+			<path d="M 248.637795,206 L 249.637795,188 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 192, 249.6378 188, 251.6378 192" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,249 L 415.062992,235 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8; stroke-dasharray: 3, 3;"/>
+			<polyline points="413.063 239, 415.063 235, 417.063 239" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="206" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="349.8786171259843" y="228.66" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,457) scale(1,-1)">C · Publicar un resumen contrastado y</text>
+			<text x="356.8031288447343" y="220.5" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,441) scale(1,-1)">conservar acceso restringido a los</text>
+			<text x="397.4105507197343" y="212.34" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,424) scale(1,-1)">originales.</text>
+			<path d="M 415.062992,206 L 249.637795,188 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 192, 249.6378 188, 251.6378 192" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="144.63779527559058" y="161" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="181.33896715059058" y="174.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,349) scale(1,-1)">C4.3 · Una voz corrige al guardián</text>
+			<path d="M 249.637795,161 L 82.212598,147 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 151, 82.2126 147, 84.2126 151" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="118" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="14.371973425196856" y="136.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,273) scale(1,-1)">A · Añadir su versión junto a la anterior,</text>
+			<text x="38.024219518946865" y="128.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,256) scale(1,-1)">con el desacuerdo visible.</text>
+			<path d="M 82.212598,118 L 249.637795,100 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 104, 249.6378 100, 251.6378 104" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,161 L 248.637795,147 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 151, 248.6378 147, 250.6378 151" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="118" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="195.26211168184057" y="140.66" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,281) scale(1,-1)">B · Corregir el relato principal y</text>
+			<text x="185.3210960568406" y="132.5" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,265) scale(1,-1)">conservar bajo reserva el historial de</text>
+			<text x="233.33779527559057" y="124.34" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,248) scale(1,-1)">cambios.</text>
+			<path d="M 248.637795,118 L 249.637795,100 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 104, 249.6378 100, 251.6378 104" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,161 L 415.062992,147 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="413.063 151, 415.063 147, 417.063 151" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="118" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="346.3424843134843" y="136.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,273) scale(1,-1)">C · Suspender esa parte del relato hasta</text>
+			<text x="359.7316444697343" y="128.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,256) scale(1,-1)">contrastarla con las otras voces.</text>
+			<path d="M 415.062992,118 L 249.637795,100 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 104, 249.6378 100, 251.6378 104" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="144.63779527559058" y="73" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="187.39756090059058" y="86.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,173) scale(1,-1)">C4.4 · El mandato de una lente</text>
+			<path d="M 249.637795,73 L 82.212598,59 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 63, 82.2126 59, 84.2126 63" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="30" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="28.91328201894686" y="48.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,97) scale(1,-1)">A · Un observatorio público con</text>
+			<text x="23.975977331446863" y="40.42" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,80) scale(1,-1)">responsables estables y auditoría.</text>
+			<path d="M 249.637795,73 L 248.637795,59 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 63, 248.6378 59, 250.6378 63" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="30" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="177.8271507443406" y="48.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,97) scale(1,-1)">B · Un taller de copias bajo control de sus</text>
+			<text x="207.53896715059057" y="40.42" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,80) scale(1,-1)">comunidades de origen.</text>
+			<path d="M 249.637795,73 L 415.062992,59 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8; stroke-dasharray: 3, 3;"/>
+			<polyline points="413.063 63, 415.063 59, 417.063 63" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="30" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="345.4808632197343" y="48.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,97) scale(1,-1)">C · Una cámara de revisión que preste la</text>
+			<text x="364.05137103223433" y="40.42" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,80) scale(1,-1)">lente por mandatos acotados.</text>
+			<text x="111.16179429902809" y="8" style="font-family: Sans; font-size: 7.1px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,16) scale(1,-1)">Las ramas vuelven a una escena común conservando hechos y compromisos.</text>
+		</g>
+	</g>
+</svg>

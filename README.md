@@ -1,88 +1,60 @@
 # Ecos de Auralia · Atlas de Ecos
+Prototipo 0.3 · Las voces del Velo. Integración narrativa previa a producir el arte final.
 
-**Prototipo 0.2 · Un núcleo narrativo y expediciones conectadas.**
+[Abrir el Atlas](https://ecos-de-auralia.nico-ergo.chatgpt.site) · [Catálogo de arte](https://ecos-de-auralia.nico-ergo.chatgpt.site/direccion-arte/)
 
-![Atlas de Ecos con un territorio restaurado](docs/atlas-preview.jpg)
+## Recorrido aplicado
+Dos decisiones de prólogo, cinco capítulos de cuatro decisiones, 66 alternativas y tres familias de epílogo. La novela conserva motivos, costes, hechos, compromisos, conocimiento por actor y retornos posteriores. Las decisiones confirmadas no se reescriben; al cerrar un capítulo se puede explorar un eco alterno aislado.
 
-Ecos de Auralia tiene dos experiencias complementarias:
+Los veinte sellos conceden memoria, experiencia y luz. Se pueden registrar por adelantado; la lectura sigue su orden y requiere la memoria correspondiente. Todas las rutas conservan 1.500 experiencia y 525 luz base. No hay puntuación universal de bondad ni recompensas académicas por una elección moral.
 
-| Experiencia | Función | Ruta |
-| --- | --- | --- |
-| **Atlas de Ecos** | Centro persistente de gamificación, recompensas, colección e historia | `/` |
-| **El primer recuerdo** | Prototipo de exploración cenital, acertijos y combate | `/expedicion/` |
+El honor conserva compromisos concretos. Las revisiones registran excepciones y disenso; no borran documentos perdidos, reservas o costes. La confianza cambia para actores presentes que conocen el hecho. La crónica conserva retornos y seis cruces de consecuencias.
 
-- [Abrir el Atlas](https://ecos-de-auralia.nico-ergo.chatgpt.site)
-- [Abrir la expedición](https://ecos-de-auralia.nico-ergo.chatgpt.site/expedicion/)
+## Revisar
+1. Abre el prólogo.
+2. En **Docente**, pulsa **Preparar las cuatro memorias** para reunir los sellos del capítulo actual.
+3. Vuelve a la crónica, elige y confirma cada escena. Revisa la intervención y las consecuencias al llegar al siguiente capítulo.
+4. Abre **Crónica** para releer o explorar ecos de capítulos cerrados.
+5. En **Docente → Catálogo de arte** revisa las fichas; **Inspeccionar espacios gráficos** abre `/?arte=1`.
 
-El enlace de revisión es personal y requiere la sesión de ChatGPT del propietario. El repositorio contiene el código estático completo.
+Los accesos rápidos alteran la copia local de revisión; no eligen opciones ni validan tareas.
 
-## El núcleo de gamificación
+## Arte y sustitución
+RPG clásico en pixel art detallado, cálido y original. Se mantienen los SVG provisionales; los PNG finales están pendientes.
 
-- Cinco territorios que recuperan color con el avance.
-- Veinte actividades y veinte memorias coleccionables.
-- Cinco capítulos de aventura gráfica, con tres escenas cada uno.
-- Dos futuros por capítulo: las decisiones modifican los hitos del mapa y quedan registradas en la crónica.
-- Experiencia, ocho niveles y tres formas de un compañero de luz.
-- Luz para obtener acabados cosméticos del Atlas; las compras no son necesarias para completar la historia.
-- Cinco reliquias asociadas a los territorios; los hallazgos de la expedición también se registran.
-- Nombre y apariencia del guardián, guardado automático y exportación/importación de la copia local.
-- Guía docente con códigos, consignas editables y accesos de demostración.
+- [Guía de arte](docs/GUIA_ARTE_ATLAS.md)
+- [Inventario CSV](docs/CATALOGO_ARTE.csv)
+- [Guía narrativa original](docs/narrativa/GUIA_NARRATIVA.md)
+- [Especificación integrada](docs/narrativa/campana-v1.json)
+- [Contrato de implementación](docs/IMPLEMENTACION_NARRATIVA.md)
 
-**Una actividad → un código → una memoria + experiencia + luz. Dos memorias → una decisión. Cuatro memorias + una decisión → territorio restaurado y acceso al siguiente.**
+250 recursos: 227 conectados a consumidores actuales y 23 reservados. Fondos, capas del mapa, retratos, expresiones, guardianes, compañero, memorias, reliquias, juramentos, compromisos, iconos y marcos. Cuerpos completos, caminatas y efectos extendidos quedan reservados.
 
-Los códigos pueden usarse en cualquier orden dentro de un territorio abierto. Cada recompensa se registra una sola vez.
+`dist/visual-assets.json` es la fuente del contrato: ID, ruta, tamaño, celdas, FPS, prioridad y estado. Para activar un PNG, guárdalo en su ruta, cambia `status` a `ready` y ejecuta `node scripts/sync-art-manifest.mjs`. Un archivo ausente conserva el arte provisional.
 
-## Revisar la idea rápidamente
+## Datos y migración
+Guardado automático en `auralia.atlas.v2`. Si existe `auralia.atlas.v1` se migra sin borrar la clave anterior. Se conservan memorias, personalización, consignas, premios de restauraciones previas y un archivo de elecciones antiguas. La nueva novela comienza en el prólogo porque antes no existían estas decisiones. Reconstruir un capítulo no vuelve a emitir una restauración ya premiada.
 
-1. Abre **Guía docente y códigos de prueba** desde el Atlas, o **Docente** en la barra lateral.
-2. Pulsa **Probar una recompensa** para observar una memoria y sus premios.
-3. Pulsa **Preparar una decisión y su desenlace** para reunir las actividades del territorio actual.
-4. Elige el futuro del lugar en su crónica. El mapa cambia y se abre el siguiente territorio.
-5. Revisa **Memorias**, **Guardián** y **La forja del Atlas**.
-6. En **Expediciones**, entra a la aventura original. Regresa mediante **CENTRO / Volver al Atlas**.
+La importación reconstruye hechos desde las decisiones confirmadas, verificando orden, condiciones y códigos. Una revisión reduce conflictos entre pestañas; no es una transacción de servidor ni sincroniza dispositivos. Exportar/importar incluye narrativa y configuración.
 
-Los accesos rápidos modifican la partida local de revisión. El menú de ayuda permite exportar una copia o reiniciar el Atlas. Reiniciarlo no borra la expedición y sus hallazgos vuelven a importarse.
+Todavía no hay cuentas ni seguimiento remoto. Los códigos son públicos y el panel docente es una herramienta local de revisión.
 
-## Puente con la exploración
+## Expedición
+El prototipo cenital sigue en `/expedicion/` con sus archivos y guardado. Se pausa la sincronización automática de nuevos hallazgos mientras se centra el trabajo en la novela. Los hallazgos y premios anteriores se conservan al migrar. No se ha añadido combate ni desplazamiento al lector.
 
-La aventura original conserva su código, sus controles y su guardado. El Atlas lee únicamente sus hallazgos al abrirse o recuperar el foco, sin modificar esa partida:
-
-| Hallazgo en la expedición | Efecto en el Atlas |
+## Módulos
+| Archivo | Responsabilidad |
 | --- | --- |
-| Conseguir el Guante de Raíces | Registra la reliquia, +20 experiencia y +10 luz |
-| Recuperar el Eco del Bosque | Completa `bosque-3`, +70 experiencia, +22 luz y una memoria |
-| Encontrar la semilla de Valdeluz | Registra el secreto, +20 experiencia y +8 luz |
+| `atlas.js`, `atlas-core.js` | Interfaz, recompensas, colección, migración |
+| `narrative-data.js` | Prólogo, 22 nodos, 66 opciones, escenas y finales |
+| `narrative-core.js` | Condiciones, decisiones, honor, retornos y ecos |
+| `narrative-ui.js` | Lectura, confirmación, resultados y epílogo |
+| `asset-slots.js`, `visual-assets.json` | Sustitución de arte con respaldo |
+| `direccion-arte/` | Catálogo filtrable, guía y CSV |
+| `atlas-art.js` | Mapa y dibujos SVG provisionales |
+| `scripts/`, `tests/` | Catálogo, comprobación y pruebas |
 
-Si una actividad ya se completó con un código, la expedición no vuelve a premiarla. El puente funciona en el mismo navegador y origen. Las habilidades del juego cenital se siguen obteniendo dentro de esa expedición; las decisiones del Atlas no reescriben ese primer prototipo.
-
-## Alcance y datos
-
-Este es un prototipo local. Los códigos son públicos y no autentican personas ni verifican evaluaciones. No hay cuentas de estudiantes, calificaciones, Google Sheets ni seguimiento remoto compartido. La guía docente edita las consignas de esta copia; no es un panel institucional protegido.
-
-| Dato | Clave local |
-| --- | --- |
-| Atlas y consignas | `auralia.atlas.v1` |
-| Partida de exploración | `auralia.adventure.v1` |
-
-La exportación del Atlas incluye su progreso, decisiones, personalización y consignas. La partida de la expedición tiene su propio guardado y no está incluida en ese archivo.
-
-Los cinco territorios tienen misiones, recompensas y crónica en el Atlas. Solo el bosque tiene un mundo de exploración cenital implementado. Los otros encuentros quedan para una siguiente etapa.
-
-## Código
-
-| Archivo | Función |
-| --- | --- |
-| `dist/index.html`, `atlas.css`, `atlas.js` | Interfaz del núcleo y navegación |
-| `dist/atlas-data.js` | Territorios, veinte misiones, capítulos, decisiones, códigos y recompensas |
-| `dist/atlas-core.js` | Progresión, decisiones, economía, copia de seguridad e importación de expediciones |
-| `dist/atlas-art.js` | Mapa, escenas y guardián en SVG original |
-| `dist/expedicion/index.html` | Entrada separada a la exploración |
-| `dist/game.js`, `engine.js`, `art.js`, `audio.js`, `game-data.js` | Motor original de la expedición |
-| `docs/ATLAS.md` | Modelo narrativo y guía de integración |
-| `docs/PROPUESTA.md` | Propuesta original del primer prototipo cenital |
-| `tests/atlas.test.mjs`, `tests/progression.test.mjs` | Reglas del Atlas y regresión de la expedición |
-
-No requiere dependencias ni compilación. Los escenarios son SVG/Canvas originales y el sonido de la expedición se sintetiza en el navegador.
+Sin dependencias ni compilación. Servir `dist` por HTTP.
 
 ```sh
 python3 -m http.server 8000 --directory dist
@@ -90,4 +62,4 @@ npm run check
 npm test
 ```
 
-Abrir `http://localhost:8000`. Los módulos requieren servir los archivos por HTTP. El HTML de la raíz redirige a `dist/`; la publicación de Sites está declarada en `.openai/hosting.json`.
+La ambigüedad moral, duración y vocabulario necesitan un piloto con lectores del nivel elegido. Las pruebas automáticas no sustituyen esa revisión.

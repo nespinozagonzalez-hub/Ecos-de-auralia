@@ -1,5 +1,6 @@
 import {REGIONS} from './atlas-data.js';
 import {regionState} from './atlas-core.js';
+import {assetSlot} from './asset-slots.js';
 
 const symbols={
  compass:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm4-16-2 8-8 4 4-8 6-4Z',
@@ -31,7 +32,7 @@ const symbols={
  bell:'M6 16h12l-2-3V9a4 4 0 0 0-8 0v4l-2 3Zm4 4h4M12 2v3',
  root:'M12 2v16M4 7c2 6 12 6 16 0M5 22l7-7 7 7m-7-7v7'
 };
-export const icon=(name,cls='')=>`<svg class="i ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${symbols[name]||symbols.spark}"/></svg>`;
+export const icon=(name,cls='')=>assetSlot('icon-'+name,`<svg class="i ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${symbols[name]||symbols.spark}"/></svg>`,'icon-slot');
 export function atlasEmblem(){return `<svg viewBox="0 0 70 76" fill="none" aria-hidden="true"><path d="M35 3 64 20v35L35 72 6 55V20Z"/><path d="m35 13 20 12v25L35 62 15 50V25Z"/><path d="M35 24v29m-10-24 10 8 10-8m-20 18 10-8 10 8"/><circle cx="35" cy="38" r="5"/></svg>`;}
 let serial=0;
 const ellipse=(x,y,rx,ry,fill,extra='')=>`<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="${fill}" ${extra}/>`;

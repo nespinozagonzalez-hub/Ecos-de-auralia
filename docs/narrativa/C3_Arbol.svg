@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="499.27559055118115" height="375" preserveAspectRatio="xMinYMin meet" viewBox="0 0 499 375" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="499.27559055118115" height="375"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-375)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="144.63779527559058" y="337" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="183.87217027559058" y="350.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,701) scale(1,-1)">C3.1 · La promesa que ya existía</text>
+			<path d="M 249.637795,337 L 82.212598,323 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 327, 82.2126 323, 84.2126 327" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="294" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="18.23681717519686" y="312.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,625) scale(1,-1)">A · Escuchar a residentes de distintas</text>
+			<text x="58.241602331446856" y="304.41999999999996" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,608) scale(1,-1)">generaciones.</text>
+			<path d="M 82.212598,294 L 249.637795,276 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 280, 249.6378 276, 251.6378 280" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,337 L 248.637795,323 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 327, 248.6378 323, 250.6378 327" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="294" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="176.7148460568406" y="312.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,625) scale(1,-1)">B · Revisar qué prometió el faro y con qué</text>
+			<text x="236.21484605684057" y="304.41999999999996" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,608) scale(1,-1)">límites.</text>
+			<path d="M 248.637795,294 L 249.637795,276 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 280, 249.6378 276, 251.6378 280" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,337 L 415.062992,323 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="413.063 327, 415.063 323, 417.063 327" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="294" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="339.84629290723433" y="312.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,625) scale(1,-1)">C · Acompañar un turno de señal y medir su</text>
+			<text x="388.9752968134843" y="304.41999999999996" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,608) scale(1,-1)">capacidad real.</text>
+			<path d="M 415.062992,294 L 249.637795,276 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 280, 249.6378 276, 251.6378 280" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="144.63779527559058" y="249" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="194.03037340059058" y="262.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,525) scale(1,-1)">C3.2 · Una señal para quién</text>
+			<path d="M 249.637795,249 L 82.212598,235 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 239, 82.2126 235, 84.2126 239" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="206" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="16.033789831446867" y="224.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,449) scale(1,-1)">A · Publicar el paso con condiciones de</text>
+			<text x="50.599903112696865" y="216.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,432) scale(1,-1)">acceso acordadas.</text>
+			<path d="M 82.212598,206 L 249.637795,188 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 192, 249.6378 188, 251.6378 192" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,249 L 248.637795,235 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 239, 248.6378 235, 250.6378 239" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="206" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="179.6699241818406" y="224.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,449) scale(1,-1)">B · Mantener la reserva y solicitar ayuda</text>
+			<text x="208.12666246309058" y="216.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,432) scale(1,-1)">por las rutas conocidas.</text>
+			<path d="M 248.637795,206 L 249.637795,188 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 192, 249.6378 188, 251.6378 192" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,249 L 415.062992,235 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8; stroke-dasharray: 3, 3;"/>
+			<polyline points="413.063 239, 415.063 235, 417.063 239" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="206" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="355.8037147822343" y="224.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,449) scale(1,-1)">C · Escoltar un envío sin difundir el</text>
+			<text x="384.1110390009843" y="216.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,432) scale(1,-1)">trazado completo.</text>
+			<path d="M 415.062992,206 L 249.637795,188 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 192, 249.6378 188, 251.6378 192" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="144.63779527559058" y="161" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="200.47763902559058" y="174.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,349) scale(1,-1)">C3.3 · Revisar la palabra</text>
+			<path d="M 249.637795,161 L 82.212598,147 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 151, 82.2126 147, 84.2126 151" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="118" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="14.655860143946867" y="136.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,273) scale(1,-1)">A · Explicar el cambio a sus afectados y</text>
+			<text x="40.49951248769686" y="128.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,256) scale(1,-1)">pedir un nuevo acuerdo.</text>
+			<path d="M 82.212598,118 L 249.637795,100 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 104, 249.6378 100, 251.6378 104" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,161 L 248.637795,147 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 151, 248.6378 147, 250.6378 151" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="118" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="173.10566636934058" y="136.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,273) scale(1,-1)">B · Asumir personalmente una obligación de</text>
+			<text x="213.33457261934058" y="128.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,256) scale(1,-1)">reparación concreta.</text>
+			<path d="M 248.637795,118 L 249.637795,100 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 104, 249.6378 100, 251.6378 104" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<path d="M 249.637795,161 L 415.062992,147 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="413.063 151, 415.063 147, 417.063 151" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="118" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="352.6095741572343" y="136.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,273) scale(1,-1)">C · Dejar una revisión abierta con un</text>
+			<text x="360.8788124384843" y="128.42000000000002" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,256) scale(1,-1)">límite explícito de lo prometido.</text>
+			<path d="M 415.062992,118 L 249.637795,100 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="247.6378 104, 249.6378 100, 251.6378 104" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="144.63779527559058" y="73" width="210.0" height="27" rx="4" ry="4" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(87%,91%,85%); fill-rule: evenodd;"/>
+			<text x="204.61045152559058" y="86.5" style="font-family: Sans; font-size: 8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,173) scale(1,-1)">C3.4 · La llave del faro</text>
+			<path d="M 249.637795,73 L 82.212598,59 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="80.2126 63, 82.2126 59, 84.2126 63" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="30" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="5.953321081446859" y="48.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,97) scale(1,-1)">A · Un equipo técnico con mandato público y</text>
+			<text x="44.46562576894686" y="40.42" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,80) scale(1,-1)">derecho de apelación.</text>
+			<path d="M 249.637795,73 L 248.637795,59 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8;"/>
+			<polyline points="246.6378 63, 248.6378 59, 250.6378 63" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="30" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="176.00429918184057" y="48.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,97) scale(1,-1)">B · Los residentes, mediante permisos que</text>
+			<text x="220.74218980684057" y="40.42" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,80) scale(1,-1)">puedan revocar.</text>
+			<path d="M 249.637795,73 L 415.062992,59 Z" style="stroke: rgb(56%,64%,54%); stroke-linecap: butt; stroke-width: 0.8; stroke-dasharray: 3, 3;"/>
+			<polyline points="413.063 63, 415.063 59, 417.063 63" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.8; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="30" width="158.42519685039372" height="29" rx="4" ry="4" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 0.7; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="349.9433632197343" y="48.58" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,97) scale(1,-1)">C · Una custodia rotativa con respaldo</text>
+			<text x="362.0940468134843" y="40.42" style="font-family: Sans; font-size: 6.8px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,80) scale(1,-1)">técnico y cupos para ausentes.</text>
+			<text x="111.16179429902809" y="8" style="font-family: Sans; font-size: 7.1px;fill: rgb(32%,40%,36%); stroke:none;" transform="translate(0,16) scale(1,-1)">Las ramas vuelven a una escena común conservando hechos y compromisos.</text>
+		</g>
+	</g>
+</svg>

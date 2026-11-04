@@ -1,5 +1,6 @@
-export const ATLAS_KEY = 'auralia.atlas.v1';
-export const ATLAS_VERSION = 1;
+export const ATLAS_KEY = 'auralia.atlas.v2';
+export const LEGACY_ATLAS_KEY = 'auralia.atlas.v1';
+export const ATLAS_VERSION = 2;
 export const ADVENTURE_KEY = 'auralia.adventure.v1';
 
 export const REGIONS = [

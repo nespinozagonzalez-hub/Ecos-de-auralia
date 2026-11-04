@@ -1,3 +1,5 @@
+> Referencia del prototipo 0.2. Modelo vigente: [implementación narrativa](IMPLEMENTACION_NARRATIVA.md) y [guía de arte](GUIA_ARTE_ATLAS.md).
+
 # Atlas de Ecos · Modelo del núcleo
 
 ## Dos experiencias con propósitos propios

@@ -1,0 +1,2440 @@
+export const CAMPAIGN = {
+  "version": "1.0-diseno-2026-11-04",
+  "status": "Guía propuesta para revisión. No modifica el prototipo publicado.",
+  "campaign": "Atlas de Ecos: las voces del Velo",
+  "chapters": [
+    {
+      "id": "C1",
+      "title": "La noche de las dos luces",
+      "region": "Bosque de los Susurros",
+      "ethical_question": "¿Qué proteges cuando la urgencia de unas personas compite con la continuidad de otras?",
+      "premise": "Una tormenta daña dos sellos. Una sola carga puede sostener el refugio, el archivo o el puente de evacuación. Las rutas seguras están identificadas: nadie queda condenado a morir por una elección de menú. Las pérdidas afectan hogares, documentos, vínculos y autonomía.",
+      "truth": "El archivo contiene testimonios sobre el Pacto del Velo, un sistema que amortiguó recuerdos dolorosos y sostuvo infraestructuras tras una catástrofe. Su renovación debía consultarse a cada generación. Algunas revisiones se aplazaron y otras no representaron a quienes vivían fuera de Valdeluz.",
+      "characters": [
+        "Elia conserva documentos que también podrían cuestionar decisiones de su familia.",
+        "Nara protege a las familias, pero necesita una prueba del archivo para esclarecer por qué la suya salió del pueblo."
+      ],
+      "foreshadow": [
+        "La carga disponible no alcanza para sostener dos sellos.",
+        "El puente solo admite una evacuación ordenada; un cierre inesperado separaría a los grupos.",
+        "Trasladar personas y documentos no conserva intacto el lugar del que se marchan."
+      ],
+      "branch_scenes": [
+        {
+          "when": "C1.2=A",
+          "text": "La cocina del refugio vuelve a encenderse. Una vecina reconoce a su nieta, pero no recuerda el nombre de la calle donde nació: el folio que lo conservaba se perdió. Nara reparte mantas y pide que nadie llame a esto una victoria completa. Elia llega con una caja vacía y pregunta qué parte del archivo podrá reconstruirse con las voces que quedan."
+        },
+        {
+          "when": "C1.2=B",
+          "text": "El archivo permanece seco. Elia encuentra una autorización del antiguo consejo y deja de leer cuando reconoce una firma familiar. Desde la puerta, Nara observa las barcas que parten con las familias. Una de ellas pregunta si conservar la prueba hará más fácil volver. Nadie puede prometerlo todavía."
+        },
+        {
+          "when": "C1.2=C",
+          "text": "El puente sostiene la salida de vecinos y cajas, pero Valdeluz queda dispersa en dos orillas. En la primera lista de alojamiento faltan tres nombres que cambiaron de embarcación. No hay víctimas: hay una organización insuficiente que debe corregirse. Elia y Nara discuten quién tiene autoridad para decidir el regreso."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "C1.1",
+          "title": "Lo que preguntas antes de actuar",
+          "scene": "Nara te lleva hasta la fila de familias. Elia señala la torre del archivo. Un operario deja un plano del puente sobre una mesa. Puedes hacer una comprobación profunda antes de decidir. Los demás te explicarán los riesgos básicos de sus propuestas.",
+          "question": "¿Qué necesitas comprender primero?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Escuchar a quienes dependen del refugio esta noche.",
+              "motive": "Las necesidades concretas pueden contradecir las listas del consejo.",
+              "forecast_cost": "Retrasas la inspección de cajas y mecanismos.",
+              "immediate": "Conoces que algunas familias no figuran en el censo y quién puede recibirlas.",
+              "delayed": "En C2.1 puedes presentar un registro de hogares ausentes de los repartos.",
+              "set_flag": "forest_evidence=hogares",
+              "trust_if_known": {
+                "nara": 1
+              },
+              "requires": {},
+              "honor_context": "Escuchar no vale más honor que investigar documentos. Se registra quién confió información bajo qué reserva.",
+              "event_id": "C1.1.A",
+              "callback": {
+                "id": "CB_C1.1.A",
+                "anchor": "C2.1",
+                "text": "En C2.1 puedes presentar un registro de hogares ausentes de los repartos.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Revisar con Elia los documentos que no tienen copia.",
+              "motive": "Es importante distinguir una pérdida irreparable de una colección reemplazable.",
+              "forecast_cost": "La fila de familias puede interpretar tu ausencia como una preferencia ya tomada.",
+              "immediate": "Descubres el calendario de revisión del Velo y una autorización incompleta.",
+              "delayed": "En C4.1 reconocerás una omisión en los registros de cristal.",
+              "set_flag": "forest_evidence=acta",
+              "trust_if_known": {
+                "elia": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C1.1.B",
+              "callback": {
+                "id": "CB_C1.1.B",
+                "anchor": "C4.1",
+                "text": "En C4.1 reconocerás una omisión en los registros de cristal.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Comprobar el puente con quienes tendrán que operarlo.",
+              "motive": "Una alternativa solo existe si es viable para sus usuarios.",
+              "forecast_cost": "El análisis técnico no explica por sí solo las necesidades ni el valor de las pruebas.",
+              "immediate": "Se habilita la evacuación mixta, con sus límites de alojamiento y registro.",
+              "delayed": "En C2.2 podrás proponer turnos de transporte, con una obligación de mantenimiento.",
+              "set_flag": "forest_evidence=puente",
+              "trust_if_known": {
+                "nara": 0,
+                "elia": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C1.1.C",
+              "callback": {
+                "id": "CB_C1.1.C",
+                "anchor": "C2.2",
+                "text": "En C2.2 podrás proponer turnos de transporte, con una obligación de mantenimiento.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Cada investigación abre información utilizable. Las advertencias sobre el riesgo básico se entregan a todos; la indagación elegida nunca convierte un daño grave desconocido en una trampa.",
+          "foreshadow": "El operario informa que el puente funciona solo mientras alguien mantenga el registro de salida.",
+          "next": "C1.2",
+          "unlock": {
+            "type": "memory",
+            "id": "M1.1",
+            "index": 1,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "elia",
+            "nara"
+          ],
+          "speaker": "nara",
+          "player_hint": "El operario señala el registro: el puente solo funciona si alguien se ocupa de ordenar la salida."
+        },
+        {
+          "id": "C1.2",
+          "title": "La última carga",
+          "scene": "La lluvia empieza a entrar por la torre. Nara propone concentrar el calor en el refugio. Elia ofrece convertir el archivo en una sala de trabajo protegida, insuficiente para alojar al pueblo. Si comprobaste el puente, conoces una tercera salida con costes propios.",
+          "question": "¿Dónde emplearás la carga del Atlas?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Sostener el refugio y organizar el rescate parcial del archivo.",
+              "motive": "Mantiene juntos a quienes tienen menos alternativas de alojamiento.",
+              "forecast_cost": "Varios documentos originales se perderán; no podrán recrearse como si fueran copias exactas.",
+              "immediate": "La mayoría de las familias permanece en Valdeluz; solo se rescata una selección documental.",
+              "delayed": "C2 recibe viajeros de Valdeluz como comunidad organizada, pero C4 tendrá una laguna probatoria.",
+              "set_flag": "forest_priority=refugio",
+              "trust_if_known": {
+                "nara": 1,
+                "elia": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C1.2.A",
+              "callback": {
+                "id": "CB_C1.2.A",
+                "anchor": "C2.1",
+                "text": "C2 recibe viajeros de Valdeluz como comunidad organizada, pero C4 tendrá una laguna probatoria.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Sostener el archivo y trasladar a las familias por las rutas seguras.",
+              "motive": "Las pruebas preservadas pueden permitir exigir derechos de retorno.",
+              "forecast_cost": "El alojamiento se dispersa y parte de la comunidad deberá rehacer sus redes cotidianas.",
+              "immediate": "El archivo sobrevive; las familias se alojan temporalmente en otras localidades.",
+              "delayed": "En C2 aparece una petición de retorno. C4 conserva una prueba más firme, con identidades que requieren cuidado.",
+              "set_flag": "forest_priority=archivo",
+              "trust_if_known": {
+                "elia": 1,
+                "nara": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C1.2.B",
+              "callback": {
+                "id": "CB_C1.2.B",
+                "anchor": "C2.1",
+                "text": "En C2 aparece una petición de retorno. C4 conserva una prueba más firme, con identidades que requieren cuidado.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Sostener el puente para trasladar personas y una parte de los registros.",
+              "motive": "Prioriza la movilidad y evita depender de un edificio durante la tormenta.",
+              "forecast_cost": "Refugio y archivo sufren daños; las familias se dispersan y el registro de traslado queda bajo tu responsabilidad.",
+              "immediate": "La evacuación mixta funciona; Valdeluz queda dividida entre orillas y fondos documentales.",
+              "delayed": "En C2 debes resolver alojamiento y registro. Tu propio nombre figura como responsable del traslado.",
+              "set_flag": "forest_priority=puente",
+              "trust_if_known": {
+                "elia": 0,
+                "nara": 0
+              },
+              "requires": {
+                "all": [
+                  "forest_evidence=puente"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C1.2.C",
+              "callback": {
+                "id": "CB_C1.2.C",
+                "anchor": "C2.1",
+                "text": "En C2 debes resolver alojamiento y registro. Tu propio nombre figura como responsable del traslado.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "No hay una ruta que salve a todos y todo. La opción técnica salva un tránsito, no resuelve el asentamiento ni conserva las instituciones.",
+          "foreshadow": "Antes de confirmar se muestran las pérdidas previsibles y se ofrece volver al texto, sin un aviso moral de opción correcta.",
+          "next": "C1.3",
+          "unlock": {
+            "type": "memory",
+            "id": "M1.2",
+            "index": 2,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": "BRANCH_C1",
+          "witnesses": [
+            "elia",
+            "nara"
+          ],
+          "speaker": "nara",
+          "player_hint": "La carga no alcanza para mantener dos sellos. Las rutas de evacuación son seguras; los hogares y los documentos tendrán destinos distintos."
+        },
+        {
+          "id": "C1.3",
+          "title": "El relato de la noche",
+          "scene": "La comunidad pide un registro. Elia quiere que no desaparezca la responsabilidad institucional; Nara teme que nombres de familias recién desplazadas circulen sin permiso. Algunas personas solicitan hablar, otras piden tiempo.",
+          "question": "¿Cómo dejarás constancia de lo ocurrido?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Abrir una asamblea con testimonios revisados por quienes están presentes.",
+              "motive": "Los afectados pueden discutir públicamente la versión de la noche.",
+              "forecast_cost": "Las personas ausentes no quedan representadas y algunos detalles permiten reconocer a testigos reservados.",
+              "immediate": "Se crea un relato público con objeciones visibles y una lista de voces pendientes.",
+              "delayed": "En C2 una familia ausente exigirá incorporar su versión antes de usar ese relato para repartir recursos.",
+              "set_flag": "forest_account=asamblea",
+              "trust_if_known": {
+                "nara": 1,
+                "elia": 0
+              },
+              "requires": {},
+              "honor_context": "Sostiene una revisión acordada si se respetan las reservas. Presentar el acta como consentimiento de todos tensiona el juramento.",
+              "event_id": "C1.3.A",
+              "callback": {
+                "id": "CB_C1.3.A",
+                "anchor": "C2.1",
+                "text": "En C2 una familia ausente exigirá incorporar su versión antes de usar ese relato para repartir recursos.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Guardar las declaraciones bajo reserva hasta garantizar alojamiento.",
+              "motive": "Permite que personas vulnerables hablen sin negociar a la vez su techo.",
+              "forecast_cost": "La demora dificulta exigir responsabilidades y deja circular versiones incompletas.",
+              "immediate": "El Atlas conserva declaraciones reservadas y una fecha narrativa de revisión.",
+              "delayed": "En C2 se activa el compromiso de abrir o renegociar esa reserva; no se resuelve esperando tiempo real.",
+              "set_flag": "forest_account=reserva",
+              "trust_if_known": {
+                "nara": 0,
+                "elia": -1
+              },
+              "requires": {},
+              "honor_context": "La reserva no resta honor por defecto. Incumplir la revisión prometida sin avisar deja un compromiso pendiente.",
+              "event_id": "C1.3.B",
+              "callback": {
+                "id": "CB_C1.3.B",
+                "anchor": "C2.1",
+                "text": "En C2 se activa el compromiso de abrir o renegociar esa reserva; no se resuelve esperando tiempo real.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Confiar una copia a una custodia externa con mandato limitado.",
+              "motive": "Un tercero puede conservar pruebas mientras la comunidad se reorganiza.",
+              "forecast_cost": "La custodia depende de una institución que no conoce todas las voces y puede pedir algo a cambio.",
+              "immediate": "El registro se conserva fuera del pueblo con límites de acceso por escrito.",
+              "delayed": "En C4 esa institución ofrecerá certificar pruebas a cambio de prolongar su custodia.",
+              "set_flag": "forest_account=custodia",
+              "trust_if_known": {
+                "elia": 1,
+                "nara": -1
+              },
+              "requires": {},
+              "honor_context": "El honor depende de respetar el mandato y comunicar cambios; delegar no elimina tu responsabilidad.",
+              "event_id": "C1.3.C",
+              "callback": {
+                "id": "CB_C1.3.C",
+                "anchor": "C4.1",
+                "text": "En C4 esa institución ofrecerá certificar pruebas a cambio de prolongar su custodia.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Se sustituyen las opciones obvias admitir/mentir por procedimientos defendibles con efectos distintos. Ocultar deliberadamente una excepción relevante puede emerger dentro de una ruta, pero no se ofrece como botón de maldad.",
+          "foreshadow": "Los tres procedimientos dejan una persona o una voz que no puede estar presente en la primera versión.",
+          "next": "C1.4",
+          "unlock": {
+            "type": "memory",
+            "id": "M1.3",
+            "index": 3,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "elia",
+            "nara"
+          ],
+          "speaker": "elia",
+          "player_hint": "Algunas voces están aquí. Otras siguen buscando dónde pasar la noche."
+        },
+        {
+          "id": "C1.4",
+          "title": "Lo que reconstruyes primero",
+          "scene": "El amanecer deja materiales para un proyecto prioritario. Lo que protegiste anoche necesita sostenerse; lo que quedó dañado necesita reparación. La promesa que hagas aquí reaparecerá al entrar en la ciudad.",
+          "question": "¿Qué compromiso asumirá Valdeluz al comenzar de nuevo?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Reforzar el lugar protegido y reservar su uso para quienes lo sostienen.",
+              "motive": "Consolidar una institución evita que la ayuda de hoy se pierda mañana.",
+              "forecast_cost": "La reparación del otro lugar y los derechos de quienes se marcharon quedan pendientes.",
+              "immediate": "El hito protegido crece y una marca visible conserva la pérdida del otro.",
+              "delayed": "C2 pregunta quién puede usar los recursos de una institución financiada por todo el pueblo.",
+              "set_flag": "forest_rebuild=consolidar",
+              "trust_if_known": {
+                "elia": 0,
+                "nara": 0
+              },
+              "requires": {},
+              "honor_context": "Se registra a quién se prometió acceso y a quién solo una futura revisión.",
+              "event_id": "C1.4.A",
+              "callback": {
+                "id": "CB_C1.4.A",
+                "anchor": "C2.1",
+                "text": "C2 pregunta quién puede usar los recursos de una institución financiada por todo el pueblo.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Dar prioridad a quienes asumieron el coste de la primera decisión.",
+              "motive": "La reparación reconoce una carga que no fue distribuida por igual.",
+              "forecast_cost": "El lugar que salvó la noche queda con mantenimiento provisional y sus usuarios pueden sentirse desplazados.",
+              "immediate": "Aparece un proyecto de reparación y el edificio protegido conserva andamios.",
+              "delayed": "C3 ofrece asistencia a Valdeluz a cambio de retrasar otra obligación de la expedición.",
+              "set_flag": "forest_rebuild=reparar",
+              "trust_if_known": {
+                "elia": 0,
+                "nara": 0
+              },
+              "requires": {},
+              "honor_context": "Reparar cuenta como reparación, no como borrado de la pérdida ni como aumento automático ilimitado.",
+              "event_id": "C1.4.B",
+              "callback": {
+                "id": "CB_C1.4.B",
+                "anchor": "C3.1",
+                "text": "C3 ofrece asistencia a Valdeluz a cambio de retrasar otra obligación de la expedición.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Repartir la obra entre las dos orillas con un calendario común.",
+              "motive": "Distribuye autoridad y permite que cada grupo nombre sus prioridades.",
+              "forecast_cost": "Las obras avanzan más despacio y el acuerdo exige coordinar voces que todavía no están presentes.",
+              "immediate": "El mapa muestra dos nodos conectados y obras abiertas.",
+              "delayed": "En C2 el calendario se disputa cuando llegan nuevas familias y faltan materiales.",
+              "set_flag": "forest_rebuild=red",
+              "trust_if_known": {
+                "nara": 1,
+                "elia": 0
+              },
+              "requires": {
+                "any": [
+                  "forest_priority=puente",
+                  "forest_account=asamblea"
+                ]
+              },
+              "honor_context": "Un acuerdo repartido requiere mecanismos para quienes no firmaron, no solo mostrar consenso.",
+              "event_id": "C1.4.C",
+              "callback": {
+                "id": "CB_C1.4.C",
+                "anchor": "C2.1",
+                "text": "En C2 el calendario se disputa cuando llegan nuevas familias y faltan materiales.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La reconstrucción depende de los hechos anteriores: consolidar puede ser refugio, archivo o puente. La reparación ofrece otra forma del lugar, no recupera originales perdidos.",
+          "foreshadow": "Se anuncia qué proyecto seguirá provisional y a quién habrá que volver a escuchar.",
+          "next": "C2.1",
+          "unlock": {
+            "type": "memory",
+            "id": "M1.4",
+            "index": 4,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "elia",
+            "nara"
+          ],
+          "speaker": "elia",
+          "player_hint": "Una obra necesita manos y materiales. Lo que se reconstruya primero hará esperar a otra parte del pueblo."
+        }
+      ],
+      "region_id": "bosque"
+    },
+    {
+      "id": "C2",
+      "title": "La ciudad que contaba sus ventanas",
+      "region": "Ciudad Sumergida",
+      "ethical_question": "¿Cómo distribuyes un recurso cuando las necesidades visibles y las obligaciones de futuro no coinciden?",
+      "premise": "Lúa administra una reserva de luz que mueve compuertas y mantiene viviendas sobre el agua. Llegan familias de Valdeluz. El censo cuenta ventanas ocupadas, pero una ventana no revela cuántas personas viven dentro ni qué cuidados necesitan.",
+      "truth": "Las bombas dependen de un tramo del Velo. Apagarlo puede liberar recuerdos, pero también cambiar el consumo de energía. Las listas de distribución antiguas excluyeron hogares móviles porque nadie acordó cómo registrar su residencia.",
+      "characters": [
+        "Lúa pide estabilidad porque conoce fallos hidráulicos, pero vive en un barrio prioritario.",
+        "Nara exige acceso para recién llegados; una ampliación abrupta puede perjudicar a familias que también tienen necesidades invisibles."
+      ],
+      "foreshadow": [
+        "Un reparto inmediato reduce la reserva de mantenimiento.",
+        "Un nuevo censo puede exponer situaciones de residencia o dependencia.",
+        "Conservar una reserva técnica puede sostener un privilegio si nadie revisa sus criterios."
+      ],
+      "branch_scenes": [
+        {
+          "when": "C2.2=A",
+          "text": "Las ventanas de los alojamientos temporales se iluminan. Una familia puede reunirse; un taller que debía revisar las bombas pospone su trabajo. Lúa no anuncia una catástrofe: enseña el registro del mantenimiento que ahora tendrá que reprogramarse. Nara pregunta quién decidirá la próxima excepción."
+        },
+        {
+          "when": "C2.2=B",
+          "text": "Las compuertas recuperan su ritmo y el canal queda estable. En la plaza, varias personas esperan en un alojamiento común sin autonomía para sus rutinas. Lúa entrega la llave técnica al guardián: conservar una reserva también exige responder por quienes aún no reciben un suministro propio."
+        },
+        {
+          "when": "C2.2=C",
+          "text": "Los barrios empiezan a intercambiar turnos de energía. El sistema funciona durante la prueba, pero quienes disponen de más tiempo ofrecen más horas de vigilancia. Un vecino pregunta si el acceso al agua terminará dependiendo de poder asistir a todas las reuniones."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "C2.1",
+          "title": "Lo que una ventana no cuenta",
+          "scene": "Lúa ofrece el censo; Nara trae declaraciones de quienes llegaron. El tablero técnico muestra consumos anómalos. Puedes profundizar en una fuente antes del reparto, conservando las advertencias básicas de las otras.",
+          "question": "¿Con qué información revisarás el reparto?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Visitar hogares que no aparecen en las listas.",
+              "motive": "Las reglas deben reconocer a quienes quedaron fuera.",
+              "forecast_cost": "Las visitas registran datos delicados y retrasan la revisión de consumos.",
+              "immediate": "Identificas necesidades no censadas con permisos de uso distintos.",
+              "delayed": "C4 pedirá separar pruebas públicas de testimonios que te confiaron bajo reserva.",
+              "set_flag": "city_evidence=hogares",
+              "trust_if_known": {
+                "nara": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.1.A",
+              "callback": {
+                "id": "CB_C2.1.A",
+                "anchor": "C4.1",
+                "text": "C4 pedirá separar pruebas públicas de testimonios que te confiaron bajo reserva.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Contrastar los consumos y el mantenimiento con los operarios.",
+              "motive": "Una reserva útil requiere distinguir capacidad real y privilegio heredado.",
+              "forecast_cost": "Los registros no explican quién necesita ayuda ni quién puede adaptarse.",
+              "immediate": "Descubres que los turnos pueden coordinarse, pero requieren trabajo humano.",
+              "delayed": "C3 recibe un informe técnico que puede discutirse con los residentes de la montaña.",
+              "set_flag": "city_evidence=red",
+              "trust_if_known": {
+                "lua": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.1.B",
+              "callback": {
+                "id": "CB_C2.1.B",
+                "anchor": "C3.1",
+                "text": "C3 recibe un informe técnico que puede discutirse con los residentes de la montaña.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Pedir a cada barrio que nombre a quien hable por él.",
+              "motive": "Una representación local puede evitar que decidas desde fuera.",
+              "forecast_cost": "Quienes no están organizados o no pueden acudir pueden quedar sin voz.",
+              "immediate": "Obtienes un acuerdo de delegados y una lista explícita de ausencias.",
+              "delayed": "C5 preguntará cómo se representa a las comunidades sin delegación estable.",
+              "set_flag": "city_evidence=delegados",
+              "trust_if_known": {
+                "lua": 0,
+                "nara": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.1.C",
+              "callback": {
+                "id": "CB_C2.1.C",
+                "anchor": "C5.1",
+                "text": "C5 preguntará cómo se representa a las comunidades sin delegación estable.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "No tratar las mediciones como neutrales ni los testimonios como infalibles. Cada fuente revela y oculta algo.",
+          "foreshadow": "Las necesidades básicas urgentes ya reciben una ayuda mínima: el dilema es autonomía y sostenibilidad, no negar supervivencia.",
+          "next": "C2.2",
+          "unlock": {
+            "type": "memory",
+            "id": "M2.1",
+            "index": 1,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "nara",
+            "lua"
+          ],
+          "speaker": "lua",
+          "player_hint": "Las ventanas encendidas no coinciden con todos los hogares de la lista."
+        },
+        {
+          "id": "C2.2",
+          "title": "La reserva y las orillas",
+          "scene": "La reserva extraordinaria permite ampliar acceso, reforzar el mantenimiento o coordinar un ensayo de turnos. Lúa y Nara reconocen costes en sus propias propuestas.",
+          "question": "¿A qué dedicarás la reserva extraordinaria?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Dar suministro propio a hogares aún no atendidos.",
+              "motive": "La ayuda común no reemplaza la autonomía cotidiana.",
+              "forecast_cost": "Una parte del mantenimiento se aplaza y otra comunidad asumirá un servicio provisional.",
+              "immediate": "Se iluminan viviendas nuevas; se registra una deuda técnica concreta.",
+              "delayed": "C3 puede prestarte materiales, a cambio de limitar temporalmente su señal pública.",
+              "set_flag": "city_distribution=acceso",
+              "trust_if_known": {
+                "nara": 1,
+                "lua": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.2.A",
+              "callback": {
+                "id": "CB_C2.2.A",
+                "anchor": "C3.1",
+                "text": "C3 puede prestarte materiales, a cambio de limitar temporalmente su señal pública.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Asegurar la red y sostener alojamientos comunes mientras tanto.",
+              "motive": "Un fallo prolongado afectaría también a quienes acabas de incorporar.",
+              "forecast_cost": "La provisionalidad reduce autonomía y puede convertirse en una espera indefinida.",
+              "immediate": "La red se refuerza; los hogares pendientes reciben una fecha narrativa de revisión.",
+              "delayed": "C4 contrastará si mantuviste abierta esa revisión o la presentaste como asunto resuelto.",
+              "set_flag": "city_distribution=red",
+              "trust_if_known": {
+                "lua": 1,
+                "nara": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.2.B",
+              "callback": {
+                "id": "CB_C2.2.B",
+                "anchor": "C4.1",
+                "text": "C4 contrastará si mantuviste abierta esa revisión o la presentaste como asunto resuelto.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Ensayar turnos compartidos con vigilancia y límites de participación.",
+              "motive": "Una coordinación conocida puede repartir capacidad sin agotarla de inmediato.",
+              "forecast_cost": "Exige trabajo no remunerado de los vecinos y un fallo de coordinación perjudica al turno siguiente.",
+              "immediate": "Se activa una prueba acotada; las horas de vigilancia quedan registradas.",
+              "delayed": "En C5 la representación de quienes sostienen trabajo invisible condiciona la legitimidad del pacto.",
+              "set_flag": "city_distribution=turnos",
+              "trust_if_known": {
+                "lua": 0,
+                "nara": 0
+              },
+              "requires": {
+                "any": [
+                  "city_evidence=red",
+                  "forest_evidence=puente"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.2.C",
+              "callback": {
+                "id": "CB_C2.2.C",
+                "anchor": "C5.1",
+                "text": "En C5 la representación de quienes sostienen trabajo invisible condiciona la legitimidad del pacto.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La tercera vía desplaza el coste a coordinación y tiempo. No ofrece la misma capacidad sin pérdidas.",
+          "foreshadow": "La escena muestra qué mantenimiento, autonomía o trabajo queda comprometido antes de confirmar.",
+          "next": "C2.3",
+          "unlock": {
+            "type": "memory",
+            "id": "M2.2",
+            "index": 2,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": "BRANCH_C2",
+          "witnesses": [
+            "nara",
+            "lua"
+          ],
+          "speaker": "lua",
+          "player_hint": "La red necesita mantenimiento. Un suministro que funciona esta noche puede dejar una deuda para quienes lo sostienen."
+        },
+        {
+          "id": "C2.3",
+          "title": "La llave de una vivienda",
+          "scene": "Los recursos necesitan una regla de acceso. Una delegada pide residencia estable; una familia sostiene que contribuir no puede ser requisito para cuidar a alguien. Lúa solicita un criterio revisable.",
+          "question": "¿Qué regla provisional propondrás?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Reconocer acceso por necesidad, con una revisión de casos reservada.",
+              "motive": "Las circunstancias cambian y algunas cargas no son visibles.",
+              "forecast_cost": "Un grupo pequeño tendría poder para interpretar necesidades ajenas.",
+              "immediate": "Se crea una comisión con obligación de explicar criterios sin exhibir testimonios personales.",
+              "delayed": "C4 pondrá a prueba qué parte de esa justificación puede compartirse.",
+              "set_flag": "city_access=necesidad",
+              "trust_if_known": {
+                "nara": 1,
+                "lua": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.3.A",
+              "callback": {
+                "id": "CB_C2.3.A",
+                "anchor": "C4.1",
+                "text": "C4 pondrá a prueba qué parte de esa justificación puede compartirse.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Asignar cuotas claras a cada barrio y permitir intercambios acordados.",
+              "motive": "Una regla conocida permite planificar sin negociar cada excepción.",
+              "forecast_cost": "Una cuota igual puede tratar como iguales cargas muy distintas.",
+              "immediate": "Cada barrio recibe una cuota y un canal para solicitar ajustes.",
+              "delayed": "C5 discutirá si las regiones son la unidad adecuada para representar a las personas.",
+              "set_flag": "city_access=cuotas",
+              "trust_if_known": {
+                "lua": 1,
+                "nara": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.3.B",
+              "callback": {
+                "id": "CB_C2.3.B",
+                "anchor": "C5.1",
+                "text": "C5 discutirá si las regiones son la unidad adecuada para representar a las personas.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Garantizar una base y pedir aportes flexibles para ampliar el uso.",
+              "motive": "Se reconoce un derecho común y la necesidad de sostenerlo.",
+              "forecast_cost": "La evaluación de aportes puede infravalorar cuidados y excluir a quien no puede demostrar su trabajo.",
+              "immediate": "Se distingue el suministro básico del ampliado y se registran aportes de cuidado.",
+              "delayed": "C3 recibe una petición para que una persona cuidadora quede exenta de una nueva obligación.",
+              "set_flag": "city_access=base_aportes",
+              "trust_if_known": {
+                "lua": 0,
+                "nara": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.3.C",
+              "callback": {
+                "id": "CB_C2.3.C",
+                "anchor": "C3.1",
+                "text": "C3 recibe una petición para que una persona cuidadora quede exenta de una nueva obligación.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Ninguna regla se presenta como solución universal. El juego exige precisar quién revisa excepciones y cómo puede impugnarse una decisión.",
+          "foreshadow": "Una vecina describe un aporte que el formulario actual no sabe registrar.",
+          "next": "C2.4",
+          "unlock": {
+            "type": "memory",
+            "id": "M2.3",
+            "index": 3,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "lua"
+          ],
+          "speaker": "lua",
+          "player_hint": "Las cuotas parecen iguales desde la mesa, pero no todas las casas pueden aportar lo mismo."
+        },
+        {
+          "id": "C2.4",
+          "title": "La primera objeción",
+          "scene": "Una persona solicita revisar el reparto, pero su testimonio contiene información que otras personas no autorizaron a compartir. Hacer una excepción puede abrir un precedente o corregir un criterio incompleto.",
+          "question": "¿Cómo tramitarás la objeción?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Abrir una revisión con participación de quienes puedan verse afectados.",
+              "motive": "El criterio puede corregirse con razones discutidas públicamente.",
+              "forecast_cost": "Convocar a todos retrasa la respuesta y una participación formal no asegura equilibrio de poder.",
+              "immediate": "Se hace visible un procedimiento de revisión y quedan voces pendientes.",
+              "delayed": "C5 recupera este precedente para decidir el derecho de apelación.",
+              "set_flag": "city_review=participativa",
+              "trust_if_known": {
+                "nara": 1,
+                "lua": 0
+              },
+              "requires": {},
+              "honor_context": "Cumplir una revisión prometida sostiene el compromiso; usar participación aparente para ignorar objeciones lo tensiona.",
+              "event_id": "C2.4.A",
+              "callback": {
+                "id": "CB_C2.4.A",
+                "anchor": "C5.1",
+                "text": "C5 recupera este precedente para decidir el derecho de apelación.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Resolver el caso bajo reserva y publicar solo el criterio corregido.",
+              "motive": "Se atiende un caso urgente sin exponer detalles personales.",
+              "forecast_cost": "La reserva puede dificultar comprobar que el trato fue consistente.",
+              "immediate": "La persona obtiene respuesta; se publica una regla sin el expediente completo.",
+              "delayed": "C4 solicita una prueba auditable que proteja esa reserva.",
+              "set_flag": "city_review=reservada",
+              "trust_if_known": {
+                "lua": 1,
+                "nara": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.4.B",
+              "callback": {
+                "id": "CB_C2.4.B",
+                "anchor": "C4.1",
+                "text": "C4 solicita una prueba auditable que proteja esa reserva.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Someter el procedimiento a una revisión externa con plazo y salida.",
+              "motive": "Una mirada no implicada puede detectar una exclusión que el barrio normalizó.",
+              "forecast_cost": "El tercero gana influencia y el procedimiento depende de recursos de fuera.",
+              "immediate": "La auditoría tiene límites explícitos y un informe discutible, no una aprobación infalible.",
+              "delayed": "C5 debe decidir qué controles externos conservar y quién puede revocarlos.",
+              "set_flag": "city_review=externa",
+              "trust_if_known": {
+                "lua": 0,
+                "nara": 0
+              },
+              "requires": {
+                "any": [
+                  "forest_account=custodia",
+                  "city_evidence=delegados"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C2.4.C",
+              "callback": {
+                "id": "CB_C2.4.C",
+                "anchor": "C5.1",
+                "text": "C5 debe decidir qué controles externos conservar y quién puede revocarlos.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La respuesta a una objeción muestra el valor de una regla. No se identifica objetar con tener razón automáticamente.",
+          "foreshadow": "Se explica que ningún procedimiento puede convertir testimonios de terceros en material libre de consentimiento.",
+          "next": "C3.1",
+          "unlock": {
+            "type": "memory",
+            "id": "M2.4",
+            "index": 4,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "lua",
+            "oren"
+          ],
+          "speaker": "lua",
+          "player_hint": "Quien pide una revisión teme que su nombre vuelva a circular junto a su necesidad."
+        }
+      ],
+      "region_id": "marea"
+    },
+    {
+      "id": "C3",
+      "title": "La señal que también revelaba un hogar",
+      "region": "Cumbres del Viento",
+      "ethical_question": "¿Cómo revisas una promesa cuando cumplirla protege a unos y perjudica a otros?",
+      "premise": "Oren mantiene un faro que orienta caravanas. Una comunidad vive en un paso que pide reserva para no recibir una afluencia que no puede sostener. La nueva ruta permitiría transportar ayuda, pero difundirla modifica para siempre quién puede llegar.",
+      "truth": "El faro usa energía del mismo sistema que mantiene el Velo. Sus señales afectan rutas de ayuda y también permiten localizar lugares que antes permanecían apartados. El problema no es un perseguidor secreto: es el alcance de una infraestructura compartida.",
+      "characters": [
+        "Oren valora cumplir compromisos, pero un antiguo silencio suyo dejó aislado un taller.",
+        "La portavoz Sira pide control de acceso y reconoce que su comunidad también depende de intercambios externos."
+      ],
+      "foreshadow": [
+        "Una ruta publicada no puede volver a ser desconocida.",
+        "Una reserva absoluta también impide pedir ayuda con facilidad.",
+        "Mantener una escolta sin publicar el paso exige desatender otras señales."
+      ],
+      "branch_scenes": [
+        {
+          "when": "C3.2=A",
+          "text": "La señal dibuja un camino nuevo. Llegan los primeros materiales y también peticiones que Sira no había previsto. Oren marca el paso en su libro y tacha una promesa anterior de reserva. El mapa gana una ruta y la comunidad pierde parte del control sobre quién la conoce."
+        },
+        {
+          "when": "C3.2=B",
+          "text": "El faro mantiene las rutas conocidas. La comunidad conserva el control del paso y prepara un envío pequeño por su cuenta. Un taller de la ladera seguirá esperando. Sira no llama neutral a ese silencio: ofrece explicar personalmente a quién dejó sin atender."
+        },
+        {
+          "when": "C3.2=C",
+          "text": "Una escolta acompaña el traslado sin publicar el mapa. Durante el recorrido, la señal general queda bajo servicio reducido. Se completa el viaje, pero otras caravanas deben esperar en puntos seguros. La discreción tiene un coste visible para personas que nunca participaron en el acuerdo."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "C3.1",
+          "title": "La promesa que ya existía",
+          "scene": "Oren muestra una autorización antigua para mantener el paso en reserva. Sira dice que sus mayores no pueden comprometer indefinidamente a las nuevas generaciones. Un grupo de operarios pide que alguien escuche lo que cuesta sostener el faro.",
+          "question": "¿Qué revisarás antes de decidir?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Escuchar a residentes de distintas generaciones.",
+              "motive": "Una autorización antigua puede haber perdido representatividad.",
+              "forecast_cost": "La comunidad debe discutir diferencias que prefería resolver en privado.",
+              "immediate": "Se conocen apoyos y desacuerdos dentro del paso; no aparece una sola voz auténtica.",
+              "delayed": "C5 permitirá proponer representación que no dependa de una única autoridad regional.",
+              "set_flag": "mountain_evidence=residentes",
+              "trust_if_known": {
+                "sira": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.1.A",
+              "callback": {
+                "id": "CB_C3.1.A",
+                "anchor": "C5.1",
+                "text": "C5 permitirá proponer representación que no dependa de una única autoridad regional.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Revisar qué prometió el faro y con qué límites.",
+              "motive": "Una promesa precisa puede renegociarse mejor que una tradición vaga.",
+              "forecast_cost": "El archivo deja fuera acuerdos orales y personas que no firmaron.",
+              "immediate": "Descubres que la reserva tenía una revisión pendiente.",
+              "delayed": "C4 revela otro consentimiento que fue tratado como permanente.",
+              "set_flag": "mountain_evidence=mandato",
+              "trust_if_known": {
+                "oren": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.1.B",
+              "callback": {
+                "id": "CB_C3.1.B",
+                "anchor": "C4.1",
+                "text": "C4 revela otro consentimiento que fue tratado como permanente.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Acompañar un turno de señal y medir su capacidad real.",
+              "motive": "Una alternativa discreta necesita saber quién la sostendría.",
+              "forecast_cost": "Los datos técnicos no legitiman por sí solos abrir un hogar ajeno.",
+              "immediate": "Se habilita la opción de escolta con servicio general reducido.",
+              "delayed": "C5 recupera el registro del trabajo que otras personas asumieron para hacerla posible.",
+              "set_flag": "mountain_evidence=operacion",
+              "trust_if_known": {
+                "oren": 1,
+                "sira": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.1.C",
+              "callback": {
+                "id": "CB_C3.1.C",
+                "anchor": "C5.1",
+                "text": "C5 recupera el registro del trabajo que otras personas asumieron para hacerla posible.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La comunidad del paso tiene desacuerdos internos. El juego no equipara tradición con consentimiento ni medición con autorización.",
+          "foreshadow": "Sira explica que conocer el paso cambia la situación incluso si después se limita su uso.",
+          "next": "C3.2",
+          "unlock": {
+            "type": "memory",
+            "id": "M3.1",
+            "index": 1,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "oren",
+            "sira"
+          ],
+          "speaker": "oren",
+          "player_hint": "La señal orienta a quienes viajan y también hace visible el lugar de quienes viven aquí."
+        },
+        {
+          "id": "C3.2",
+          "title": "Una señal para quién",
+          "scene": "El envío puede llegar por una ruta pública, mantenerse en las rutas antiguas o ser escoltado con un coste de servicio. Los interlocutores nombran por adelantado a quienes soportarán cada pérdida.",
+          "question": "¿Qué señal darás?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Publicar el paso con condiciones de acceso acordadas.",
+              "motive": "La ruta puede sostener un intercambio más amplio y verificable.",
+              "forecast_cost": "El conocimiento de la ruta se extiende más allá de quienes aceptaron sus condiciones.",
+              "immediate": "La ayuda llega; aparecen visitantes y una necesidad nueva de regular el acceso.",
+              "delayed": "C4 pregunta si publicar información puede acompañarse de límites que realmente sean exigibles.",
+              "set_flag": "mountain_signal=abrir",
+              "trust_if_known": {
+                "oren": 1,
+                "sira": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.2.A",
+              "callback": {
+                "id": "CB_C3.2.A",
+                "anchor": "C4.1",
+                "text": "C4 pregunta si publicar información puede acompañarse de límites que realmente sean exigibles.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Mantener la reserva y solicitar ayuda por las rutas conocidas.",
+              "motive": "Se conserva la capacidad local para decidir cómo recibir a otros.",
+              "forecast_cost": "La ayuda tarda más y el control local también puede sostener exclusiones internas.",
+              "immediate": "El paso sigue reservado; se registran necesidades que no se atenderán todavía.",
+              "delayed": "C5 exige representar a quienes quedaron fuera de esa protección.",
+              "set_flag": "mountain_signal=reservar",
+              "trust_if_known": {
+                "sira": 1,
+                "oren": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.2.B",
+              "callback": {
+                "id": "CB_C3.2.B",
+                "anchor": "C5.1",
+                "text": "C5 exige representar a quienes quedaron fuera de esa protección.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Escoltar un envío sin difundir el trazado completo.",
+              "motive": "Permite una ayuda acotada bajo control de sus anfitriones.",
+              "forecast_cost": "Reduce otras señales y depende de que nadie convierta una excepción en ruta permanente.",
+              "immediate": "Se completa una escolta y se registra la limitación temporal del faro.",
+              "delayed": "C4 una persona de la escolta solicita corregir el relato público del viaje.",
+              "set_flag": "mountain_signal=escolta",
+              "trust_if_known": {
+                "sira": 0,
+                "oren": 0
+              },
+              "requires": {
+                "any": [
+                  "mountain_evidence=operacion",
+                  "city_distribution=turnos"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.2.C",
+              "callback": {
+                "id": "CB_C3.2.C",
+                "anchor": "C4.1",
+                "text": "C4 una persona de la escolta solicita corregir el relato público del viaje.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Ninguna opción combina ayuda ilimitada, privacidad intacta y servicio general completo. Una decisión mayoritaria tampoco cancela las disidencias.",
+          "foreshadow": "La escena nombra expresamente el coste de señal y la irreversibilidad de difundir una ruta.",
+          "next": "C3.3",
+          "unlock": {
+            "type": "memory",
+            "id": "M3.2",
+            "index": 2,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": "BRANCH_C3",
+          "witnesses": [
+            "oren",
+            "sira"
+          ],
+          "speaker": "oren",
+          "player_hint": "Un camino publicado ya no puede volver a ser desconocido para quienes lo han visto."
+        },
+        {
+          "id": "C3.3",
+          "title": "Revisar la palabra",
+          "scene": "Tu decisión coincide con algunas promesas y entra en tensión con otras. Oren te propone dejar un registro que permita distinguir una revisión necesaria de una promesa silenciosamente abandonada.",
+          "question": "¿Cómo responderás por los compromisos que cambian?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Explicar el cambio a sus afectados y pedir un nuevo acuerdo.",
+              "motive": "Renegociar reconoce que las circunstancias y las personas cambiaron.",
+              "forecast_cost": "Algunas personas no aceptarán la nueva obligación ni te liberarán de la anterior.",
+              "immediate": "Queda un acuerdo revisado con apoyos y desacuerdos identificados.",
+              "delayed": "C5 te recordará que desacuerdo reconocido no equivale a consentimiento universal.",
+              "set_flag": "mountain_word=renegociar",
+              "trust_if_known": {
+                "oren": 0,
+                "sira": 0
+              },
+              "requires": {},
+              "honor_context": "La renegociación de buena fe registra coherencia revisada; no concede una absolución ni un premio repetible.",
+              "event_id": "C3.3.A",
+              "callback": {
+                "id": "CB_C3.3.A",
+                "anchor": "C5.1",
+                "text": "C5 te recordará que desacuerdo reconocido no equivale a consentimiento universal.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Asumir personalmente una obligación de reparación concreta.",
+              "motive": "Quien decide puede aceptar una parte del coste que impuso.",
+              "forecast_cost": "Un guardián no puede prometer trabajo o recursos de otros sin consultarlos.",
+              "immediate": "Se fija una reparación propia, alcanzable en una escena posterior.",
+              "delayed": "En C4 puedes cumplirla o solicitar su revisión explicando el nuevo coste.",
+              "set_flag": "mountain_word=reparacion",
+              "trust_if_known": {
+                "oren": 1
+              },
+              "requires": {},
+              "honor_context": "Solo se registra la obligación propia aceptada; el honor se observa cuando se cumple o se revisa con razones.",
+              "event_id": "C3.3.B",
+              "callback": {
+                "id": "CB_C3.3.B",
+                "anchor": "C4.1",
+                "text": "En C4 puedes cumplirla o solicitar su revisión explicando el nuevo coste.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Dejar una revisión abierta con un límite explícito de lo prometido.",
+              "motive": "Evita fingir un acuerdo que todavía no existe.",
+              "forecast_cost": "La incertidumbre obliga a otros a planificar sin una garantía clara.",
+              "immediate": "El Atlas registra una cuestión pendiente y qué acciones no has autorizado.",
+              "delayed": "En C5 esa cuestión necesita una decisión, aunque el resultado vuelva a ser provisional.",
+              "set_flag": "mountain_word=limitar",
+              "trust_if_known": {
+                "sira": 0,
+                "oren": -1
+              },
+              "requires": {},
+              "honor_context": "Reconocer límites puede sostener la palabra; usar la provisionalidad para evadir indefinidamente exige una consecuencia.",
+              "event_id": "C3.3.C",
+              "callback": {
+                "id": "CB_C3.3.C",
+                "anchor": "C5.1",
+                "text": "En C5 esa cuestión necesita una decisión, aunque el resultado vuelva a ser provisional.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Las tres respuestas pueden ser coherentes. No asignar honor por pronunciar las palabras disculpa o promesa.",
+          "foreshadow": "Se distingue reparar con recursos propios de comprometer a terceros.",
+          "next": "C3.4",
+          "unlock": {
+            "type": "memory",
+            "id": "M3.3",
+            "index": 3,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "oren"
+          ],
+          "speaker": "oren",
+          "player_hint": "Una promesa antigua sigue escrita. Las personas que deben sostenerla han cambiado."
+        },
+        {
+          "id": "C3.4",
+          "title": "La llave del faro",
+          "scene": "La ruta elegida necesita una institución que la sostenga. Sira y Oren discrepan incluso cuando ambos apoyaron tu señal. Queda por decidir cómo podrá revisarse la autoridad.",
+          "question": "¿Quién custodiará el próximo cambio de señal?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Un equipo técnico con mandato público y derecho de apelación.",
+              "motive": "La continuidad requiere personas que conozcan el sistema.",
+              "forecast_cost": "La especialización puede concentrar poder y hacer difícil cuestionar una explicación técnica.",
+              "immediate": "El Atlas muestra un faro de custodia técnica y un registro de apelaciones.",
+              "delayed": "C5 recibe este modelo como precedente, con sus objeciones pendientes.",
+              "set_flag": "mountain_custody=tecnica",
+              "trust_if_known": {
+                "oren": 1,
+                "sira": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.4.A",
+              "callback": {
+                "id": "CB_C3.4.A",
+                "anchor": "C5.1",
+                "text": "C5 recibe este modelo como precedente, con sus objeciones pendientes.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Los residentes, mediante permisos que puedan revocar.",
+              "motive": "Quienes reciben el impacto deben poder modificar sus condiciones.",
+              "forecast_cost": "La decisión local puede trasladar costes de aislamiento a otras regiones.",
+              "immediate": "Aparece un refugio con una llave local y rutas de acceso condicionadas.",
+              "delayed": "En C5 otras regiones pedirán una regla para resolver ese traslado de costes.",
+              "set_flag": "mountain_custody=local",
+              "trust_if_known": {
+                "sira": 1,
+                "oren": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.4.B",
+              "callback": {
+                "id": "CB_C3.4.B",
+                "anchor": "C5.1",
+                "text": "En C5 otras regiones pedirán una regla para resolver ese traslado de costes.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Una custodia rotativa con respaldo técnico y cupos para ausentes.",
+              "motive": "Reparte autoridad y reconoce que no todas las voces pueden acudir siempre.",
+              "forecast_cost": "Aprender los turnos consume tiempo y la representación de ausentes puede volver a concentrarse.",
+              "immediate": "El mapa conserva una estación de relevos y tareas de formación.",
+              "delayed": "C5 debe decidir cómo financiar el trabajo de participación y cuidado.",
+              "set_flag": "mountain_custody=rotativa",
+              "trust_if_known": {
+                "oren": 0,
+                "sira": 0
+              },
+              "requires": {
+                "any": [
+                  "mountain_evidence=residentes",
+                  "city_review=participativa"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C3.4.C",
+              "callback": {
+                "id": "CB_C3.4.C",
+                "anchor": "C5.1",
+                "text": "C5 debe decidir cómo financiar el trabajo de participación y cuidado.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La forma mixta también tiene costes de aprendizaje, tiempo y poder. No se representa como la conciliación perfecta.",
+          "foreshadow": "Una residente explica que aceptar un turno puede implicar dejar a alguien sin cuidados durante unas horas.",
+          "next": "C4.1",
+          "unlock": {
+            "type": "memory",
+            "id": "M3.4",
+            "index": 4,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "oren",
+            "sira"
+          ],
+          "speaker": "sira",
+          "player_hint": "La llave del faro abre una puerta y entrega una responsabilidad."
+        }
+      ],
+      "region_id": "cumbres"
+    },
+    {
+      "id": "C4",
+      "title": "Los nombres dentro del cristal",
+      "region": "Desierto de Cristal",
+      "ethical_question": "¿Quién puede autorizar que una verdad compartida vuelva a ser pública?",
+      "premise": "Iria reúne cristales que conservan registros del Pacto del Velo. Sus fragmentos permiten verificar una revisión incumplida, pero mezclan acuerdos públicos con recuerdos personales. Dar acceso a un cristal puede mostrar más de lo que dice una transcripción.",
+      "truth": "El Velo fue aceptado después de una emergencia por algunas comunidades, rechazado por otras y renovado con representaciones incompletas. No lo inventó un villano omnipotente. El sistema preservó vidas e infraestructuras, pero amortiguó también recuerdos de desacuerdo y fue difícil dejarlo.",
+      "characters": [
+        "Iria quiere abrir el archivo para cuestionar una autoridad que la excluyó; también reservó un fragmento porque contradice la historia que su taller cuenta de sí mismo.",
+        "Dara quiere que se reconozca su testimonio y teme que anonimizarla deje su experiencia en manos de intérpretes."
+      ],
+      "foreshadow": [
+        "Un cristal íntegro contiene escenas personales que no figuran en su catálogo.",
+        "Eliminar nombres no impide siempre que alguien sea reconocido.",
+        "Esperar consentimiento completo puede dar poder de veto a quienes se beneficiaron del silencio."
+      ],
+      "branch_scenes": [
+        {
+          "when": "C4.2=A",
+          "text": "La plaza ve los registros con las reservas que pudieron acordarse. Algunas personas recuperan una prueba de lo que vivieron; otras se reconocen en escenas que no esperaban ver. Dara pide hablar por sí misma. Iria descubre que su taller también tendrá que explicar una omisión."
+        },
+        {
+          "when": "C4.2=B",
+          "text": "Los cristales quedan bajo custodia de sus voces. Se autorizan testimonios concretos y se reservan otros. Una delegación reclama que una revisión pendiente sigue sin poder exigirse con pruebas comunes. La reserva protege a personas y también prolonga una asimetría de información."
+        },
+        {
+          "when": "C4.2=C",
+          "text": "Un resumen contrastado permite mostrar el patrón sin abrir todos los cristales. La comunidad comprende el problema, pero no puede atribuir cada responsabilidad. Dara pregunta quién decidió que su nombre era prescindible para contar lo que le ocurrió."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "C4.1",
+          "title": "Tres formas de comprobar",
+          "scene": "Iria presenta un índice de fragmentos. Dara solicita revisar cómo aparece su voz. Una custodia ofrece certificar copias, pero su antiguo mandato podría limitar quién accede a ellas.",
+          "question": "¿Qué comprobación priorizarás?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Revisar los fragmentos con personas que aparecen en ellos.",
+              "motive": "El contexto de un testigo puede corregir una interpretación convincente pero falsa.",
+              "forecast_cost": "Algunas voces no podrán acudir y otras pueden pedir excluir hechos que afectan a más personas.",
+              "immediate": "Identificas consentimientos diferenciados y desacuerdos sobre autoría.",
+              "delayed": "C5 podrá convocar a esas voces sin fingir que representan a todas las personas del pasado.",
+              "set_flag": "desert_evidence=voces",
+              "trust_if_known": {
+                "dara": 1,
+                "iria": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.1.A",
+              "callback": {
+                "id": "CB_C4.1.A",
+                "anchor": "C5.1",
+                "text": "C5 podrá convocar a esas voces sin fingir que representan a todas las personas del pasado.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Contrastar la cadena de copias y los acuerdos públicos.",
+              "motive": "Una prueba útil necesita saber qué se alteró y quién la custodió.",
+              "forecast_cost": "La certificación institucional no explica todo el daño ni garantiza que sus criterios fueran legítimos.",
+              "immediate": "Obtienes trazabilidad y una discrepancia entre la autorización original y su renovación.",
+              "delayed": "C5 puede revisar procedimientos con evidencia firme, aunque falten experiencias individuales.",
+              "set_flag": "desert_evidence=cadena",
+              "trust_if_known": {
+                "iria": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.1.B",
+              "callback": {
+                "id": "CB_C4.1.B",
+                "anchor": "C5.1",
+                "text": "C5 puede revisar procedimientos con evidencia firme, aunque falten experiencias individuales.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Comparar fragmentos sin nombres para comprobar el patrón.",
+              "motive": "Permite evaluar la estructura sin abrir de inmediato cada recuerdo personal.",
+              "forecast_cost": "Se pierde contexto y el anonimato puede impedir que alguien reclame autoría o reparación.",
+              "immediate": "Se habilita un resumen contrastado con sus límites documentados.",
+              "delayed": "C5 deberá resolver si ese resumen basta para asignar obligaciones de reparación.",
+              "set_flag": "desert_evidence=patron",
+              "trust_if_known": {
+                "iria": 0,
+                "dara": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.1.C",
+              "callback": {
+                "id": "CB_C4.1.C",
+                "anchor": "C5.1",
+                "text": "C5 deberá resolver si ese resumen basta para asignar obligaciones de reparación.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Las tres comprobaciones producen conocimientos distintos. El diálogo debe señalar qué no permite concluir cada una.",
+          "foreshadow": "Dara pide que protegerla no se convierta automáticamente en hablar en su nombre.",
+          "next": "C4.2",
+          "unlock": {
+            "type": "memory",
+            "id": "M4.1",
+            "index": 1,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "iria",
+            "dara"
+          ],
+          "speaker": "iria",
+          "player_hint": "Los cristales guardan fragmentos. Un registro intacto no garantiza que estén todas las voces."
+        },
+        {
+          "id": "C4.2",
+          "title": "Abrir una verdad",
+          "scene": "Las pruebas muestran una revisión del Velo que nunca representó a todos. Aún debe decidirse qué parte del archivo puede circular para discutirla. No existe una publicación que garantice consecuencias totalmente controlables.",
+          "question": "¿Qué abrirás a la comunidad?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Compartir los registros verificables, con reservas explícitas y derecho de respuesta.",
+              "motive": "Permite discutir hechos sin depender solo del relato de una custodia.",
+              "forecast_cost": "Los datos compartidos pueden permitir identificaciones indirectas; las ausencias de consentimiento siguen importando.",
+              "immediate": "Circulan pruebas amplias y una lista de límites y objeciones.",
+              "delayed": "C5 recibe voces empoderadas y reclamaciones de quienes se sintieron expuestos.",
+              "set_flag": "desert_disclosure=abierta",
+              "trust_if_known": {
+                "iria": 1,
+                "dara": 0
+              },
+              "requires": {},
+              "honor_context": "No premiar publicar por defecto. Contrastar qué autorizaciones se respetaron y qué excepciones se comunicaron.",
+              "event_id": "C4.2.A",
+              "callback": {
+                "id": "CB_C4.2.A",
+                "anchor": "C5.1",
+                "text": "C5 recibe voces empoderadas y reclamaciones de quienes se sintieron expuestos.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Mantener los cristales bajo autorización de sus voces y compartir cada testimonio permitido.",
+              "motive": "Reconoce control personal sobre recuerdos sensibles.",
+              "forecast_cost": "La autorización fragmentada puede bloquear una prueba que afecta a una decisión colectiva.",
+              "immediate": "Algunas voces se publican con nombre; otras permanecen reservadas.",
+              "delayed": "C5 recibe una verdad incompleta y una demanda de garantías para el disenso individual.",
+              "set_flag": "desert_disclosure=consentida",
+              "trust_if_known": {
+                "dara": 1,
+                "iria": -1
+              },
+              "requires": {},
+              "honor_context": "Cumplir una reserva puede sostener el juramento. No confundir consentimiento de una voz con potestad para borrar hechos colectivos.",
+              "event_id": "C4.2.B",
+              "callback": {
+                "id": "CB_C4.2.B",
+                "anchor": "C5.1",
+                "text": "C5 recibe una verdad incompleta y una demanda de garantías para el disenso individual.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Publicar un resumen contrastado y conservar acceso restringido a los originales.",
+              "motive": "Permite discutir un problema común mientras se reduce una parte de la exposición.",
+              "forecast_cost": "El resumen concentra poder en sus intérpretes y dificulta atribuir ciertas responsabilidades.",
+              "immediate": "Se comparte el patrón con un procedimiento para cuestionar la selección.",
+              "delayed": "C5 debe decidir quién audita a quienes preparan resúmenes para el reino.",
+              "set_flag": "desert_disclosure=resumen",
+              "trust_if_known": {
+                "iria": 0,
+                "dara": 0
+              },
+              "requires": {
+                "any": [
+                  "desert_evidence=patron",
+                  "testimony=capas_separadas"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.2.C",
+              "callback": {
+                "id": "CB_C4.2.C",
+                "anchor": "C5.1",
+                "text": "C5 debe decidir quién audita a quienes preparan resúmenes para el reino.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "El resumen no es la solución correcta oculta: pierde contexto, poder de autoría y capacidad de atribución.",
+          "foreshadow": "El Atlas anticipa qué información se vuelve irrecuperablemente pública y quién podrá corregirla.",
+          "next": "C4.3",
+          "unlock": {
+            "type": "memory",
+            "id": "M4.2",
+            "index": 2,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": "BRANCH_C4",
+          "witnesses": [
+            "iria",
+            "dara"
+          ],
+          "speaker": "iria",
+          "player_hint": "Compartir una prueba puede dar fuerza a un reclamo y exponer a quien habló."
+        },
+        {
+          "id": "C4.3",
+          "title": "Una voz corrige al guardián",
+          "scene": "Dara encuentra una frase de su testimonio que el relato del viaje simplificó. La frase afecta a otras personas y altera una explicación que te favorecía. Pide una corrección, sin ofrecer una versión que todos acepten.",
+          "question": "¿Cómo incorporarás la discrepancia?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Añadir su versión junto a la anterior, con el desacuerdo visible.",
+              "motive": "La contradicción puede ser parte de una memoria fiel.",
+              "forecast_cost": "Mantener ambas versiones expone a Dara a discusión y puede confundir a quien busca una conclusión breve.",
+              "immediate": "El Atlas conserva dos versiones atribuidas y señala qué está disputado.",
+              "delayed": "C5 ofrece una forma de archivo que admite registros impugnados sin fingir unanimidad.",
+              "set_flag": "desert_correction=plural",
+              "trust_if_known": {
+                "dara": 1,
+                "iria": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.3.A",
+              "callback": {
+                "id": "CB_C4.3.A",
+                "anchor": "C5.1",
+                "text": "C5 ofrece una forma de archivo que admite registros impugnados sin fingir unanimidad.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Corregir el relato principal y conservar bajo reserva el historial de cambios.",
+              "motive": "Una versión más precisa puede evitar que siga circulando una síntesis dañina.",
+              "forecast_cost": "La reserva del historial dificulta auditar cómo se llegó a la nueva versión.",
+              "immediate": "La escena y la memoria cambian; una nota indica que existe una revisión reservada.",
+              "delayed": "C5 debe decidir quién puede consultar los historiales y con qué mandato.",
+              "set_flag": "desert_correction=reemplazo",
+              "trust_if_known": {
+                "dara": 0,
+                "iria": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.3.B",
+              "callback": {
+                "id": "CB_C4.3.B",
+                "anchor": "C5.1",
+                "text": "C5 debe decidir quién puede consultar los historiales y con qué mandato.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Suspender esa parte del relato hasta contrastarla con las otras voces.",
+              "motive": "Evita dar por resuelta una disputa con información insuficiente.",
+              "forecast_cost": "La suspensión puede prolongar una interpretación injusta o perjudicar el reconocimiento que Dara necesita ahora.",
+              "immediate": "La memoria queda marcada como discutida, sin retirar los premios de la actividad.",
+              "delayed": "C5 recibe un expediente pendiente que debe poder seguirse sin excluir la voz de Dara.",
+              "set_flag": "desert_correction=pendiente",
+              "trust_if_known": {
+                "dara": -1,
+                "iria": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.3.C",
+              "callback": {
+                "id": "CB_C4.3.C",
+                "anchor": "C5.1",
+                "text": "C5 recibe un expediente pendiente que debe poder seguirse sin excluir la voz de Dara.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La rectificación no es siempre una confesión heroica. Puede exigir preservar diferencias o aceptar una incertidumbre visible.",
+          "foreshadow": "La respuesta explica quién se perjudica mientras se espera y qué evidencia falta para resolver la disputa.",
+          "next": "C4.4",
+          "unlock": {
+            "type": "memory",
+            "id": "M4.3",
+            "index": 3,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "dara"
+          ],
+          "speaker": "dara",
+          "player_hint": "Dos versiones no encajan. Corregir el relato exige decidir qué ocurre con la versión anterior."
+        },
+        {
+          "id": "C4.4",
+          "title": "El mandato de una lente",
+          "scene": "La Lente de Ecos permite leer conexiones entre recuerdos. Iria propone una institución para enseñar su uso. Dara solicita poder retirar una autorización cuando cambie el contexto de una publicación.",
+          "question": "¿Qué institución dejarás en el desierto?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Un observatorio público con responsables estables y auditoría.",
+              "motive": "La continuidad y la competencia pueden sostener un archivo accesible.",
+              "forecast_cost": "El personal del observatorio puede concentrar capacidad para interpretar y certificar la memoria.",
+              "immediate": "Aparece una cúpula abierta y un registro de impugnaciones.",
+              "delayed": "C5 hereda una institución capaz, con el problema de quién controla a sus custodios.",
+              "set_flag": "desert_institution=observatorio",
+              "trust_if_known": {
+                "iria": 1,
+                "dara": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.4.A",
+              "callback": {
+                "id": "CB_C4.4.A",
+                "anchor": "C5.1",
+                "text": "C5 hereda una institución capaz, con el problema de quién controla a sus custodios.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Un taller de copias bajo control de sus comunidades de origen.",
+              "motive": "La memoria puede viajar sin depender de una única institución.",
+              "forecast_cost": "Las copias divergen y las comunidades con menos medios pueden quedar peor representadas.",
+              "immediate": "Aparece un taller con varias colecciones y criterios distintos de acceso.",
+              "delayed": "C5 necesita una regla para resolver disputas entre archivos autónomos.",
+              "set_flag": "desert_institution=taller",
+              "trust_if_known": {
+                "dara": 1,
+                "iria": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.4.B",
+              "callback": {
+                "id": "CB_C4.4.B",
+                "anchor": "C5.1",
+                "text": "C5 necesita una regla para resolver disputas entre archivos autónomos.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Una cámara de revisión que preste la lente por mandatos acotados.",
+              "motive": "Limita el poder permanente de cualquier custodio.",
+              "forecast_cost": "Cada caso requiere coordinación y los expedientes urgentes pueden esperar demasiado.",
+              "immediate": "Aparece una cámara de revisión y un calendario de préstamos.",
+              "delayed": "C5 debe decidir cómo sostener ese trabajo y atender emergencias entre revisiones.",
+              "set_flag": "desert_institution=camara",
+              "trust_if_known": {
+                "iria": 0,
+                "dara": 0
+              },
+              "requires": {
+                "any": [
+                  "desert_correction=plural",
+                  "city_review=externa"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C4.4.C",
+              "callback": {
+                "id": "CB_C4.4.C",
+                "anchor": "C5.1",
+                "text": "C5 debe decidir cómo sostener ese trabajo y atender emergencias entre revisiones.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La tercera institución resuelve una concentración y crea una demora. Sus límites deben aparecer en el epílogo, no solo en una nota del diseñador.",
+          "foreshadow": "Iria calcula cuántas personas hacen falta para que una custodia rotativa no dependa del trabajo gratuito de siempre.",
+          "next": "C5.1",
+          "unlock": {
+            "type": "memory",
+            "id": "M4.4",
+            "index": 4,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "iria",
+            "dara"
+          ],
+          "speaker": "iria",
+          "player_hint": "Quien custodiará la lente necesitará explicar también sus límites."
+        }
+      ],
+      "region_id": "cristal"
+    },
+    {
+      "id": "C5",
+      "title": "La página que ninguna mano podía firmar sola",
+      "region": "Ciudad del Eclipse",
+      "ethical_question": "¿Cómo distribuyes un poder que puede proteger, revelar y excluir a la vez?",
+      "premise": "Aren custodia el nodo que conecta el Velo. Reúne los registros de tus cuatro territorios, con sus acuerdos y objeciones. La verdad es compartida, pero las necesidades no son iguales: cada región depende del sistema de una forma distinta.",
+      "truth": "El nodo no puede simplemente apagarse sin un tránsito de infraestructuras y autorizaciones. El Pacto original fue una respuesta limitada que se volvió permanente. Ahora se puede cambiar su gobierno y sus revisiones, sin fingir que existe una arquitectura sin riesgos.",
+      "characters": [
+        "Aren teme otra emergencia y también sabe que su propia institución ganó autoridad con las prórrogas.",
+        "Los interlocutores de capítulos anteriores no forman dos bandos fijos: apoyan o cuestionan propuestas según sus experiencias concretas."
+      ],
+      "foreshadow": [
+        "Una transición inmediata puede desplazar costes a comunidades que no pudieron prepararse.",
+        "Esperar unanimidad puede conservar un sistema que algunos nunca aceptaron.",
+        "Distribuir llaves no distribuye automáticamente conocimientos ni capacidad de impugnación."
+      ],
+      "branch_scenes": [
+        {
+          "when": "C5.2=A",
+          "text": "Las regiones reciben una señal de cambio coordinado. El reino avanza a una fecha común y algunas comunidades necesitan asistencia para llegar a ella. Quienes estaban listos temen que otra prórroga silencie su desacuerdo. Aren debe explicar cada excepción delante de sus antiguos críticos."
+        },
+        {
+          "when": "C5.2=B",
+          "text": "Cada región comienza cuando cumple las condiciones que acordó. Un lugar recupera recuerdos mientras otro conserva parte del Velo. Las rutas entre ambos necesitan nuevas reglas: el derecho a decidir localmente también modifica la vida de quienes atraviesan la frontera."
+        },
+        {
+          "when": "C5.2=C",
+          "text": "Se abre una prueba limitada con salida documentada. Los resultados dan información útil, pero las comunidades que aceptaron probar antes asumieron una incertidumbre que el resto no compartió. La reversibilidad técnica no puede devolver un secreto que ya fue revelado."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "C5.1",
+          "title": "Quién puede hablar por lo vivido",
+          "scene": "Aren ofrece asientos a las autoridades regionales. Llegan personas que sostuvieron cuidados, traslados y testimonios sin formar parte de esos gobiernos. Todas pueden aportar razones; ninguna lista elimina la dificultad de representar a quien falta.",
+          "question": "¿Cómo constituirás la deliberación final?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Dar representación a cada territorio con obligación de explicar su mandato.",
+              "motive": "Las regiones conocen obligaciones y recursos que una asamblea nueva podría pasar por alto.",
+              "forecast_cost": "Las minorías internas pueden quedar subsumidas en una voz regional.",
+              "immediate": "Se reúnen delegaciones con mandatos y objeciones registradas.",
+              "delayed": "El epílogo recuerda qué comunidades siguieron sin una voz propia.",
+              "set_flag": "final_voice=territorios",
+              "trust_if_known": {
+                "aren": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.1.A",
+              "callback": {
+                "id": "CB_C5.1.A",
+                "anchor": "EPI",
+                "text": "El epílogo recuerda qué comunidades siguieron sin una voz propia.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Incluir representantes de quienes asumieron los costes del viaje.",
+              "motive": "La experiencia de una pérdida aporta un conocimiento que el cargo no garantiza.",
+              "forecast_cost": "Quien decide qué cuenta como daño puede convertir esa representación en otra exclusión.",
+              "immediate": "Se suman voces de familias, testigos y trabajos de cuidado.",
+              "delayed": "El epílogo conserva una disputa sobre daños poco visibles o no acreditados.",
+              "set_flag": "final_voice=afectados",
+              "trust_if_known": {
+                "aren": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.1.B",
+              "callback": {
+                "id": "CB_C5.1.B",
+                "anchor": "EPI",
+                "text": "El epílogo conserva una disputa sobre daños poco visibles o no acreditados.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Combinar sorteo acotado, voces afectadas y asesoría con límites.",
+              "motive": "Puede reducir la captura de una mesa por las mismas autoridades.",
+              "forecast_cost": "Las nuevas personas necesitan tiempo y pueden depender de sus asesores.",
+              "immediate": "La deliberación incluye formación y posibilidad de rechazar una representación.",
+              "delayed": "El epílogo muestra quién sostuvo ese tiempo de aprendizaje y quién no pudo participar.",
+              "set_flag": "final_voice=mixta",
+              "trust_if_known": {
+                "aren": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.1.C",
+              "callback": {
+                "id": "CB_C5.1.C",
+                "anchor": "EPI",
+                "text": "El epílogo muestra quién sostuvo ese tiempo de aprendizaje y quién no pudo participar.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Ningún mecanismo equivale automáticamente a democracia suficiente. La escena debe nombrar el tipo de ausencia que produce.",
+          "foreshadow": "Aren reconoce que ofrecer una silla no asegura tener recursos para ocuparla.",
+          "next": "C5.2",
+          "unlock": {
+            "type": "memory",
+            "id": "M5.1",
+            "index": 1,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "aren"
+          ],
+          "speaker": "aren",
+          "player_hint": "En la plaza hay representantes, personas afectadas y asientos todavía vacíos."
+        },
+        {
+          "id": "C5.2",
+          "title": "El ritmo del despertar",
+          "scene": "Los informes muestran capacidades desiguales. La ciudad puede coordinar una transición, permitir tiempos regionales o habilitar una prueba reversible en algunos aspectos. Los hechos ya revelados no pueden volverse secretos.",
+          "question": "¿Cómo iniciarás el cambio del Velo?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Acordar una transición común con garantías mínimas y fechas revisables.",
+              "motive": "Nadie debería depender de una frontera para conservar derechos básicos.",
+              "forecast_cost": "Algunos lugares listos para cambiar tendrán que esperar o financiar parte del tránsito de otros.",
+              "immediate": "Se firma un calendario común con excepciones justificadas.",
+              "delayed": "En el epílogo habrá capacidad compartida y disputas sobre demoras y distribución.",
+              "set_flag": "final_transition=comun",
+              "trust_if_known": {
+                "aren": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.2.A",
+              "callback": {
+                "id": "CB_C5.2.A",
+                "anchor": "EPI",
+                "text": "En el epílogo habrá capacidad compartida y disputas sobre demoras y distribución.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Permitir tránsitos regionales con reglas para sus efectos sobre vecinos.",
+              "motive": "Cada comunidad conoce su preparación y necesita poder salir de una tutela.",
+              "forecast_cost": "Las diferencias entre regiones pueden crear ventajas y trasladar costes a quienes no eligieron ese ritmo.",
+              "immediate": "El mapa conserva tiempos distintos de revisión y acuerdos fronterizos.",
+              "delayed": "En el epílogo aparecen innovaciones locales y conflictos entre calendarios.",
+              "set_flag": "final_transition=regional",
+              "trust_if_known": {
+                "aren": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.2.B",
+              "callback": {
+                "id": "CB_C5.2.B",
+                "anchor": "EPI",
+                "text": "En el epílogo aparecen innovaciones locales y conflictos entre calendarios.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Ensayar un tránsito acotado con salida y compensación acordadas.",
+              "motive": "Permite aprender antes de extender una decisión irreversible.",
+              "forecast_cost": "Las comunidades piloto asumen más incertidumbre y la compensación no borra recuerdos ya expuestos.",
+              "immediate": "Se abre una prueba con acta de límites y responsabilidades.",
+              "delayed": "El epílogo recuerda tanto el aprendizaje como la distribución desigual del riesgo.",
+              "set_flag": "final_transition=ensayo",
+              "trust_if_known": {
+                "aren": 0
+              },
+              "requires": {
+                "any": [
+                  "city_distribution=turnos",
+                  "mountain_word=renegociar",
+                  "desert_correction=plural"
+                ]
+              },
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.2.C",
+              "callback": {
+                "id": "CB_C5.2.C",
+                "anchor": "EPI",
+                "text": "El epílogo recuerda tanto el aprendizaje como la distribución desigual del riesgo.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "La prueba no es un final perfecto: la reversibilidad tiene límites y el aprendizaje necesita personas que asuman riesgos conocidos.",
+          "foreshadow": "La escena distingue reversible en infraestructura de irreversible en conocimiento y memoria.",
+          "next": "C5.3",
+          "unlock": {
+            "type": "memory",
+            "id": "M5.2",
+            "index": 2,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": "BRANCH_C5",
+          "witnesses": [
+            "aren",
+            "elia",
+            "nara"
+          ],
+          "speaker": "nara",
+          "player_hint": "El Velo sostiene redes que no pueden cambiarse sin trabajo. Una memoria revelada no vuelve al silencio por una votación."
+        },
+        {
+          "id": "C5.3",
+          "title": "La primera apelación al nuevo reino",
+          "scene": "Antes de cerrar el pacto, una delegación cuestiona tu propia decisión. Es una objeción coherente con un coste que ya había sido anunciado. Debes elegir cómo podrá discutirse una decisión legítima sin bloquear toda acción.",
+          "question": "¿Qué garantía ofrecerás a quien no esté de acuerdo?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Un derecho de apelación que pueda suspender efectos concretos.",
+              "motive": "La impugnación debe poder modificar algo real.",
+              "forecast_cost": "Suspender una medida puede retrasar beneficios que otras personas necesitan.",
+              "immediate": "Se registra una apelación con alcance y una obligación de respuesta.",
+              "delayed": "El epílogo muestra una corrección efectiva y un conflicto por su demora.",
+              "set_flag": "final_appeal=suspensiva",
+              "trust_if_known": {
+                "aren": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.3.A",
+              "callback": {
+                "id": "CB_C5.3.A",
+                "anchor": "EPI",
+                "text": "El epílogo muestra una corrección efectiva y un conflicto por su demora.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Una revisión con reparación exigible mientras la medida continúa.",
+              "motive": "Las decisiones colectivas necesitan poder actuar y responder por sus daños.",
+              "forecast_cost": "Algunos efectos no podrán repararse por completo después.",
+              "immediate": "El pacto define reparaciones y registra sus límites.",
+              "delayed": "El epílogo incluye un daño reconocido que la compensación no pudo revertir.",
+              "set_flag": "final_appeal=reparadora",
+              "trust_if_known": {
+                "aren": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.3.B",
+              "callback": {
+                "id": "CB_C5.3.B",
+                "anchor": "EPI",
+                "text": "El epílogo incluye un daño reconocido que la compensación no pudo revertir.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Un plazo de caducidad que obligue a renovar el mandato.",
+              "motive": "Una decisión no debería vivir indefinidamente por inercia.",
+              "forecast_cost": "Las revisiones recurrentes consumen tiempo y pueden producir periodos de incertidumbre.",
+              "immediate": "Se fija una revisión narrativa obligatoria y se preserva el disenso.",
+              "delayed": "El epílogo muestra un poder revisable y la carga de sostener esa revisión.",
+              "set_flag": "final_appeal=caducidad",
+              "trust_if_known": {
+                "aren": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.3.C",
+              "callback": {
+                "id": "CB_C5.3.C",
+                "anchor": "EPI",
+                "text": "El epílogo muestra un poder revisable y la carga de sostener esa revisión.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Se evalúa el tipo de garantía y su coste. Evitar que la única ruta honorable sea negociar hasta que todos estén de acuerdo.",
+          "foreshadow": "Una persona señala una pérdida que el mecanismo elegido no podrá borrar.",
+          "next": "C5.4",
+          "unlock": {
+            "type": "memory",
+            "id": "M5.3",
+            "index": 3,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "aren",
+            "elia",
+            "nara"
+          ],
+          "speaker": "aren",
+          "player_hint": "La primera objeción llega antes de que termine la celebración."
+        },
+        {
+          "id": "C5.4",
+          "title": "Quién llevará las llaves",
+          "scene": "El Atlas despliega los cinco lugares recuperados. La decisión final cambia cómo se custodiará el nodo, no borra los edificios, testimonios ni acuerdos que ya existen. Aren deja su llave sobre la mesa y solicita una regla que también pueda aplicársele a quien lo sustituya.",
+          "question": "¿Qué forma de gobierno tendrá el nuevo pacto?",
+          "options": [
+            {
+              "id": "A",
+              "label": "Una custodia común, elegida y sometida a controles públicos.",
+              "motive": "La continuidad y los recursos comunes permiten sostener garantías entre regiones.",
+              "forecast_cost": "Concentra capacidad y exige controles que pueden debilitarse si la comunidad deja de sostenerlos.",
+              "immediate": "La Plaza de las Voces se ilumina alrededor de una custodia común con sus objeciones registradas.",
+              "delayed": "Final Custodia común: capacidad de coordinación, disputas sobre representación y vigilancia de los custodios.",
+              "set_flag": "final_regime=custodia",
+              "trust_if_known": {
+                "aren": 1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.4.A",
+              "callback": {
+                "id": "CB_C5.4.A",
+                "anchor": "EPI",
+                "text": "Final Custodia común: capacidad de coordinación, disputas sobre representación y vigilancia de los custodios.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "B",
+              "label": "Llaves regionales compartidas bajo acuerdos de reciprocidad.",
+              "motive": "Limita la tutela de un centro y conserva autonomía para cambiar.",
+              "forecast_cost": "Las regiones con menos medios pueden negociar en desventaja y las controversias necesitan arbitraje.",
+              "immediate": "Cinco caminos conectan archivos y autoridades regionales que conservan sus propias voces.",
+              "delayed": "Final Llaves compartidas: innovación local, diversidad y tensiones entre capacidades y acuerdos.",
+              "set_flag": "final_regime=llaves",
+              "trust_if_known": {
+                "aren": -1
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.4.B",
+              "callback": {
+                "id": "CB_C5.4.B",
+                "anchor": "EPI",
+                "text": "Final Llaves compartidas: innovación local, diversidad y tensiones entre capacidades y acuerdos.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            },
+            {
+              "id": "C",
+              "label": "Mandatos rotativos y renovables, con respaldo técnico limitado.",
+              "motive": "Hace visible que la custodia necesita volver a justificarse.",
+              "forecast_cost": "La rotación consume tiempo, puede perder continuidad y depender de quienes pueden participar más.",
+              "immediate": "La Cámara del Alba conserva relevos, revisión y trabajos pendientes.",
+              "delayed": "Final Pacto renovable: poder revisable, aprendizaje colectivo y fatiga o desigualdad de participación.",
+              "set_flag": "final_regime=relevo",
+              "trust_if_known": {
+                "aren": 0
+              },
+              "requires": {},
+              "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+              "event_id": "C5.4.C",
+              "callback": {
+                "id": "CB_C5.4.C",
+                "anchor": "EPI",
+                "text": "Final Pacto renovable: poder revisable, aprendizaje colectivo y fatiga o desigualdad de participación.",
+                "once": true,
+                "fallback": "diary_at_epilogue"
+              }
+            }
+          ],
+          "analysis": "Los tres finales están disponibles sin umbral de honor. El estado previo cambia quién respalda, impugna y sostiene cada uno. No existe una constitución que anule todos los problemas anteriores.",
+          "foreshadow": "Antes de elegir se muestran capacidad, autonomía y carga de mantenimiento de cada régimen, sin calificarlos con estrellas.",
+          "next": "EPI",
+          "unlock": {
+            "type": "memory",
+            "id": "M5.4",
+            "index": 4,
+            "requires_previous_confirmed": true
+          },
+          "conditional_scene_after": null,
+          "witnesses": [
+            "aren"
+          ],
+          "speaker": "aren",
+          "player_hint": "Las tres llaves ofrecen maneras distintas de continuar. Ninguna hará desaparecer lo que el reino sigue debiendo."
+        }
+      ],
+      "region_id": "eclipse"
+    }
+  ],
+  "prologue": [
+    {
+      "id": "P.1",
+      "title": "La primera inscripción",
+      "scene": "Elia abre una tableta sin mapa. En el borde se lee: «Elegirás con información incompleta. Este Atlas conservará también lo que no pudiste hacer». Nara pide que escribas qué intentarás proteger cuando dos deberes entren en conflicto.",
+      "question": "¿Qué principio quieres que guíe a tu guardián?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Dar prioridad a quienes tienen menos margen para esperar.",
+          "motive": "El auxilio pierde sentido si llega después de una pérdida evitable.",
+          "forecast_cost": "La urgencia puede consumir recursos que sostienen a otras personas mañana.",
+          "immediate": "Se inscribe el juramento de Amparo. No cambia experiencia, dificultad ni premio.",
+          "delayed": "En cada cierre, el Atlas pregunta quién recibió protección y a quién se trasladó el coste.",
+          "set_flag": "oath=amparo",
+          "trust_if_known": {},
+          "requires": {},
+          "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+          "event_id": "P.1.A",
+          "callback": {
+            "id": "CB_P.1.A",
+            "anchor": "C1.1",
+            "text": "En cada cierre, el Atlas pregunta quién recibió protección y a quién se trasladó el coste.",
+            "once": true,
+            "fallback": "diary_at_epilogue"
+          }
+        },
+        {
+          "id": "B",
+          "label": "Conservar las pruebas que permitan decidir con conocimiento.",
+          "motive": "Las comunidades necesitan recordar para discutir sus propias versiones.",
+          "forecast_cost": "Recuperar o divulgar pruebas puede exponer a quienes preferirían reservarlas.",
+          "immediate": "Se inscribe el juramento de Memoria, que incluye el cuidado de testimonios y consentimientos.",
+          "delayed": "Los capítulos revisan tanto lo que conservaste como quién pudo decidir sobre su uso.",
+          "set_flag": "oath=memoria",
+          "trust_if_known": {},
+          "requires": {},
+          "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+          "event_id": "P.1.B",
+          "callback": {
+            "id": "CB_P.1.B",
+            "anchor": "C1.1",
+            "text": "Los capítulos revisan tanto lo que conservaste como quién pudo decidir sobre su uso.",
+            "once": true,
+            "fallback": "diary_at_epilogue"
+          }
+        },
+        {
+          "id": "C",
+          "label": "Sostener acuerdos que las personas puedan aceptar o revisar.",
+          "motive": "Un resultado estable necesita legitimidad y una salida para quien disiente.",
+          "forecast_cost": "Negociar puede demorar una ayuda urgente y favorecer a quien tiene tiempo o influencia.",
+          "immediate": "Se inscribe el juramento de Vínculo. No es una ruta de diplomacia superior.",
+          "delayed": "El Atlas recuerda quién estuvo representado y quién quedó esperando.",
+          "set_flag": "oath=vinculo",
+          "trust_if_known": {},
+          "requires": {},
+          "honor_context": "Evaluar compromisos vigentes y medios utilizados; la prioridad elegida no otorga honor por sí sola.",
+          "event_id": "P.1.C",
+          "callback": {
+            "id": "CB_P.1.C",
+            "anchor": "C1.1",
+            "text": "El Atlas recuerda quién estuvo representado y quién quedó esperando.",
+            "once": true,
+            "fallback": "diary_at_epilogue"
+          }
+        }
+      ],
+      "analysis": "El juramento es un compromiso discutible del personaje, no una clase moral ni un modificador de premios. Cambiarlo después exige una escena de revisión y conserva el juramento anterior en el diario.",
+      "foreshadow": "Elia advierte que ningún principio garantiza un resultado sin pérdidas.",
+      "next": "P.2",
+      "unlock": {
+        "type": "free"
+      },
+      "conditional_scene_after": null,
+      "witnesses": [
+        "elia",
+        "nara"
+      ],
+      "speaker": "elia",
+      "player_hint": "Elia apoya un dedo sobre la inscripción: cada principio protegerá algo y dejará otra cosa esperando."
+    },
+    {
+      "id": "P.2",
+      "title": "La regla de las voces",
+      "scene": "La tableta puede registrar las palabras de otros. Elia teme que una grabación circule sin contexto; Nara recuerda que algunos acuerdos dejaron fuera a quienes no estaban presentes. Debes elegir un protocolo inicial, revisable cuando cambien las circunstancias.",
+      "question": "¿Cómo custodiarás los testimonios que te confíen?",
+      "options": [
+        {
+          "id": "A",
+          "label": "Mostrar a cada persona el registro antes de compartirlo.",
+          "motive": "Cada voz puede corregir una representación equivocada.",
+          "forecast_cost": "Revisar uno a uno retrasa la circulación de información; las personas ausentes no podrán responder.",
+          "immediate": "Queda un compromiso de revisión individual para testimonios identificables.",
+          "delayed": "En el desierto, un testigo ausente pondrá a prueba esta regla.",
+          "set_flag": "testimony=revision_individual",
+          "trust_if_known": {},
+          "requires": {},
+          "honor_context": "Registrar un compromiso explícito. Cederlo unilateralmente crea tensión; renegociarlo no borra sus costes.",
+          "event_id": "P.2.A",
+          "callback": {
+            "id": "CB_P.2.A",
+            "anchor": "C1.1",
+            "text": "En el desierto, un testigo ausente pondrá a prueba esta regla.",
+            "once": true,
+            "fallback": "diary_at_epilogue"
+          }
+        },
+        {
+          "id": "B",
+          "label": "Conservar un archivo íntegro con acceso acordado por la comunidad.",
+          "motive": "Una evidencia completa puede impedir que el poder elija qué se recuerda.",
+          "forecast_cost": "Un acuerdo mayoritario puede no proteger a una voz minoritaria.",
+          "immediate": "Se registra una custodia comunitaria con derecho a presentar objeciones.",
+          "delayed": "La ciudad pedirá decidir qué cuenta como representación suficiente.",
+          "set_flag": "testimony=custodia_comun",
+          "trust_if_known": {},
+          "requires": {},
+          "honor_context": "La coherencia exige tramitar objeciones reales, no usar una votación para simular consentimiento.",
+          "event_id": "P.2.B",
+          "callback": {
+            "id": "CB_P.2.B",
+            "anchor": "C1.1",
+            "text": "La ciudad pedirá decidir qué cuenta como representación suficiente.",
+            "once": true,
+            "fallback": "diary_at_epilogue"
+          }
+        },
+        {
+          "id": "C",
+          "label": "Separar los hechos comprobables de los nombres de sus testigos.",
+          "motive": "La información puede circular sin exponer de inmediato identidades.",
+          "forecast_cost": "Sin nombres, algunas responsabilidades serán difíciles de exigir y las versiones podrán disputarse.",
+          "immediate": "El Atlas conserva dos capas: hechos compartibles y nombres bajo reserva.",
+          "delayed": "Una prueba de autoría hará relevante la capa que reservaste.",
+          "set_flag": "testimony=capas_separadas",
+          "trust_if_known": {},
+          "requires": {},
+          "honor_context": "Preservar una reserva acordada puede sostener el honor aunque disminuya la confianza de quien exige acceso.",
+          "event_id": "P.2.C",
+          "callback": {
+            "id": "CB_P.2.C",
+            "anchor": "C1.1",
+            "text": "Una prueba de autoría hará relevante la capa que reservaste.",
+            "once": true,
+            "fallback": "diary_at_epilogue"
+          }
+        }
+      ],
+      "analysis": "Las tres reglas son protocolos incompletos. No cambian todas las escenas por sí solas; añaden compromisos que se activan cuando una decisión usa testimonios.",
+      "foreshadow": "El Atlas explica que ocultar un nombre no garantiza anonimato en una comunidad pequeña.",
+      "next": "C1.1",
+      "unlock": {
+        "type": "free"
+      },
+      "conditional_scene_after": null,
+      "witnesses": [
+        "elia",
+        "nara"
+      ],
+      "speaker": "elia",
+      "player_hint": "La vecina reconoce su voz incluso sin un nombre escrito. La reserva necesita más cuidado que borrar una firma."
+    }
+  ],
+  "honor": {
+    "mode": "registro_contextual",
+    "numeric_morality_score": false,
+    "states": [
+      "vigente",
+      "sostenido",
+      "en_tension",
+      "renegociado",
+      "pendiente",
+      "reparado"
+    ],
+    "rule": "Evaluar compromisos definidos y hechos conocidos, no calificar el valor moral universal de una opción. El juramento es del personaje; no se infiere un rasgo del estudiante."
+  },
+  "reward_policy": {
+    "per_chapter_memories": 4,
+    "per_memory_xp": [
+      40,
+      50,
+      70,
+      90
+    ],
+    "per_memory_light": [
+      12,
+      16,
+      22,
+      30
+    ],
+    "restoration_xp": 50,
+    "restoration_light": 25,
+    "story_choice_reward": 0,
+    "route_equivalence": true,
+    "classroom_assessment_separate": true
+  },
+  "trust": {
+    "min": -2,
+    "max": 2,
+    "start": 0,
+    "update_only_if_known": true,
+    "actors": [
+      "elia",
+      "nara",
+      "lua",
+      "oren",
+      "sira",
+      "iria",
+      "dara",
+      "aren"
+    ],
+    "player_display": "Reacciones y registros concretos; los deltas son referencias de equilibrio para el diseñador."
+  },
+  "choice_commit": {
+    "immutable_within_main_run": true,
+    "confirm_before_commit": true,
+    "allow_reread": true,
+    "auto_save_required": true,
+    "unique_key": "player_id + campaign_version + run_id + node_id",
+    "no_real_time_deadlines": true
+  },
+  "callback_policy": {
+    "max_foreground_per_scene": 2,
+    "overflow": "crónica vinculada con aviso",
+    "once_per_callback": true,
+    "never_erase_prior_facts": true
+  },
+  "mandatory_nodes": [
+    "P.1",
+    "P.2",
+    "C1.1",
+    "C1.2",
+    "C1.3",
+    "C1.4",
+    "C2.1",
+    "C2.2",
+    "C2.3",
+    "C2.4",
+    "C3.1",
+    "C3.2",
+    "C3.3",
+    "C3.4",
+    "C4.1",
+    "C4.2",
+    "C4.3",
+    "C4.4",
+    "C5.1",
+    "C5.2",
+    "C5.3",
+    "C5.4"
+  ],
+  "context_gate": {
+    "id": "G.1",
+    "when": "La acción propuesta entra en conflicto con una reserva, mandato o promesa activa.",
+    "prompt": "Esta acción cambia un compromiso anterior. ¿Cómo responderás por ese cambio?",
+    "actions": [
+      {
+        "id": "G.A",
+        "label": "Proceder y dejar explícita una excepción y sus costes.",
+        "effect": "Marcar el compromiso en tensión, registrar motivo y notificar solo a quien reciba la información."
+      },
+      {
+        "id": "G.B",
+        "label": "Pedir una revisión del acuerdo antes de actuar.",
+        "effect": "Abrir una conversación breve con asentimientos y desacuerdos; registrar renegociación, no aprobación universal."
+      },
+      {
+        "id": "G.C",
+        "label": "Volver a las alternativas para mantener el acuerdo actual.",
+        "effect": "No consolidar la elección ni cambiar premios o hechos. No es un reinicio de una decisión ya confirmada."
+      }
+    ]
+  },
+  "commitments": [
+    {
+      "id": "K_TESTIGOS",
+      "origin": "P.2=A",
+      "review_at": "C4.2",
+      "subject": "Revisión individual antes de compartir testimonios identificables."
+    },
+    {
+      "id": "K_COMUN",
+      "origin": "P.2=B",
+      "review_at": "C5.1",
+      "subject": "Custodia comunitaria que tramite objeciones de voces no representadas."
+    },
+    {
+      "id": "K_CAPAS",
+      "origin": "P.2=C",
+      "review_at": "C4.2",
+      "subject": "Separación acordada entre hechos y nombres, con límites de anonimato reconocidos."
+    },
+    {
+      "id": "K_RESERVA",
+      "origin": "C1.3=B",
+      "review_at": "C2.4",
+      "subject": "Revisar la reserva tras reorganizar el alojamiento."
+    },
+    {
+      "id": "K_REPARACION_BOSQUE",
+      "origin": "C1.4=B",
+      "review_at": "C3.3",
+      "subject": "Dar seguimiento al proyecto de quienes asumieron el coste inicial."
+    },
+    {
+      "id": "K_MANTENIMIENTO",
+      "origin": "C2.2=A",
+      "review_at": "C3.2",
+      "subject": "Revisar la deuda técnica sin comprometer recursos de la montaña sin consulta."
+    },
+    {
+      "id": "K_ALOJAMIENTO",
+      "origin": "C2.2=B",
+      "review_at": "C4.3",
+      "subject": "No convertir un alojamiento provisional en una exclusión indefinida."
+    },
+    {
+      "id": "K_REPARACION_PROPIA",
+      "origin": "C3.3=B",
+      "review_at": "C4.4",
+      "subject": "Revisar una contribución concreta del guardián sin prometer trabajo ajeno."
+    },
+    {
+      "id": "K_LIMITE",
+      "origin": "C3.3=C",
+      "review_at": "C5.3",
+      "subject": "Responder por la revisión pendiente de la señal."
+    },
+    {
+      "id": "K_DISPUTA",
+      "origin": "C4.3=C",
+      "review_at": "C5.1",
+      "subject": "Conservar una disputa abierta y la participación de la voz afectada."
+    }
+  ],
+  "intro_panels": [
+    [
+      "Viñeta 1. El mapa que guarda ausencias",
+      "En la plaza de Valdeluz hay un pedestal con cinco marcas. Una ha desaparecido de la memoria de todos, aunque el hueco sigue en la piedra. Cuando acercas la mano, una campana suena debajo del suelo.",
+      "Encuadre: plaza amplia, detalle del hueco y reflejo del protagonista sin fijar todavía su apariencia."
+    ],
+    [
+      "Viñeta 2. Una tableta sin dueño",
+      "Elia: «Me dijeron que este Atlas recuerda los caminos». Nara: «Entonces habrá que preguntarle por quienes no pudieron recorrerlos». La pantalla se enciende. No dibuja una ruta: muestra tres preguntas sin respuesta.",
+      "Encuadre: manos y tableta. El personaje elegido aparece con su nombre y aspecto; el texto no presupone género."
+    ],
+    [
+      "Viñeta 3. La promesa limitada",
+      "Elia: «Hay cosas que un mapa no debería decidir por nosotros». Nara: «Y hay silencios que también deciden». El Atlas solicita un juramento, con una advertencia: ningún principio hará desaparecer el coste de elegir.",
+      "Se habilita P.1. El compañero de luz aparece como testigo, no como juez que aprueba la respuesta."
+    ],
+    [
+      "Viñeta 4. La primera voz",
+      "Una vecina reconoce su propia voz dentro de un cristal. «No recuerdo haber autorizado que la escucharan aquí». Elia señala una fecha antigua; Nara pregunta qué ocurrió con quienes nacieron después.",
+      "Se habilita P.2. El conflicto del consentimiento queda anticipado antes de que el jugador tenga que resolverlo en C4."
+    ]
+  ],
+  "endings": [
+    [
+      "custodia",
+      "Custodia común",
+      "La Campana del Alba suena desde una plaza donde nadie pudo firmar en nombre de todos. La custodia común recibe recursos para mantener las rutas, junto con obligaciones de publicidad y apelación. Un lugar que antes esperaba ayuda consigue sostener su red. En otro, alguien pregunta cuándo podrá impugnar una decisión tomada lejos. Aren deja su llave y permanece como un testigo cuya versión puede discutirse. El Atlas conserva las cinco restauraciones y una página de objeciones abiertas. El reino gana coordinación; necesita sostener el control sobre quienes coordinan.",
+      "Imagen: Plaza de las Voces con una casa de custodia, una mesa de apelaciones y ventanas de los cinco territorios. Nunca una corona o un trono triunfal.",
+      "Pregunta final: «¿Qué necesitarían las personas de Auralia para poder cuestionar a sus próximos custodios?»"
+    ],
+    [
+      "llaves",
+      "Llaves compartidas",
+      "Cinco luces responden sin depender de una única torre. Las regiones conservan sus llaves y sus modos de revisar la memoria. Un taller pequeño prueba un acuerdo que el centro nunca habría imaginado. Al otro lado del río, una comunidad con menos medios solicita ayuda para poder ejercer la misma autonomía. Las controversias viajan por las rutas que abriste y necesitan acuerdos que ninguna llave puede imponer sola. El Atlas muestra una red viva, capaz de innovar y de entrar en desacuerdo. La independencia del centro no elimina las dependencias entre vecinos.",
+      "Imagen: cinco caminos, archivos con símbolos distintos y una mesa itinerante entre dos regiones. Incluir un tramo en reparación, no una red perfecta.",
+      "Pregunta final: «¿Qué obligaciones siguen existiendo cuando cada comunidad puede decidir por sí misma?»"
+    ],
+    [
+      "relevo",
+      "Pacto renovable",
+      "La Cámara del Alba entrega la llave junto con una fecha de revisión. Nuevas manos aprenden a sostener la memoria; las anteriores deben explicar lo que hicieron. Una persona acepta un turno que nunca habría recibido antes. Otra pide que la participación no dependa de dejar sin cuidados a alguien en su casa. La custodia sigue abierta al cambio y depende de un trabajo que el reino tendrá que reconocer. El Atlas conserva las voces que aprendieron a ejercer autoridad y la lista de quienes todavía no pudieron hacerlo. La revisión es una práctica que necesita recursos, no una garantía que se mantiene sola.",
+      "Imagen: estación de relevos con un calendario, un espacio de formación y una sala de cuidados. Evitar presentarlo como un equilibrio celestial superior.",
+      "Pregunta final: «¿Quién sostiene el tiempo y el aprendizaje que hacen posible revisar el poder?»"
+    ]
+  ]
+};

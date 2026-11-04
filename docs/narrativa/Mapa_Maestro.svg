@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="499.27559055118115" height="452" preserveAspectRatio="xMinYMin meet" viewBox="0 0 499 452" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="499.27559055118115" height="452"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-452)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="10" y="410" width="235" height="30" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="64.1134765625" y="425.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,850) scale(1,-1)">P.1 + P.2 / Juramento y protocolo</text>
+			<rect x="10" y="338" width="235" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="74.29072265625" y="358.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,716) scale(1,-1)">C1 / Bosque de los Susurros</text>
+			<path d="M 127,410 L 127,378 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="124 383, 127 378, 130 383" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="280" y="338" width="205" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="311.3576171875" y="358.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,716) scale(1,-1)">Pruebas, arraigo y reserva -&gt; C2 / C4</text>
+			<path d="M 245,358 L 280,358 Z" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 1;"/>
+			<rect x="10" y="276" width="235" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="83.62373046875" y="296.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,592) scale(1,-1)">C2 / Ciudad Sumergida</text>
+			<path d="M 127,338 L 127,316 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="124 321, 127 316, 130 321" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="280" y="276" width="205" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="309.88251953125" y="296.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,592) scale(1,-1)">Reparto, cuotas y cuidados -&gt; C3 / C5</text>
+			<path d="M 245,296 L 280,296 Z" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 1;"/>
+			<rect x="10" y="214" width="235" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="81.239453125" y="234.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,468) scale(1,-1)">C3 / Cumbres del Viento</text>
+			<path d="M 127,276 L 127,254 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="124 259, 127 254, 130 259" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="280" y="214" width="205" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="310.426171875" y="234.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,468) scale(1,-1)">Señal, mandato y promesa -&gt; C4 / C5</text>
+			<path d="M 245,234 L 280,234 Z" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 1;"/>
+			<rect x="10" y="152" width="235" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="83.42705078125" y="172.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,344) scale(1,-1)">C4 / Desierto de Cristal</text>
+			<path d="M 127,214 L 127,192 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="124 197, 127 192, 130 197" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="280" y="152" width="205" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="306.7337890625" y="172.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,344) scale(1,-1)">Autoría, consentimiento y prueba -&gt; C5</text>
+			<path d="M 245,172 L 280,172 Z" style="stroke: rgb(65%,48%,23%); stroke-linecap: butt; stroke-width: 1;"/>
+			<rect x="10" y="90" width="235" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(94%,95%,92%); fill-rule: evenodd;"/>
+			<text x="83.90947265625" y="110.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,220) scale(1,-1)">C5 / Ciudad del Eclipse</text>
+			<path d="M 127,152 L 127,130 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="124 135, 127 130, 130 135" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="3.0" y="8" width="158.42519685039372" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(88%,91%,85%); fill-rule: evenodd;"/>
+			<text x="51.41923905019686" y="28.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,56) scale(1,-1)">Custodia común</text>
+			<path d="M 127,90 L 82.212598,48 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="79.2126 53, 82.2126 48, 85.2126 53" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="169.42519685039372" y="8" width="158.42519685039372" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(88%,91%,85%); fill-rule: evenodd;"/>
+			<text x="211.67685777559058" y="28.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,56) scale(1,-1)">Llaves compartidas</text>
+			<path d="M 127,90 L 248.637795,48 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="245.6378 53, 248.6378 48, 251.6378 53" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+			<rect x="335.85039370078744" y="8" width="158.42519685039372" height="40" rx="4" ry="4" style="stroke: rgb(80%,83%,78%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(88%,91%,85%); fill-rule: evenodd;"/>
+			<text x="384.3141640009843" y="28.0" style="font-family: Sans; font-size: 7.6px;fill: rgb(12%,21%,19%); stroke:none;" transform="translate(0,56) scale(1,-1)">Pacto renovable</text>
+			<path d="M 127,90 L 415.062992,48 Z" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9;"/>
+			<polyline points="412.063 53, 415.063 48, 418.063 53" style="stroke: rgb(8%,24%,21%); stroke-linecap: butt; stroke-width: 0.9; fill: None; fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

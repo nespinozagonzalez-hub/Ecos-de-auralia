@@ -2,58 +2,88 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {REGIONS,MISSIONS,ATLAS_KEY,ADVENTURE_KEY} from '../dist/atlas-data.js';
-import {newAtlas,restoreAtlas,atlasStats,regionState,currentRegion,claimCode,choosePath,buyTheme,syncExpedition,configureMission,missionInfo,availableStoryPages} from '../dist/atlas-core.js';
-
-function finish(s,r){for(const m of MISSIONS.filter(m=>m.region===r.id))assert.equal(claimCode(s,m.code).ok,true);assert.equal(choosePath(s,r.id,r.choices[0].id).ok,true);}
-test('Twenty classroom rewards form a complete five-chapter year',()=>{
-  const s=newAtlas('Nicolás');assert.equal(new Set(MISSIONS.map(m=>m.code)).size,20);
-  for(const r of REGIONS){assert.equal(regionState(s,r.id).unlocked,true);finish(s,r);assert.equal(regionState(s,r.id).restored,true);}
-  const stats=atlasStats(s);assert.equal(stats.memories,20);assert.equal(stats.restored,5);assert.equal(stats.xp,1500);assert.equal(stats.light,525);assert.equal(stats.level,8);assert.equal(stats.companion,'Astral');
-  assert.deepEqual(restoreAtlas(JSON.parse(JSON.stringify(s))).choices,s.choices);
+import {newAtlas,restoreAtlas,atlasStats,regionState,claimCode,buyTheme,syncExpedition,configureMission,missionInfo} from '../dist/atlas-core.js';
+import {NODES,commitDecision,optionAvailable,nextNode,createEcho,epilogue,choiceConflicts,visibleCallbacks} from '../dist/narrative-core.js';
+import {VISUAL_ASSETS} from '../dist/visual-assets.js';
+function allCodes(s){for(const m of MISSIONS)claimCode(s,m.code);}
+function step(s,n,option='A'){return commitDecision(s,n.id,option,'review');}
+function through(s,to,prefer='A'){for(const n of NODES){if(s.narrative.decisions[n.id])continue;const o=n.options.find(o=>o.id===prefer&&optionAvailable(s,o))||n.options.find(o=>optionAvailable(s,o));assert.equal(step(s,n,o.id).ok,true,n.id);if(n.id===to)break;}}
+test('22 choices and all three endings retain identical academic rewards',()=>{
+ for(const final of ['A','B','C']){
+  const s=newAtlas('Nicolás');allCodes(s);through(s,'C5.3');assert.equal(commitDecision(s,'C5.4',final).ok,true);
+  assert.equal(nextNode(s),null);assert.equal(epilogue(s).places.length,5);
+  const stats=atlasStats(s);assert.equal(stats.xp,1500);assert.equal(stats.light,525);assert.equal(stats.restored,5);
+  assert.equal(Object.keys(s.narrative.decisions).length,22);
+  const restored=restoreAtlas(JSON.parse(JSON.stringify(s)));assert.ok(restored);assert.deepEqual(restored.narrative.flags,s.narrative.flags);assert.deepEqual(atlasStats(restored),stats);
+ }
 });
-test('Rewards and decisions have prerequisites and cannot be farmed',()=>{
-  const s=newAtlas(),initial=atlasStats(s);
-  assert.equal(claimCode(s,'AUR-MAR-01').ok,false);assert.deepEqual(atlasStats(s),initial);
-  assert.equal(choosePath(s,'bosque','archivo').ok,false);
-  assert.equal(claimCode(s,' auralia-inicio ').ok,true);
-  const earned=atlasStats(s);assert.equal(claimCode(s,'AUR-BOS-01').ok,false);assert.deepEqual(atlasStats(s),earned);
-  claimCode(s,'AUR-BOS-02');assert.equal(choosePath(s,'bosque','archivo').ok,true);
-  assert.equal(choosePath(s,'bosque','refugio').ok,false);assert.equal(s.choices.bosque,'archivo');
-  assert.equal(regionState(s,'bosque').restored,false);
-  claimCode(s,'AUR-BOS-04');assert.equal(claimCode(s,'AUR-BOS-03').newlyRestored,true);
-  assert.equal(currentRegion(s).id,'marea');assert.equal(claimCode(s,'AUR-MAR-01').ok,true);
+test('Classroom codes bank across territories, but scenes require the exact memory and prior choice',()=>{
+ const s=newAtlas();assert.equal(claimCode(s,'AUR-ECL-04').ok,true);assert.equal(atlasStats(s).memories,1);
+ assert.equal(commitDecision(s,'C5.4','A').ok,false);
+ assert.equal(commitDecision(s,'P.1','A').ok,true);assert.equal(commitDecision(s,'P.2','C').ok,true);
+ assert.equal(commitDecision(s,'C1.1','A').ok,false);
+ claimCode(s,'AUR-BOS-02');assert.equal(commitDecision(s,'C1.2','A').ok,false);
+ claimCode(s,'AUR-BOS-01');assert.equal(commitDecision(s,'C1.1','A').ok,true);
+ assert.equal(commitDecision(s,'C1.2','C').ok,false);assert.equal(commitDecision(s,'C1.2','B').ok,true);
+ assert.equal(regionState(s,'marea').unlocked,false);
 });
-test('Expedition discoveries contribute once and preserve the original adventure',()=>{
-  const s=newAtlas(),adventure={version:1,flags:{gauntlet:true,restored:true,secretFound:true}},original=JSON.stringify(adventure);
-  assert.equal(syncExpedition(s,adventure).length,3);const stats=atlasStats(s);assert.equal(stats.xp,110);assert.equal(stats.light,40);assert.equal(stats.memories,1);
-  assert.equal(syncExpedition(s,adventure).length,0);assert.deepEqual(atlasStats(s),stats);assert.equal(claimCode(s,'AUR-BOS-03').ok,false);assert.equal(JSON.stringify(adventure),original);
-  assert.notEqual(ATLAS_KEY,ADVENTURE_KEY);
+test('Confirmed choices and codes are idempotent and cannot be changed',()=>{
+ const s=newAtlas();allCodes(s);through(s,'C1.2');
+ const original=JSON.stringify(s),stats=atlasStats(s);
+ assert.equal(commitDecision(s,'C1.2','A').duplicate,true);assert.equal(JSON.stringify(s),original);
+ assert.equal(commitDecision(s,'C1.2','B').ok,false);
+ assert.equal(claimCode(s,'AUR-BOS-01').duplicate,true);assert.deepEqual(atlasStats(s),stats);
 });
-test('Optional tablet finishes spend earned light once and never block restoration',()=>{
-  const s=newAtlas();assert.equal(buyTheme(s,'ambar').ok,false);finish(s,REGIONS[0]);
-  assert.equal(buyTheme(s,'ambar').ok,true);assert.equal(atlasStats(s).light,45);
-  assert.equal(buyTheme(s,'ambar').ok,true);assert.equal(atlasStats(s).light,45);assert.deepEqual(s.purchases,['ambar']);
-  assert.equal(buyTheme(s,'lunar').ok,false);assert.equal(regionState(s,'marea').unlocked,true);
-  assert.equal(buyTheme(s,'verdigris').ok,true);assert.equal(atlasStats(s).light,45);
+test('A broken reservation requires an explicit exception or review; hidden actors do not gain knowledge',()=>{
+ const s=newAtlas();allCodes(s);
+ for(const n of NODES){
+  if(n.id==='C4.2')break;
+  const option=n.id==='P.2'?'A':n.id==='C1.3'?'B':'A';
+  assert.equal(step(s,n,option).ok,true);
+ }
+ assert.ok(choiceConflicts(s,'C4.2','A').some(k=>k.id==='K_TESTIGOS'));
+ assert.equal(commitDecision(s,'C4.2','A').needsGate,true);
+ assert.equal(commitDecision(s,'C4.2','A','exception').ok,true);
+ assert.equal(s.narrative.commitments.find(k=>k.id==='K_TESTIGOS').state,'en_tension');
+ assert.equal(s.narrative.knowledge.aren,undefined);
+ assert.ok(visibleCallbacks(s).some(c=>c.source.startsWith('C1.')));
 });
-test('Backup import rebuilds totals and rejects inconsistent progression and purchases',()=>{
-  assert.equal(restoreAtlas({version:99,completed:[]}),null);assert.equal(restoreAtlas({version:1,completed:{}}),null);
-  const s=newAtlas();claimCode(s,'AUR-BOS-01');
-  const raw={...s,xp:99999,light:99999,completed:['bosque-1','bosque-1','marea-1','unknown'],choices:{bosque:'archivo'},purchases:['ambar','ambar','lunar','unknown'],theme:'lunar'};
-  const clean=restoreAtlas(raw);assert.deepEqual(clean.completed,['bosque-1']);assert.deepEqual(clean.purchases,[]);assert.deepEqual(clean.choices,{});assert.equal(clean.theme,'verdigris');assert.equal(atlasStats(clean).xp,40);
+test('Old saves preserve memories, purchases, bonuses and archive without inventing new choices',()=>{
+ const raw={version:1,name:'Antiguo',completed:MISSIONS.filter(m=>m.region==='bosque').map(m=>m.id),choices:{bosque:'archivo'},purchases:['ambar'],theme:'ambar'};
+ const s=restoreAtlas(raw);assert.ok(s);assert.equal(s.version,2);assert.equal(atlasStats(s).xp,300);assert.equal(atlasStats(s).light,45);
+ assert.equal(nextNode(s).id,'P.1');assert.equal(s.legacyArchive.choices.bosque,'archivo');assert.equal(regionState(s,'bosque').restored,false);
+ through(s,'C1.4');assert.equal(atlasStats(s).xp,300);assert.equal(atlasStats(s).light,45);
+ assert.ok(restoreAtlas(JSON.parse(JSON.stringify(s))));
 });
-test('Story pages follow earned memories; a meaningful choice changes the territory',()=>{
-  const s=newAtlas();assert.deepEqual(availableStoryPages(s,'bosque'),[0]);assert.deepEqual(availableStoryPages(s,'marea'),[]);
-  claimCode(s,'AUR-BOS-01');claimCode(s,'AUR-BOS-02');assert.deepEqual(availableStoryPages(s,'bosque'),[0,1]);
-  claimCode(s,'AUR-BOS-03');claimCode(s,'AUR-BOS-04');assert.equal(regionState(s,'bosque').restored,false);
-  assert.equal(choosePath(s,'bosque','archivo').newlyRestored,true);assert.deepEqual(availableStoryPages(s,'bosque'),[0,1,2]);assert.match(regionState(s,'bosque').choice.effect,/archivo/);
+test('Backup reconstruction rejects forged routes and totals',()=>{
+ const s=newAtlas();allCodes(s);through(s,'C1.1');
+ const raw=JSON.parse(JSON.stringify(s));raw.narrative.decisions['C1.2']={optionId:'C'};assert.equal(restoreAtlas(raw),null);
+ const forged=JSON.parse(JSON.stringify(s));forged.narrative.flags.final_regime='custodia';forged.xp=99999;
+ assert.equal(restoreAtlas(forged).narrative.flags.final_regime,undefined);assert.equal(atlasStats(restoreAtlas(forged)).xp,1250);
 });
-test('Teacher consignments survive export, reset independently and keep stable reward codes',()=>{
-  const s=newAtlas();configureMission(s,'bosque-1','Investigar el entorno','Compara tres fuentes y presenta una conclusión.');const copy=restoreAtlas(JSON.parse(JSON.stringify(s)));
-  assert.equal(missionInfo(copy,'bosque-1').title,'Investigar el entorno');assert.equal(missionInfo(copy,'bosque-1').code,'AUR-BOS-01');
-  configureMission(copy,'bosque-1','','');assert.equal(missionInfo(copy,'bosque-1').title,'Leer las huellas');
+test('Alternate echoes branch from the chapter start and never mutate the main run',()=>{
+ const s=newAtlas();allCodes(s);through(s,'C1.4');const before=JSON.stringify(s);
+ const echo=createEcho(s,'bosque');assert.ok(echo);assert.equal(nextNode(echo).id,'C1.1');
+ assert.equal(commitDecision(echo,'C1.1','C').ok,true);assert.equal(commitDecision(echo,'C1.2','C').ok,true);
+ assert.equal(JSON.stringify(s),before);assert.equal(createEcho(s,'marea'),null);
 });
-test('The original expedition retains its module base and has a route back to the hub',()=>{
-  const html=readFileSync(new URL('../dist/expedicion/index.html',import.meta.url),'utf8');assert.match(html,/<base href="\.\.\/">/);assert.match(html,/src="game.js"/);assert.match(html,/Volver al Atlas de Ecos/);
-  const root=readFileSync(new URL('../dist/index.html',import.meta.url),'utf8');assert.match(root,/src="atlas.js"/);assert.doesNotMatch(root,/id="world"/);
+test('Production manifest contains unique assets and exact sprite geometry',()=>{
+ assert.equal(VISUAL_ASSETS.assets.length,250);const ids=new Set();
+ for(const a of VISUAL_ASSETS.assets){assert.ok(!ids.has(a.id));ids.add(a.id);assert.equal(a.width,a.frameWidth*a.columns);assert.equal(a.height,a.frameHeight*a.rows);assert.equal(a.frames,a.columns*a.rows);assert.match(a.path,/^assets\/atlas\//);}
+ assert.ok(ids.has('bg-prologo'));assert.ok(ids.has('portrait-nara-preocupacion'));assert.ok(ids.has('map-bosque-huella-C'));
+});
+test('Consignments and cosmetics preserve identifiers and expedition stays separate',()=>{
+ const s=newAtlas();allCodes(s);through(s,'C1.4');assert.equal(buyTheme(s,'ambar').ok,true);const light=atlasStats(s).light;buyTheme(s,'ambar');assert.equal(atlasStats(s).light,light);
+ configureMission(s,'bosque-1','Investigar','Contrasta fuentes.');assert.equal(missionInfo(restoreAtlas(JSON.parse(JSON.stringify(s))),'bosque-1').title,'Investigar');
+ const before=JSON.stringify(s);assert.deepEqual(syncExpedition(s,{version:1,flags:{restored:true}}),[]);assert.equal(JSON.stringify(s),before);
+ const html=readFileSync(new URL('../dist/expedicion/index.html',import.meta.url),'utf8');assert.match(html,/<base href="\.\.\/">/);assert.notEqual(ATLAS_KEY,ADVENTURE_KEY);
+});
+test('Legal randomized campaigns reach every alternative and round-trip their consequences',()=>{
+ let seed=20261104;const rnd=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;},seen=new Set(),finals=new Set();
+ for(let i=0;i<300;i++){
+  const s=newAtlas();allCodes(s);
+  for(const n of NODES){const options=n.options.filter(o=>optionAvailable(s,o));assert.ok(options.length>=2,n.id);const o=options[Math.floor(rnd()*options.length)];assert.equal(step(s,n,o.id).ok,true);seen.add(o.event_id);}
+  const restored=restoreAtlas(JSON.parse(JSON.stringify(s)));assert.ok(restored);assert.deepEqual(restored.narrative.flags,s.narrative.flags);assert.deepEqual(restored.narrative.commitments,s.narrative.commitments);finals.add(epilogue(restored).regime);
+ }
+ assert.equal(seen.size,66);assert.equal(finals.size,3);
 });
