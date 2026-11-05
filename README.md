@@ -10,7 +10,10 @@ Los veinte sellos conceden memoria, experiencia y luz. Se pueden registrar por a
 
 El honor conserva compromisos concretos. Las revisiones registran excepciones y disenso; no borran documentos perdidos, reservas o costes. La confianza cambia para actores presentes que conocen el hecho. La crónica conserva retornos y seis cruces de consecuencias.
 
-## Revisar
+## Usar en clase
+En **Docente → Crear un curso** se generan 20 sellos privados y un enlace para estudiantes. Un Atlas vinculado al curso solo acepta esos sellos, verifica cada memoria guardada y oculta los accesos rápidos de revisión. Detalles y límites en [Sellos del Atlas](docs/CODIGOS_ATLAS.md).
+
+## Revisar (modo demostración)
 1. Abre el prólogo.
 2. En **Docente**, pulsa **Preparar las cuatro memorias** para reunir los sellos del capítulo actual.
 3. Vuelve a la crónica, elige y confirma cada escena. Revisa la intervención y las consecuencias al llegar al siguiente capítulo.
@@ -37,7 +40,7 @@ Guardado automático en `auralia.atlas.v2`. Si existe `auralia.atlas.v1` se migr
 
 La importación reconstruye hechos desde las decisiones confirmadas, verificando orden, condiciones y códigos. Una revisión reduce conflictos entre pestañas; no es una transacción de servidor ni sincroniza dispositivos. Exportar/importar incluye narrativa y configuración.
 
-Todavía no hay cuentas ni seguimiento remoto. Los códigos son públicos y el panel docente es una herramienta local de revisión.
+Todavía no hay cuentas ni seguimiento remoto. Sin curso, los códigos son públicos y el panel docente es una herramienta local de revisión. Con curso, los sellos son privados y se verifican localmente; no reemplazan una validación en servidor.
 
 ## Expedición
 El prototipo cenital sigue en `/expedicion/` con sus archivos y guardado. Se pausa la sincronización automática de nuevos hallazgos mientras se centra el trabajo en la novela. Los hallazgos y premios anteriores se conservan al migrar. No se ha añadido combate ni desplazamiento al lector.
@@ -46,6 +49,7 @@ El prototipo cenital sigue en `/expedicion/` con sus archivos y guardado. Se pau
 | Archivo | Responsabilidad |
 | --- | --- |
 | `atlas.js`, `atlas-core.js` | Interfaz, recompensas, colección, migración |
+| `classroom.js` | Cursos, sellos privados, enlace y verificación |
 | `narrative-data.js` | Prólogo, 22 nodos, 66 opciones, escenas y finales |
 | `narrative-core.js` | Condiciones, decisiones, honor, retornos y ecos |
 | `narrative-ui.js` | Lectura, confirmación, resultados y epílogo |
@@ -54,7 +58,7 @@ El prototipo cenital sigue en `/expedicion/` con sus archivos y guardado. Se pau
 | `atlas-art.js` | Mapa y dibujos SVG provisionales |
 | `scripts/`, `tests/` | Catálogo, comprobación y pruebas |
 
-Sin dependencias ni compilación. Servir `dist` por HTTP.
+Sin dependencias ni compilación. Servir `dist` por HTTP; las rutas de arte son relativas, así que también funciona en una subcarpeta (por ejemplo GitHub Pages). Las pruebas corren en GitHub Actions en cada cambio.
 
 ```sh
 python3 -m http.server 8000 --directory dist

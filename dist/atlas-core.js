@@ -1,9 +1,10 @@
 import {ATLAS_VERSION,REGIONS,MISSIONS,CODE_ALIASES,LEVELS,THEMES,EXPEDITION_EVENTS} from './atlas-data.js';
 import {freshNarrative,restoreNarrative,chapterDecisions,chapterByRegion} from './narrative-core.js';
+import {copyClassroom,missionForCode,canonicalCode} from './classroom.js';
 const clean=(s,max)=>String(s||'').trim().slice(0,max);
 const unique=a=>[...new Set(Array.isArray(a)?a:[])];
 export function newAtlas(name='Guardián'){
- return {version:ATLAS_VERSION,revision:0,name:clean(name,24)||'Guardián',look:'bosque',completed:[],choices:{},purchases:[],theme:'verdigris',expeditionEvents:[],read:[],plans:{},reducedMotion:false,narrative:freshNarrative(),legacyArchive:null,createdAt:Date.now(),updatedAt:Date.now()};
+ return {version:ATLAS_VERSION,revision:0,name:clean(name,24)||'Guardián',look:'bosque',completed:[],choices:{},purchases:[],theme:'verdigris',expeditionEvents:[],read:[],plans:{},reducedMotion:false,classroom:null,claims:{},narrative:freshNarrative(),legacyArchive:null,createdAt:Date.now(),updatedAt:Date.now()};
 }
 export function regionState(s,id){
  const region=REGIONS.find(r=>r.id===id);if(!region)return null;
@@ -31,11 +32,20 @@ export function atlasStats(s){
 export function currentRegion(s){return REGIONS.find(r=>!regionState(s,r.id).restored)||REGIONS.at(-1);}
 export function nextMission(s){const r=currentRegion(s);return MISSIONS.find(m=>m.region===r.id&&!s.completed.includes(m.id))||null;}
 export function missionInfo(s,id){const mission=MISSIONS.find(m=>m.id===id);return mission?{...mission,title:s.plans[id]?.title||mission.title,prompt:s.plans[id]?.prompt||mission.prompt}:null;}
+const demoMission=code=>MISSIONS.find(m=>m.code===code||m.id===CODE_ALIASES[code]);
 export function claimCode(s,input){
- const code=clean(input,50).toUpperCase(),m=MISSIONS.find(m=>m.code===code||m.id===CODE_ALIASES[code]);
+ const code=clean(input,50).toUpperCase();let m,proof=null;
+ if(s.classroom){
+  const found=missionForCode(s.classroom,code);
+  if(!found){
+   const demo=demoMission(code)||MISSIONS.find(m=>canonicalCode(m.code)===canonicalCode(code));
+   return {ok:false,message:demo?'Ese es un código de demostración. Tu curso usa sus propios sellos: pídeselo a tu docente.':'Ese sello no pertenece a '+s.classroom.name+'. Revisa letras y números.'};
+  }
+  m=found.mission;proof=found.code;
+ }else m=demoMission(code);
  if(!m)return {ok:false,message:'El Atlas no reconoce ese código. Revisa el sello que recibiste.'};
  if(s.completed.includes(m.id))return {ok:false,duplicate:true,message:'Este recuerdo ya forma parte de tu Atlas.'};
- s.completed.push(m.id);s.updatedAt=Date.now();
+ s.completed.push(m.id);if(proof)s.claims[m.id]=proof;s.updatedAt=Date.now();
  return {ok:true,mission:m,newlyRestored:false,message:m.memory+' · +'+m.xp+' experiencia · +'+m.light+' luz'};
 }
 export function choosePath(){return {ok:false,message:'Las decisiones ahora se confirman una a una dentro de la crónica.'};}
@@ -51,11 +61,23 @@ export function configureMission(s,id,title,prompt){
 }
 export function syncExpedition(){return [];}
 export function availableStoryPages(s,regionId){const c=chapterByRegion(regionId);return c?.nodes.filter(n=>s.narrative.decisions[n.id]).map(n=>n.id)||[];}
+/** Atlas nuevo vinculado a un curso. Conserva nombre y apariencia; el progreso empieza de cero. */
+export function joinClassroom(s,classroom){
+ const c=copyClassroom(classroom);if(!c)return null;
+ const next=newAtlas(s?.name);next.look=s?.look||'bosque';next.reducedMotion=!!s?.reducedMotion;next.classroom=c;return next;
+}
+export const hasProgress=s=>s.completed.length>0||Object.keys(s.narrative.decisions).length>0;
 export function restoreAtlas(raw){
  if(!raw||![1,ATLAS_VERSION].includes(raw.version)||!Array.isArray(raw.completed))return null;
  const s=newAtlas(raw.name);s.look=['bosque','marea','sol'].includes(raw.look)?raw.look:'bosque';
- s.completed=unique(raw.completed).filter(id=>MISSIONS.some(m=>m.id===id));
- s.expeditionEvents=unique(raw.expeditionEvents).filter(id=>Object.hasOwn(EXPEDITION_EVENTS,id));
+ s.classroom=raw.version===ATLAS_VERSION?copyClassroom(raw.classroom):null;
+ if(raw.classroom&&!s.classroom)return null;
+ if(s.classroom){
+  // En un curso, cada memoria debe venir acompañada del sello válido que la entregó.
+  const claims=raw.claims&&typeof raw.claims==='object'?raw.claims:{};
+  for(const id of unique(raw.completed)){const found=typeof claims[id]==='string'&&missionForCode(s.classroom,claims[id]);if(found&&found.mission.id===id){s.completed.push(id);s.claims[id]=found.code;}}
+ }else s.completed=unique(raw.completed).filter(id=>MISSIONS.some(m=>m.id===id));
+ s.expeditionEvents=s.classroom?[]:unique(raw.expeditionEvents).filter(id=>Object.hasOwn(EXPEDITION_EVENTS,id));
  if(raw.version===1){
   const choices=raw.choices&&typeof raw.choices==='object'?raw.choices:{};
   s.legacyArchive={choices:Object.fromEntries(REGIONS.filter(r=>r.choices.some(c=>c.id===choices[r.id])).map(r=>[r.id,choices[r.id]])),restored:REGIONS.filter(r=>MISSIONS.filter(m=>m.region===r.id).every(m=>s.completed.includes(m.id))&&r.choices.some(c=>c.id===choices[r.id])).map(r=>r.id)};

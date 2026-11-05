@@ -20,7 +20,7 @@ Cada territorio contiene cuatro misiones, asociables a actividades de exploraci�
 | 4 | 90 | 30 | Una memoria |
 | Restaurar territorio | 50 adicionales | 25 adicionales | Reliquia y capítulo restaurado |
 
-Dos memorias permiten elegir uno de dos futuros. Cuatro memorias y esa decisión restauran el territorio y abren el siguiente. Las misiones pueden completarse en cualquier orden dentro del territorio abierto. Un código de una región dormida se rechaza sin consumirlo. No hay recompensa por repetir códigos o releer escenas.
+Dos memorias permiten elegir uno de dos futuros. Cuatro memorias y esa decisión restauran el territorio y abren el siguiente. Las misiones pueden completarse en cualquier orden dentro del territorio abierto. (En 0.3 los códigos se pueden registrar por adelantado; cada escena exige su memoria.) No hay recompensa por repetir códigos o releer escenas.
 
 Los totales de experiencia y luz se calculan a partir de hechos únicos registrados, no de incrementos que puedan repetirse al volver a abrir una pantalla. Las compras cosméticas descuentan luz una sola vez. No hay objetos obligatorios de pago para avanzar.
 

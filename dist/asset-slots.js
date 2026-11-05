@@ -4,11 +4,11 @@ export const assetById=id=>VISUAL_ASSETS.assets.find(a=>a.id===id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function assetSlot(id,fallback='',className='',alt=''){
  const a=assetById(id),ready=a?.status==='ready';
- return '<span class="asset-slot '+esc(className)+'" data-asset-id="'+esc(id)+'">'+(ready?'<img class="pixel-art asset-image" src="/'+esc(a.path)+'" alt="'+esc(alt||a.title)+'" data-ready-asset="'+esc(id)+'">':'')+'<span class="asset-fallback" '+(ready?'hidden':'')+'>'+fallback+'</span></span>';
+ return '<span class="asset-slot '+esc(className)+'" data-asset-id="'+esc(id)+'">'+(ready?'<img class="pixel-art asset-image" src="'+esc(a.path)+'" alt="'+esc(alt||a.title)+'" data-ready-asset="'+esc(id)+'">':'')+'<span class="asset-fallback" '+(ready?'hidden':'')+'>'+fallback+'</span></span>';
 }
 export function assetFrame(id,fallback='',className=''){
  const a=assetById(id);
- return '<div class="'+className+' asset-frame" data-asset-id="'+esc(id)+'"'+(a?.status==='ready'?' style="border-image-source:url(/'+esc(a.path)+')"':'')+'>'+fallback+'</div>';
+ return '<div class="'+className+' asset-frame" data-asset-id="'+esc(id)+'"'+(a?.status==='ready'?' style="border-image-source:url('+esc(a.path)+')"':'')+'>'+fallback+'</div>';
 }
 export function mapLayers(s,svg){
  const regions=['bosque','marea','cumbres','cristal','eclipse'],ns=s.narrative;
