@@ -77,10 +77,10 @@ export const REGIONS = [
 ];
 
 export const MISSION_KINDS = [
-  {label:'Exploración',prompt:'Observa, investiga o lee el material propuesto. Comparte una huella o una pregunta que consideres importante.',xp:40,light:12},
-  {label:'Comprensión',prompt:'Relaciona ideas y contrasta las pistas. Explica tu interpretación usando evidencias de la actividad.',xp:50,light:16},
-  {label:'Aplicación',prompt:'Pon a prueba una idea o resuelve el desafío de la actividad. Explica qué decisiones tomaste.',xp:70,light:22},
-  {label:'Creación',prompt:'Crea una respuesta propia y comparte lo que aprendiste. Incorpora una reflexión sobre tu recorrido.',xp:90,light:30}
+  {label:'Rastro',prompt:'El Velo dejó un rastro en el mundo. Síguelo con atención: quien lo encuentra rompe el primer sello del lugar.',xp:40,light:12},
+  {label:'Enigma',prompt:'Las pistas no dicen lo mismo. Une lo que encontraste y descifra qué ocurrió: el sello solo se abre ante una respuesta bien sostenida.',xp:50,light:16},
+  {label:'Travesía',prompt:'Ha llegado el momento de actuar. Pon a prueba tu plan y supera el desafío: al cruzar, el sello se rompe.',xp:70,light:22},
+  {label:'Ofrenda',prompt:'Cada territorio pide algo nuevo para volver a vivir. Deja tu propia obra en el mundo y el último sello te reconocerá.',xp:90,light:30}
 ];
 export const MISSIONS=REGIONS.flatMap(r=>r.missions.map((title,i)=>({id:`${r.id}-${i+1}`,region:r.id,index:i,title,code:`AUR-${r.code}-0${i+1}`,memory:r.memories[i],...MISSION_KINDS[i]})));
 export const CODE_ALIASES={'AURALIA-INICIO':'bosque-1','AURALIA-RAICES':'bosque-2'};
@@ -89,7 +89,26 @@ export const THEMES=[
   {id:'verdigris',name:'Piedra del bosque',description:'La superficie original de tu Atlas.',cost:0,color:'#82ab87'},
   {id:'ambar',name:'Ámbar del alba',description:'Un marco cálido para las historias que merecen luz.',cost:60,color:'#d1a773'},
   {id:'lunar',name:'Piedra de luna',description:'Una superficie teñida por el cielo del eclipse.',cost:110,color:'#b2a0d0'},
-  {id:'aurora',name:'Cristal de aurora',description:'El Atlas conserva los colores de un nuevo amanecer.',cost:180,color:'#80cbb9'}
+  {id:'aurora',name:'Cristal de aurora',description:'El Atlas conserva los colores de un nuevo amanecer.',cost:180,color:'#80cbb9'},
+  {id:'brasa',name:'Brasa del faro',description:'El fuego que guió a los viajeros entre las cumbres.',cost:200,color:'#e0866a'},
+  {id:'velo',name:'Tejido del Velo',description:'La trama que separa lo olvidado de lo que vuelve. Solo los más pacientes la tejen.',cost:250,color:'#c9b8ef'}
+];
+/** Hazañas: se derivan del estado y nunca dependen de qué ruta moral se eligió. */
+export const FEATS=[
+  {id:'primer-sello',name:'El primer sello',text:'Rompiste tu primer sello del Velo.',light:10},
+  {id:'cuatro-sellos',name:'Portador de sellos',text:'Reuniste cuatro memorias.',light:15},
+  {id:'diez-sellos',name:'Coleccionista de ecos',text:'Diez memorias viajan contigo.',light:25,title:'Coleccionista de Ecos'},
+  {id:'veinte-sellos',name:'Los veinte sellos',text:'Ninguna memoria de Auralia sigue perdida.',light:50,title:'Custodio de los Veinte Sellos'},
+  {id:'prologo',name:'La primera página',text:'Cerraste el prólogo y el Atlas despertó.',light:10},
+  {id:'territorio-1',name:'El bosque despierta',text:'Restauraste tu primer territorio.',light:20,title:'del Bosque Despierto'},
+  {id:'territorio-3',name:'Media Auralia',text:'Tres territorios recuerdan su nombre.',light:30,title:'Caminante de las Cumbres'},
+  {id:'cronica',name:'Voz del Velo',text:'Llegaste al final de la crónica.',light:50,title:'Voz del Velo'},
+  {id:'oido',name:'Oído atento',text:'Escuchaste diez huellas que volvieron más adelante.',light:15},
+  {id:'eco-alterno',name:'Lo que pudo ser',text:'Exploraste un eco alterno de un capítulo cerrado.',light:15,title:'Caminante de Ecos'},
+  {id:'lumen',name:'La chispa vuela',text:'Tu compañero despertó como Lumen.',light:10},
+  {id:'astral',name:'Forma astral',text:'Tu compañero alcanzó su forma astral.',light:20,title:'Hermano de los Astros'},
+  {id:'nombre',name:'Un nombre propio',text:'Diste tu nombre al Atlas.',light:5},
+  {id:'forja',name:'La forja',text:'Tejiste tu primer acabado con luz.',light:0,title:'Forjador de Luz'}
 ];
 export const EXPEDITION_EVENTS={
   gauntlet:{xp:20,light:10,title:'La expedición recuperó el Guante de Raíces'},

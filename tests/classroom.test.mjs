@@ -38,7 +38,7 @@ test('The course link survives encoding and rejects damaged payloads',()=>{
 test('In a course only its own seals are accepted; demo and foreign codes are rejected',()=>{
  const s=joinClassroom(newAtlas('Ana'),course.classroom);
  assert.equal(claimCode(s,'AUR-BOS-01').ok,false);
- assert.match(claimCode(s,'AUR-BOS-01').message,/demostración/);
+ assert.match(claimCode(s,'AUR-BOS-01').message,/otra senda/);
  const other=createClassroom('8°A','clave-del-curso');
  assert.equal(claimCode(s,other.codes[0].code).ok,false);
  const first=course.codes[0].code;
@@ -82,4 +82,18 @@ test('Demo mode keeps working with public codes',()=>{
 
 test('The documentary copy of the campaign matches the runtime data',()=>{
  assert.deepEqual(JSON.parse(readFileSync(new URL('../docs/narrativa/campana-v1.json',import.meta.url),'utf8')),JSON.parse(JSON.stringify(CAMPAIGN)));
+});
+
+test('Feats are derived, route-independent and unlock equippable titles',async()=>{
+ const {equipTitle,titleOf,recordEcho}=await import('../dist/atlas-core.js');
+ const s=joinClassroom(newAtlas(),course.classroom);
+ assert.equal(atlasStats(s).feats.length,0);assert.equal(equipTitle(s,'diez-sellos'),false);
+ for(const c of course.codes.slice(0,10))claimCode(s,c.code);
+ const ids=atlasStats(s).feats.map(f=>f.id);
+ assert.ok(ids.includes('primer-sello')&&ids.includes('cuatro-sellos')&&ids.includes('diez-sellos')&&ids.includes('lumen'));
+ assert.equal(equipTitle(s,'diez-sellos'),true);assert.equal(titleOf(s),'Coleccionista de Ecos');
+ assert.equal(roundTrip(s).title,'diez-sellos');
+ const forged=JSON.parse(JSON.stringify(s));forged.title='cronica';forged.echoes=['bosque'];
+ const r=roundTrip(forged);assert.equal(r.title,null,'a title needs its feat');assert.deepEqual(r.echoes,[],'echoes need a closed chapter');
+ assert.equal(recordEcho(s,'bosque'),true);assert.equal(recordEcho(s,'bosque'),false);
 });

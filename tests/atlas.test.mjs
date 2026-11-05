@@ -5,6 +5,7 @@ import {REGIONS,MISSIONS,ATLAS_KEY,ADVENTURE_KEY} from '../dist/atlas-data.js';
 import {newAtlas,restoreAtlas,atlasStats,regionState,claimCode,buyTheme,syncExpedition,configureMission,missionInfo} from '../dist/atlas-core.js';
 import {NODES,commitDecision,optionAvailable,nextNode,createEcho,epilogue,choiceConflicts,visibleCallbacks} from '../dist/narrative-core.js';
 import {VISUAL_ASSETS} from '../dist/visual-assets.js';
+const baseLight=s=>{const st=atlasStats(s);return st.light-st.feats.reduce((n,f)=>n+f.light,0);};
 function allCodes(s){for(const m of MISSIONS)claimCode(s,m.code);}
 function step(s,n,option='A'){return commitDecision(s,n.id,option,'review');}
 function through(s,to,prefer='A'){for(const n of NODES){if(s.narrative.decisions[n.id])continue;const o=n.options.find(o=>o.id===prefer&&optionAvailable(s,o))||n.options.find(o=>optionAvailable(s,o));assert.equal(step(s,n,o.id).ok,true,n.id);if(n.id===to)break;}}
@@ -12,7 +13,7 @@ test('22 choices and all three endings retain identical academic rewards',()=>{
  for(const final of ['A','B','C']){
   const s=newAtlas('Nicolás');allCodes(s);through(s,'C5.3');assert.equal(commitDecision(s,'C5.4',final).ok,true);
   assert.equal(nextNode(s),null);assert.equal(epilogue(s).places.length,5);
-  const stats=atlasStats(s);assert.equal(stats.xp,1500);assert.equal(stats.light,525);assert.equal(stats.restored,5);
+  const stats=atlasStats(s);assert.equal(stats.xp,1500);assert.equal(baseLight(s),525);assert.equal(stats.light,785,'feats add the same light on every route');assert.equal(stats.restored,5);
   assert.equal(Object.keys(s.narrative.decisions).length,22);
   const restored=restoreAtlas(JSON.parse(JSON.stringify(s)));assert.ok(restored);assert.deepEqual(restored.narrative.flags,s.narrative.flags);assert.deepEqual(atlasStats(restored),stats);
  }
@@ -50,9 +51,9 @@ test('A broken reservation requires an explicit exception or review; hidden acto
 });
 test('Old saves preserve memories, purchases, bonuses and archive without inventing new choices',()=>{
  const raw={version:1,name:'Antiguo',completed:MISSIONS.filter(m=>m.region==='bosque').map(m=>m.id),choices:{bosque:'archivo'},purchases:['ambar'],theme:'ambar'};
- const s=restoreAtlas(raw);assert.ok(s);assert.equal(s.version,2);assert.equal(atlasStats(s).xp,300);assert.equal(atlasStats(s).light,45);
+ const s=restoreAtlas(raw);assert.ok(s);assert.equal(s.version,2);assert.equal(atlasStats(s).xp,300);assert.equal(baseLight(s),45);
  assert.equal(nextNode(s).id,'P.1');assert.equal(s.legacyArchive.choices.bosque,'archivo');assert.equal(regionState(s,'bosque').restored,false);
- through(s,'C1.4');assert.equal(atlasStats(s).xp,300);assert.equal(atlasStats(s).light,45);
+ through(s,'C1.4');assert.equal(atlasStats(s).xp,300);assert.equal(baseLight(s),45);
  assert.ok(restoreAtlas(JSON.parse(JSON.stringify(s))));
 });
 test('Backup reconstruction rejects forged routes and totals',()=>{

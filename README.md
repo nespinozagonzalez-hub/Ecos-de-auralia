@@ -10,15 +10,18 @@ Los veinte sellos conceden memoria, experiencia y luz. Se pueden registrar por a
 
 El honor conserva compromisos concretos. Las revisiones registran excepciones y disenso; no borran documentos perdidos, reservas o costes. La confianza cambia para actores presentes que conocen el hecho. La crónica conserva retornos y seis cruces de consecuencias.
 
-## Usar en clase
-En **Docente → Crear un curso** se generan 20 sellos privados y un enlace para estudiantes. Un Atlas vinculado al curso solo acepta esos sellos, verifica cada memoria guardada y oculta los accesos rápidos de revisión. Detalles y límites en [Sellos del Atlas](docs/CODIGOS_ATLAS.md).
+## Aventura primero
+Dentro del juego todo es aventura: misiones del Velo (Rastro, Enigma, Travesía, Ofrenda), sellos que se rompen, una compañía, hazañas y títulos. No aparecen clases, cursos ni actividades: la parte formativa la conecta el guía fuera del juego, para cualquier edad o contexto.
 
-## Revisar (modo demostración)
+## Usar con un grupo
+**Ayuda → Herramientas del guía** (o `?guia`) → **Crear un grupo** genera 20 sellos privados y un enlace. Un Atlas unido a la compañía solo acepta esos sellos, verifica cada memoria guardada y oculta los accesos rápidos. Detalles, hazañas y límites en [Sellos del Atlas](docs/CODIGOS_ATLAS.md).
+
+## Revisar (sellos de muestra)
 1. Abre el prólogo.
-2. En **Docente**, pulsa **Preparar las cuatro memorias** para reunir los sellos del capítulo actual.
+2. En **Herramientas del guía** (`?guia`), pulsa **Preparar las cuatro memorias** para reunir los sellos del capítulo actual.
 3. Vuelve a la crónica, elige y confirma cada escena. Revisa la intervención y las consecuencias al llegar al siguiente capítulo.
 4. Abre **Crónica** para releer o explorar ecos de capítulos cerrados.
-5. En **Docente → Catálogo de arte** revisa las fichas; **Inspeccionar espacios gráficos** abre `/?arte=1`.
+5. En **Herramientas del guía → Catálogo de arte** revisa las fichas; **Inspeccionar espacios gráficos** abre `/?arte=1`.
 
 Los accesos rápidos alteran la copia local de revisión; no eligen opciones ni validan tareas.
 
@@ -49,7 +52,7 @@ El prototipo cenital sigue en `/expedicion/` con sus archivos y guardado. Se pau
 | Archivo | Responsabilidad |
 | --- | --- |
 | `atlas.js`, `atlas-core.js` | Interfaz, recompensas, colección, migración |
-| `classroom.js` | Cursos, sellos privados, enlace y verificación |
+| `classroom.js` | Grupos (compañías), sellos privados, enlace y verificación |
 | `narrative-data.js` | Prólogo, 22 nodos, 66 opciones, escenas y finales |
 | `narrative-core.js` | Condiciones, decisiones, honor, retornos y ecos |
 | `narrative-ui.js` | Lectura, confirmación, resultados y epílogo |

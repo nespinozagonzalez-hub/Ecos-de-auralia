@@ -1,24 +1,28 @@
 # Sellos del Atlas de Ecos
 
-## Sellos de curso (uso en clase)
+## Sellos de grupo
 
-1. En **Docente → Crear un curso**, escribe el nombre del curso y una clave docente (mínimo 8 caracteres).
-2. El Atlas genera **20 sellos privados** (por ejemplo `BOS1-5LM4D8`) y un **enlace del curso**. Imprime los sellos y comparte el enlace (QR, plataforma, pizarra).
-3. Cada estudiante abre el enlace una vez: su Atlas queda vinculado al curso y desde entonces **solo acepta los sellos de ese curso**. Los códigos de demostración se rechazan.
-4. Entrega cada sello cuando la actividad esté lograda. Cada sello vale una vez por Atlas.
+Dentro del juego no se mencionan clases, cursos ni actividades: el jugador supera *pruebas del Velo*, rompe *sellos* y viaja con una *compañía* (el grupo). El vínculo con los objetivos de aprendizaje lo pone el guía fuera del juego.
+
+Las herramientas del guía se abren en **Ayuda → Herramientas del guía** o con `?guia` al final de la dirección.
+
+1. En **Herramientas del guía → Crear un grupo**, escribe el nombre del grupo (en el juego será la compañía) y una clave de guía (mínimo 8 caracteres).
+2. El Atlas genera **20 sellos privados** (por ejemplo `BOS1-5LM4D8`) y un **enlace del grupo**. Imprime los sellos y comparte el enlace (QR, plataforma, pizarra).
+3. Cada participante abre el enlace una vez: su Atlas se une a la compañía y desde entonces **solo acepta sus sellos**. Los sellos de muestra se rechazan.
+4. Entrega cada sello cuando el desafío esté logrado. Cada sello vale una vez por Atlas.
 
 Cómo funciona:
-- La clave no se guarda en ningún equipo. Con el mismo nombre de curso y la misma clave se regeneran exactamente los mismos sellos en cualquier computador.
-- El enlace solo contiene huellas (hashes) de los sellos. Los sellos no se pueden leer del enlace ni del guardado del estudiante.
+- La clave no se guarda en ningún equipo. Con el mismo nombre de grupo y la misma clave se regeneran exactamente los mismos sellos en cualquier computador.
+- El enlace solo contiene huellas (hashes) de los sellos. Los sellos no se pueden leer del enlace ni del guardado del participante.
 - Cada memoria guardada conserva el sello que la entregó. Si alguien edita el guardado o importa un archivo con memorias sin sello válido, esas memorias se descartan.
-- En un Atlas de curso el panel docente pide la clave y no muestra los accesos rápidos de revisión. **Comenzar otro Atlas** mantiene el curso.
-- El perfil del guardián muestra el curso y los sellos verificados, o *Modo demostración* si no tiene curso. Revisa esa insignia al validar avances.
+- En un Atlas con compañía, las herramientas del guía piden la clave y no muestran los accesos rápidos. **Comenzar otro Atlas** mantiene la compañía.
+- El perfil del guardián muestra la compañía y los sellos verificados, o *Viajero sin compañía*. Revisa esa insignia al validar avances.
 
-Límites: es una protección local. Un estudiante que comparte su sello con otro le permite canjearlo, y alguien con conocimientos técnicos puede desvincular su copia del curso (quedará en *Modo demostración*). Un registro confiable por estudiante requiere cuentas y un servidor.
+Límites: es una protección local. Quien comparte su sello con otro le permite canjearlo, y alguien con conocimientos técnicos puede desvincular su copia (quedará como *Viajero sin compañía*). Un registro confiable por persona requiere cuentas y un servidor.
 
-## Códigos de demostración
+## Sellos de muestra
 
-Códigos públicos para revisar el prototipo sin curso. No autentican a estudiantes ni acreditan evaluaciones. Se usan una sola vez por Atlas y se pueden registrar por adelantado; cada escena exige su memoria.
+Sellos públicos para probar la aventura sin grupo. No autentican a estudiantes ni acreditan evaluaciones. Se usan una sola vez por Atlas y se pueden registrar por adelantado; cada escena exige su memoria.
 
 ## Bosque de los Susurros
 
@@ -66,3 +70,7 @@ Códigos públicos para revisar el prototipo sin curso. No autentican a estudian
 | Compartir tu legado | `AUR-ECL-04` | 90 | 30 | Un reino por continuar |
 
 Los códigos anteriores `AURALIA-INICIO` y `AURALIA-RAICES` también recuperan las dos primeras memorias del bosque en el Atlas. Dentro de la expedición conservan su función original de abrir accesos.
+
+## Hazañas y títulos
+
+Catorce hazañas se calculan a partir del progreso (sellos, prólogo, territorios restaurados, crónica completa, huellas escuchadas, ecos alternos, compañero, nombre y forja). Dan luz y algunas desbloquean un título que reemplaza el rango junto al nombre. Ninguna depende de la ruta moral elegida: con todas las hazañas (sin eco alterno) la luz total es 785 en cualquier final. Seis acabados del Atlas cuestan en total 800 de luz.

@@ -1,10 +1,10 @@
-import {ATLAS_VERSION,REGIONS,MISSIONS,CODE_ALIASES,LEVELS,THEMES,EXPEDITION_EVENTS} from './atlas-data.js';
-import {freshNarrative,restoreNarrative,chapterDecisions,chapterByRegion} from './narrative-core.js';
+import {ATLAS_VERSION,REGIONS,MISSIONS,CODE_ALIASES,LEVELS,THEMES,EXPEDITION_EVENTS,FEATS} from './atlas-data.js';
+import {freshNarrative,restoreNarrative,chapterDecisions,chapterByRegion,nextNode} from './narrative-core.js';
 import {copyClassroom,missionForCode,canonicalCode} from './classroom.js';
 const clean=(s,max)=>String(s||'').trim().slice(0,max);
 const unique=a=>[...new Set(Array.isArray(a)?a:[])];
 export function newAtlas(name='Guardián'){
- return {version:ATLAS_VERSION,revision:0,name:clean(name,24)||'Guardián',look:'bosque',completed:[],choices:{},purchases:[],theme:'verdigris',expeditionEvents:[],read:[],plans:{},reducedMotion:false,classroom:null,claims:{},narrative:freshNarrative(),legacyArchive:null,createdAt:Date.now(),updatedAt:Date.now()};
+ return {version:ATLAS_VERSION,revision:0,name:clean(name,24)||'Guardián',look:'bosque',completed:[],choices:{},purchases:[],theme:'verdigris',expeditionEvents:[],read:[],plans:{},reducedMotion:false,classroom:null,claims:{},title:null,featsSeen:[],echoes:[],narrative:freshNarrative(),legacyArchive:null,createdAt:Date.now(),updatedAt:Date.now()};
 }
 export function regionState(s,id){
  const region=REGIONS.find(r=>r.id===id);if(!region)return null;
@@ -24,11 +24,26 @@ export function atlasStats(s){
  const bonus=new Set([...restored.map(r=>r.id),...(s.legacyArchive?.restored||[])]);
  const events=Object.entries(EXPEDITION_EVENTS).filter(([id])=>s.expeditionEvents.includes(id));
  const xp=completed.reduce((n,m)=>n+m.xp,0)+bonus.size*50+events.reduce((n,[,e])=>n+e.xp,0);
- const earned=completed.reduce((n,m)=>n+m.light,0)+bonus.size*25+events.reduce((n,[,e])=>n+e.light,0);
+ const feats=earnedFeats(s,xp,restored.length);
+ const earned=completed.reduce((n,m)=>n+m.light,0)+bonus.size*25+events.reduce((n,[,e])=>n+e.light,0)+feats.reduce((n,f)=>n+f.light,0);
  const spent=THEMES.filter(t=>s.purchases.includes(t.id)).reduce((n,t)=>n+t.cost,0);
  let level=0;for(let i=0;i<LEVELS.length;i++)if(xp>=LEVELS[i])level=i;
- return {xp,light:earned-spent,earned,spent,level:level+1,levelStart:LEVELS[level],nextLevel:LEVELS[level+1]||null,memories:completed.length,restored:restored.length,rank:level<2?'Viajero del Alba':level<4?'Guardián de Ecos':level<6?'Tejedor de Historias':'Custodio de Auralia',companion:xp>=760?'Astral':xp>=300?'Lumen':'Chispa'};
+ return {xp,light:earned-spent,earned,spent,level:level+1,levelStart:LEVELS[level],nextLevel:LEVELS[level+1]||null,memories:completed.length,restored:restored.length,rank:level<2?'Viajero del Alba':level<4?'Guardián de Ecos':level<6?'Tejedor de Historias':'Custodio de Auralia',companion:xp>=760?'Astral':xp>=300?'Lumen':'Chispa',feats};
 }
+const FEAT_RULES={
+ 'primer-sello':(s)=>s.completed.length>=1,'cuatro-sellos':(s)=>s.completed.length>=4,'diez-sellos':(s)=>s.completed.length>=10,'veinte-sellos':(s)=>s.completed.length>=MISSIONS.length,
+ prologo:(s)=>!!s.narrative.decisions['P.2'],'territorio-1':(s,xp,r)=>r>=1,'territorio-3':(s,xp,r)=>r>=3,cronica:(s)=>nextNode(s)===null,
+ oido:(s)=>s.narrative.seenCallbacks.length>=10,'eco-alterno':(s)=>s.echoes.length>0,lumen:(s,xp)=>xp>=300,astral:(s,xp)=>xp>=760,
+ nombre:(s)=>s.name!=='Guardián',forja:(s)=>s.purchases.length>0
+};
+/** Hazañas conseguidas. Se calculan del estado: no se pueden duplicar ni dependen de la ruta elegida. */
+export function earnedFeats(s,xp,restored){return FEATS.filter(f=>FEAT_RULES[f.id](s,xp,restored));}
+export function equipTitle(s,id){
+ if(id===null){s.title=null;return true;}
+ const f=atlasStats(s).feats.find(f=>f.id===id&&f.title);if(!f)return false;s.title=id;s.updatedAt=Date.now();return true;
+}
+export function titleOf(s){return s.title?FEATS.find(f=>f.id===s.title)?.title||null:null;}
+export function recordEcho(s,regionId){if(!REGIONS.some(r=>r.id===regionId)||s.echoes.includes(regionId))return false;s.echoes.push(regionId);s.updatedAt=Date.now();return true;}
 export function currentRegion(s){return REGIONS.find(r=>!regionState(s,r.id).restored)||REGIONS.at(-1);}
 export function nextMission(s){const r=currentRegion(s);return MISSIONS.find(m=>m.region===r.id&&!s.completed.includes(m.id))||null;}
 export function missionInfo(s,id){const mission=MISSIONS.find(m=>m.id===id);return mission?{...mission,title:s.plans[id]?.title||mission.title,prompt:s.plans[id]?.prompt||mission.prompt}:null;}
@@ -39,11 +54,11 @@ export function claimCode(s,input){
   const found=missionForCode(s.classroom,code);
   if(!found){
    const demo=demoMission(code)||MISSIONS.find(m=>canonicalCode(m.code)===canonicalCode(code));
-   return {ok:false,message:demo?'Ese es un código de demostración. Tu curso usa sus propios sellos: pídeselo a tu docente.':'Ese sello no pertenece a '+s.classroom.name+'. Revisa letras y números.'};
+   return {ok:false,message:demo?'Ese sello pertenece a otra senda. Tu compañía, '+s.classroom.name+', guarda sus propios sellos.':'Esa inscripción no responde a la compañía '+s.classroom.name+'. Revisa letras y números.'};
   }
   m=found.mission;proof=found.code;
  }else m=demoMission(code);
- if(!m)return {ok:false,message:'El Atlas no reconoce ese código. Revisa el sello que recibiste.'};
+ if(!m)return {ok:false,message:'El Atlas no reconoce esa inscripción. Revisa el sello que recibiste.'};
  if(s.completed.includes(m.id))return {ok:false,duplicate:true,message:'Este recuerdo ya forma parte de tu Atlas.'};
  s.completed.push(m.id);if(proof)s.claims[m.id]=proof;s.updatedAt=Date.now();
  return {ok:true,mission:m,newlyRestored:false,message:m.memory+' · +'+m.xp+' experiencia · +'+m.light+' luz'};
@@ -85,9 +100,12 @@ export function restoreAtlas(raw){
   if(raw.legacyArchive&&typeof raw.legacyArchive==='object')s.legacyArchive={choices:Object.fromEntries(REGIONS.filter(r=>r.choices.some(c=>c.id===raw.legacyArchive.choices?.[r.id])).map(r=>[r.id,raw.legacyArchive.choices[r.id]])),restored:unique(raw.legacyArchive.restored).filter(id=>REGIONS.some(r=>r.id===id)&&MISSIONS.filter(m=>m.region===id).every(m=>s.completed.includes(m.id)))};
   if(!restoreNarrative(s,raw.narrative))return null;
  }
+ s.echoes=unique(raw.echoes).filter(id=>REGIONS.some(r=>r.id===id)&&chapterDecisions(s,id)===4);
  for(const id of unique(raw.purchases))if(THEMES.some(t=>t.id===id&&t.cost>0)&&atlasStats(s).light>=THEMES.find(t=>t.id===id).cost)s.purchases.push(id);
  s.theme=raw.theme==='verdigris'||s.purchases.includes(raw.theme)?raw.theme:'verdigris';
  for(const m of MISSIONS)if(raw.plans?.[m.id])configureMission(s,m.id,raw.plans[m.id].title,raw.plans[m.id].prompt);
+ s.featsSeen=unique(raw.featsSeen).filter(id=>FEATS.some(f=>f.id===id));
+ if(typeof raw.title==='string')equipTitle(s,raw.title);
  s.reducedMotion=raw.reducedMotion===true;s.createdAt=Number.isFinite(raw.createdAt)?raw.createdAt:Date.now();s.updatedAt=Date.now();s.revision=Number.isSafeInteger(raw.revision)&&raw.revision>=0?raw.revision:0;
  return s;
 }
